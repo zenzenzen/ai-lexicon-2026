@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI LEXICON '26</title>
+<!-- SEO / social metadata keeps the artifact shareable without adding any runtime. -->
 <meta name="description" content="A loud, unauthorized field guide to the agentic operations vocabulary and informal AI engineering lingo people actually use in 2026.">
 <meta name="author" content="Johnson Deng">
 <meta name="theme-color" content="#1A0F0A">
@@ -24,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
 <style>
+  /* Core palette and paper colors are kept in variables so the poster look stays editable. */
   :root {
     --riso-red: #FF2E4E;
     --riso-pink: #FF6FB5;
@@ -41,6 +43,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
+  /* Base page texture imitates warm paper plus faint print grain. */
   body {
     background: var(--paper);
     background-image:
@@ -69,6 +72,7 @@
 
   a { color: inherit; }
 
+  /* Header / hero */
   header {
     position: relative;
     padding: 30px 28px 40px;
@@ -228,6 +232,7 @@
   .chip.yellow { background: var(--riso-yellow); }
   .chip.teal { background: var(--riso-teal); color: var(--paper); }
 
+  /* Scrolling marquee */
   .marquee {
     background: var(--ink);
     color: var(--riso-yellow);
@@ -256,6 +261,7 @@
     100% { transform: translateX(-50%); }
   }
 
+  /* Sticky filter controls */
   .controls {
     background: var(--paper-deep);
     border-bottom: 3px solid var(--ink);
@@ -330,6 +336,7 @@
     border: 2px solid var(--ink);
   }
 
+  /* Main content / section stickers */
   main {
     padding: 40px 24px 60px;
     max-width: 1440px;
@@ -405,6 +412,7 @@
     gap: 18px;
   }
 
+  /* Flip-card system */
   .card {
     position: relative;
     min-height: 190px;
@@ -561,6 +569,7 @@
 
   .hidden { display: none !important; }
 
+  /* Study resources */
   .resources-section {
     margin-top: 80px;
     position: relative;
@@ -671,6 +680,7 @@
     line-height: 1.5;
   }
 
+  /* Footer */
   footer {
     margin-top: 80px;
     background: var(--ink);
@@ -712,6 +722,7 @@
     position: relative;
   }
 
+  /* Focus visibility is intentionally loud to match the rest of the visual language. */
   #search:focus-visible,
   .fbtn:focus-visible,
   .card:focus-visible,
@@ -733,6 +744,7 @@
     #count-display { margin-left: 0; }
   }
 
+  /* Reduced motion swaps the 3D flip for simple face toggling. */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .marquee-inner { animation: none; transform: none; }
@@ -767,6 +779,7 @@
 </head>
 <body>
 
+<!-- Hero -->
 <header>
   <div class="splotch splotch-1"></div>
   <div class="splotch splotch-2"></div>
@@ -795,6 +808,7 @@
   </div>
 </header>
 
+<!-- Marquee -->
 <div class="marquee" aria-label="Highlighted lexicon terms">
   <div class="marquee-inner">
     AGENT <span class="star">✱</span> RAG <span class="star">✱</span> MCP <span class="star">✱</span> VIBE CODING <span class="star">✱</span> CONTEXT ENGINEERING <span class="star">✱</span> HALLUCINATION <span class="star">✱</span> GUARDRAILS <span class="star">✱</span> TOOL CALLING <span class="star">✱</span> REACT <span class="star">✱</span> AGENTIC WORKFLOW <span class="star">✱</span> SLOP <span class="star">✱</span> SUPERWORKER <span class="star">✱</span> ONE-PERSON UNICORN <span class="star">✱</span>
@@ -802,6 +816,7 @@
   </div>
 </div>
 
+<!-- Sticky filters -->
 <div class="controls">
   <label class="sr-only" for="search">Search the lexicon</label>
   <input type="text" id="search" placeholder="search the lexicon…" autocomplete="off" aria-describedby="count-display">
@@ -817,8 +832,10 @@
   <span id="count-display" aria-live="polite">94 TERMS</span>
 </div>
 
+<!-- Lexicon sections -->
 <main>
 
+<!-- Core Concepts -->
 <div class="section-heading sh-core" data-cat="cat-core">
   <span class="sh-num">01</span>
   <span class="sh-label">Core Concepts</span>
@@ -846,6 +863,7 @@
   <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Hallucination</div><div class="card-cat"><span>Core · 18</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Hallucination</div><p class="card-def">When a model confidently generates factually incorrect information. In agentic systems, especially dangerous — a wrong answer is annoying; a wrong database write is an incident.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
 </div>
 
+<!-- Architecture -->
 <div class="section-heading sh-arch" data-cat="cat-arch">
   <span class="sh-num">02</span>
   <span class="sh-label">Architecture</span>
@@ -872,6 +890,7 @@
   <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic RAG</div><div class="card-cat"><span>Arch · 17</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic RAG</div><p class="card-def">RAG enhanced with an agent loop: the model iteratively queries, evaluates results, reformulates queries, and synthesizes across multiple retrieval passes rather than a single lookup.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
 </div>
 
+<!-- Ops & Tooling -->
 <div class="section-heading sh-ops" data-cat="cat-ops">
   <span class="sh-num">03</span>
   <span class="sh-label">Ops &amp; Tooling</span>
@@ -896,6 +915,7 @@
   <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Feedback Loop</div><div class="card-cat"><span>Ops · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Feedback Loop</div><p class="card-def">The continuous cycle of collecting agent outcomes, observing effects, and adjusting behavior — via prompt updates, fine-tuning, or RLHF. The operational mechanism of continuous agent improvement.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
 </div>
 
+<!-- Patterns -->
 <div class="section-heading sh-patterns" data-cat="cat-patterns">
   <span class="sh-num">04</span>
   <span class="sh-label">Patterns</span>
@@ -920,6 +940,7 @@
   <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Long-Horizon</div><div class="card-cat"><span>Pattern · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Long-Horizon Planning</div><p class="card-def">An agent's ability to maintain coherent goal pursuit across many steps and extended time. One of the key capability gaps separating current agents from human-level autonomous work.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
 </div>
 
+<!-- Safety & Eval -->
 <div class="section-heading sh-safety" data-cat="cat-safety">
   <span class="sh-num">05</span>
   <span class="sh-label">Safety &amp; Eval</span>
@@ -942,6 +963,7 @@
   <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Audit Trail</div><div class="card-cat"><span>Safety · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Audit Trail</div><p class="card-def">The logged record of every tool call, decision, and action an agent took. The governance artifact enabling post-hoc debugging, compliance review, and incident response.</p></div><span class="card-back-cat">Safety</span></div></div></div>
 </div>
 
+<!-- Working Slang -->
 <div class="section-heading sh-slang" data-cat="cat-slang">
   <span class="sh-num">06</span>
   <span class="sh-label">Working Slang</span>
@@ -967,6 +989,7 @@
   <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Complexity Threshold</div><div class="card-cat"><span>Slang · 16</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Complexity Threshold</div><p class="card-def">The point at which a task is too complex or ambiguous for an agent to handle autonomously, triggering escalation to a human. Defining where this sits is a key system design decision.</p></div><span class="card-back-cat">Slang</span></div></div></div>
 </div>
 
+<!-- Study resources -->
 <div class="resources-section">
   <div class="resources-header">
     <h2><span class="zap">★</span> STUDY<br>RESOURCES</h2>
@@ -997,6 +1020,7 @@
 
 </main>
 
+<!-- Footer -->
 <footer>
   <div class="foot-title">AI LEXICON '26</div>
   <div class="foot-sub">Compiled April 2026 · No Rights Reserved · Print Me Out</div>
@@ -1007,6 +1031,7 @@
   let currentFilter = 'all';
   let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+  // Filter buttons are stateful, so keep their pressed state synchronized for screen readers.
   function setFilter(cat, btn) {
     currentFilter = cat;
     document.querySelectorAll('.fbtn').forEach((button) => {
@@ -1017,6 +1042,7 @@
     filterCards();
   }
 
+  // Cards behave like lightweight buttons while preserving the original poster-card markup.
   function toggleCard(card) {
     card.classList.toggle('flipped');
     card.setAttribute('aria-pressed', card.classList.contains('flipped') ? 'true' : 'false');
@@ -1029,6 +1055,7 @@
     }
   }
 
+  // Search works directly off rendered text so the static HTML stays the single source of truth.
   function filterCards() {
     const q = document.getElementById('search').value.toLowerCase().trim();
     let visible = 0;
@@ -1074,6 +1101,7 @@
   document.getElementById('search').addEventListener('input', filterCards);
   prefersReducedMotion.addEventListener('change', (event) => {
     if (event.matches) {
+      // Preserve the flipped state for assistive tech when animation is disabled.
       document.querySelectorAll('.card.flipped').forEach((card) => {
         card.setAttribute('aria-pressed', 'true');
       });
