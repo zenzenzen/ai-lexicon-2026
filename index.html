@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI LEXICON '26</title>
+<!-- SEO / social metadata keeps the artifact shareable without adding any runtime. -->
 <meta name="description" content="A loud, unauthorized field guide to the agentic operations vocabulary and informal AI engineering lingo people actually use in 2026.">
 <meta name="author" content="Johnson Deng">
 <meta name="theme-color" content="#1A0F0A">
@@ -24,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
 <style>
+  /* Core palette and paper colors are kept in variables so the poster look stays editable. */
   :root {
     --riso-red: #FF2E4E;
     --riso-pink: #FF6FB5;
@@ -32,6 +34,9 @@
     --riso-teal: #00BFA5;
     --riso-blue: #1E4FD6;
     --riso-violet: #7A4DFF;
+    --riso-lime: #A8E337;
+    --riso-navy: #0A2463;
+    --riso-rust: #B8411F;
     --riso-black: #1A0F0A;
     --paper: #F5EFE0;
     --paper-deep: #EDE4D0;
@@ -41,6 +46,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
+  /* Base page texture imitates warm paper plus faint print grain. */
   body {
     background: var(--paper);
     background-image:
@@ -69,6 +75,7 @@
 
   a { color: inherit; }
 
+  /* Header / hero */
   header {
     position: relative;
     padding: 30px 28px 40px;
@@ -228,6 +235,7 @@
   .chip.yellow { background: var(--riso-yellow); }
   .chip.teal { background: var(--riso-teal); color: var(--paper); }
 
+  /* Scrolling marquee */
   .marquee {
     background: var(--ink);
     color: var(--riso-yellow);
@@ -256,6 +264,7 @@
     100% { transform: translateX(-50%); }
   }
 
+  /* Sticky filter controls */
   .controls {
     background: var(--paper-deep);
     border-bottom: 3px solid var(--ink);
@@ -318,6 +327,9 @@
   .fbtn.active.f-patterns { background: var(--riso-orange); }
   .fbtn.active.f-safety { background: var(--riso-pink); color: var(--ink); }
   .fbtn.active.f-slang { background: var(--riso-violet); }
+  .fbtn.active.f-jepa { background: var(--riso-lime); color: var(--ink); }
+  .fbtn.active.f-failure { background: var(--riso-navy); }
+  .fbtn.active.f-harness { background: var(--riso-rust); }
 
   #count-display {
     margin-left: auto;
@@ -330,6 +342,7 @@
     border: 2px solid var(--ink);
   }
 
+  /* Main content / section stickers */
   main {
     padding: 40px 24px 60px;
     max-width: 1440px;
@@ -353,6 +366,9 @@
   .section-heading.sh-patterns { background: var(--riso-orange); color: var(--ink); }
   .section-heading.sh-safety { background: var(--riso-pink); color: var(--ink); }
   .section-heading.sh-slang { background: var(--riso-violet); color: var(--paper); }
+  .section-heading.sh-jepa { background: var(--riso-lime); color: var(--ink); }
+  .section-heading.sh-failure { background: var(--riso-navy); color: var(--paper); }
+  .section-heading.sh-harness { background: var(--riso-rust); color: var(--paper); }
   .section-heading:nth-of-type(even) { transform: rotate(0.6deg); }
 
   .section-heading::before {
@@ -405,6 +421,7 @@
     gap: 18px;
   }
 
+  /* Flip-card system */
   .card {
     position: relative;
     min-height: 190px;
@@ -455,6 +472,9 @@
   .card.cat-patterns .card-front { background: var(--riso-orange); color: var(--ink); }
   .card.cat-safety .card-front { background: var(--riso-pink); color: var(--ink); }
   .card.cat-slang .card-front { background: var(--riso-violet); color: var(--paper); }
+  .card.cat-jepa .card-front { background: var(--riso-lime); color: var(--ink); }
+  .card.cat-failure .card-front { background: var(--riso-navy); color: var(--paper); }
+  .card.cat-harness .card-front { background: var(--riso-rust); color: var(--paper); }
 
   .card:nth-child(3n+1) .card-inner { transform: rotate(-0.8deg); }
   .card:nth-child(3n+2) .card-inner { transform: rotate(0.5deg); }
@@ -558,9 +578,13 @@
   .card.cat-patterns .card-back-cat { background: var(--riso-orange); color: var(--ink); }
   .card.cat-safety .card-back-cat { background: var(--riso-pink); color: var(--ink); }
   .card.cat-slang .card-back-cat { background: var(--riso-violet); }
+  .card.cat-jepa .card-back-cat { background: var(--riso-lime); color: var(--ink); }
+  .card.cat-failure .card-back-cat { background: var(--riso-navy); }
+  .card.cat-harness .card-back-cat { background: var(--riso-rust); }
 
   .hidden { display: none !important; }
 
+  /* Study resources */
   .resources-section {
     margin-top: 80px;
     position: relative;
@@ -671,6 +695,7 @@
     line-height: 1.5;
   }
 
+  /* Footer */
   footer {
     margin-top: 80px;
     background: var(--ink);
@@ -712,6 +737,7 @@
     position: relative;
   }
 
+  /* Focus visibility is intentionally loud to match the rest of the visual language. */
   #search:focus-visible,
   .fbtn:focus-visible,
   .card:focus-visible,
@@ -733,6 +759,7 @@
     #count-display { margin-left: 0; }
   }
 
+  /* Reduced motion swaps the 3D flip for simple face toggling. */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .marquee-inner { animation: none; transform: none; }
@@ -767,6 +794,7 @@
 </head>
 <body>
 
+<!-- Hero -->
 <header>
   <div class="splotch splotch-1"></div>
   <div class="splotch splotch-2"></div>
@@ -787,14 +815,15 @@
     <p class="header-desc">A loud, unauthorized field guide to the <strong>agentic operations</strong> vocabulary and the <strong>informal working lingo</strong> AI engineers actually use in 2026.</p>
 
     <div class="chips">
-      <span class="chip pink">● 94 Terms</span>
-      <span class="chip yellow">6 Categories</span>
+      <span class="chip pink">● 145 Terms</span>
+      <span class="chip yellow">9 Categories</span>
       <span class="chip teal">Tap to Flip</span>
       <span class="chip">Study Guide Included</span>
     </div>
   </div>
 </header>
 
+<!-- Marquee -->
 <div class="marquee" aria-label="Highlighted lexicon terms">
   <div class="marquee-inner">
     AGENT <span class="star">✱</span> RAG <span class="star">✱</span> MCP <span class="star">✱</span> VIBE CODING <span class="star">✱</span> CONTEXT ENGINEERING <span class="star">✱</span> HALLUCINATION <span class="star">✱</span> GUARDRAILS <span class="star">✱</span> TOOL CALLING <span class="star">✱</span> REACT <span class="star">✱</span> AGENTIC WORKFLOW <span class="star">✱</span> SLOP <span class="star">✱</span> SUPERWORKER <span class="star">✱</span> ONE-PERSON UNICORN <span class="star">✱</span>
@@ -802,6 +831,7 @@
   </div>
 </div>
 
+<!-- Sticky filters -->
 <div class="controls">
   <label class="sr-only" for="search">Search the lexicon</label>
   <input type="text" id="search" placeholder="search the lexicon…" autocomplete="off" aria-describedby="count-display">
@@ -813,12 +843,18 @@
     <button class="fbtn f-patterns" type="button" data-filter="cat-patterns">Patterns</button>
     <button class="fbtn f-safety" type="button" data-filter="cat-safety">Safety</button>
     <button class="fbtn f-slang" type="button" data-filter="cat-slang">Slang</button>
+    <button class="fbtn f-jepa" type="button" data-filter="cat-jepa">JEPA</button>
+    <button class="fbtn f-failure" type="button" data-filter="cat-failure">Failures</button>
+    <button class="fbtn f-harness" type="button" data-filter="cat-harness">Harness</button>
   </div>
-  <span id="count-display" aria-live="polite">94 TERMS</span>
+  <span id="count-display" aria-live="polite">145 TERMS</span>
 </div>
 
+<!-- Lexicon sections -->
 <main>
 
+<!-- Updated lexicon sections imported from /Users/dev/Desktop/ai-lexicon-2026.html -->
+<!-- ═══════════ CORE ═══════════ -->
 <div class="section-heading sh-core" data-cat="cat-core">
   <span class="sh-num">01</span>
   <span class="sh-label">Core Concepts</span>
@@ -826,52 +862,198 @@
 </div>
 
 <div class="grid" id="grid-core">
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic AI</div><div class="card-cat"><span>Core · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic AI</div><p class="card-def">AI systems designed to pursue goals autonomously — planning actions, using tools, adapting based on outcomes, without humans directing each step.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agent</div><div class="card-cat"><span>Core · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agent</div><p class="card-def">An autonomous AI entity that perceives its environment, reasons over a goal, takes actions (including tool calls), evaluates results, and iterates until complete or escalated.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">LLM</div><div class="card-abbr">Large Language Model</div><div class="card-cat"><span>Core · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">LLM</div><p class="card-def">A deep learning model trained on massive text corpora to understand and generate language. The reasoning core of most modern agents.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Foundation Model</div><div class="card-cat"><span>Core · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Foundation Model</div><p class="card-def">A general-purpose model adaptable to many downstream tasks via prompting, fine-tuning, or RAG. The base layer of most AI applications.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">SLM</div><div class="card-abbr">Small Language Model</div><div class="card-cat"><span>Core · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">SLM</div><p class="card-def">Compact LLMs optimized for low-latency, on-device, or cost-sensitive workloads (e.g. Phi-4, Mistral-7B). Often used for specialized subtasks in larger agent pipelines.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Multimodal</div><div class="card-cat"><span>Core · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Multimodal Model</div><p class="card-def">A model that processes and generates across multiple modalities — text, image, audio, video, code — within a unified architecture.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Reasoning Model</div><div class="card-cat"><span>Core · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Reasoning Model</div><p class="card-def">A model variant that expends extra compute to "think" before answering — via chain-of-thought, extended scratchpads, or RL-trained search. Examples: o3, DeepSeek R1, Claude extended thinking.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Window</div><div class="card-cat"><span>Core · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Window</div><p class="card-def">The maximum tokens an LLM can attend to in a single pass — the model's working memory. Determines how much conversation history, retrieved docs, and tool output can be considered at once.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Token</div><div class="card-cat"><span>Core · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Token</div><p class="card-def">The atomic unit of LLM input/output — roughly 0.75 words in English. All latency, cost, and context limits are denominated in tokens.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt Eng.</div><div class="card-cat"><span>Core · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt Engineering</div><p class="card-def">The craft of designing instructions, examples, and structure to guide model behavior. Foundational AI engineering skill; increasingly augmented by context engineering at the systems level.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">System Prompt</div><div class="card-cat"><span>Core · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">System Prompt</div><p class="card-def">Persistent background instructions defining an agent's role, tone, boundaries, tools, and objectives. The primary behavioral contract between operator and model.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">RAG</div><div class="card-abbr">Retrieval-Augmented Generation</div><div class="card-cat"><span>Core · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">RAG</div><p class="card-def">Grounding LLM output by retrieving relevant documents from an external knowledge base before generation — reducing hallucination and enabling up-to-date factual answers.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Fine-tuning</div><div class="card-cat"><span>Core · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Fine-tuning</div><p class="card-def">Further training a pre-trained model on a smaller domain-specific dataset to improve targeted performance. Changes model weights — distinct from prompt-only approaches.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Embedding</div><div class="card-cat"><span>Core · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Embedding</div><p class="card-def">A numerical vector representing text (or other data) in semantic space. Backbone of vector search, RAG pipelines, and semantic similarity operations.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Tool Calling</div><div class="card-cat"><span>Core · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Tool Calling</div><p class="card-def">Allowing an LLM to invoke external tools, APIs, code interpreters, or databases during generation. The model becomes an orchestrator; tool calls create a natural audit trail.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Function Calling</div><div class="card-cat"><span>Core · 16</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Function Calling</div><p class="card-def">Structured tool calling where the model emits validated JSON matching a predefined function schema. Increases precision and enables reliable downstream parsing.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Inference</div><div class="card-cat"><span>Core · 17</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Inference</div><p class="card-def">Running a trained model to produce outputs. Distinct from training. Inference cost and latency are the primary scaling concerns in production agentic systems.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
-  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Hallucination</div><div class="card-cat"><span>Core · 18</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Hallucination</div><p class="card-def">When a model confidently generates factually incorrect information. In agentic systems, especially dangerous — a wrong answer is annoying; a wrong database write is an incident.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agentic AI</div><div class="card-cat"><span>Core · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agentic AI</div><p class="card-def">AI systems designed to pursue goals autonomously — planning actions, using tools, adapting based on outcomes, without humans directing each step.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agent</div><div class="card-cat"><span>Core · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agent</div><p class="card-def">An autonomous AI entity that perceives its environment, reasons over a goal, takes actions (including tool calls), evaluates results, and iterates until complete or escalated.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">LLM</div><div class="card-abbr">Large Language Model</div><div class="card-cat"><span>Core · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">LLM</div><p class="card-def">A deep learning model trained on massive text corpora to understand and generate language. The reasoning core of most modern agents.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Foundation Model</div><div class="card-cat"><span>Core · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Foundation Model</div><p class="card-def">A general-purpose model adaptable to many downstream tasks via prompting, fine-tuning, or RAG. The base layer of most AI applications.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">SLM</div><div class="card-abbr">Small Language Model</div><div class="card-cat"><span>Core · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">SLM</div><p class="card-def">Compact LLMs optimized for low-latency, on-device, or cost-sensitive workloads (e.g. Phi-4, Mistral-7B). Often used for specialized subtasks in larger agent pipelines.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Multimodal</div><div class="card-cat"><span>Core · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Multimodal Model</div><p class="card-def">A model that processes and generates across multiple modalities — text, image, audio, video, code — within a unified architecture.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Reasoning Model</div><div class="card-cat"><span>Core · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Reasoning Model</div><p class="card-def">A model variant that expends extra compute to "think" before answering — via chain-of-thought, extended scratchpads, or RL-trained search. Current examples: Claude Opus 4.7 with extended thinking, OpenAI's o-series, DeepSeek R1, Gemini 3 Pro.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Context Window</div><div class="card-cat"><span>Core · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Context Window</div><p class="card-def">The maximum tokens an LLM can attend to in a single pass — the model's working memory. Determines how much conversation history, retrieved docs, and tool output can be considered at once.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Token</div><div class="card-cat"><span>Core · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Token</div><p class="card-def">The atomic unit of LLM input/output — roughly 0.75 words in English. All latency, cost, and context limits are denominated in tokens.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Prompt Eng.</div><div class="card-cat"><span>Core · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Prompt Engineering</div><p class="card-def">The craft of designing instructions, examples, and structure to guide model behavior. Foundational AI engineering skill; increasingly augmented by context engineering at the systems level.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">System Prompt</div><div class="card-cat"><span>Core · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">System Prompt</div><p class="card-def">Persistent background instructions defining an agent's role, tone, boundaries, tools, and objectives. The primary behavioral contract between operator and model.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">RAG</div><div class="card-abbr">Retrieval-Augmented Generation</div><div class="card-cat"><span>Core · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">RAG</div><p class="card-def">Grounding LLM output by retrieving relevant documents from an external knowledge base before generation — reducing hallucination and enabling up-to-date factual answers.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Fine-tuning</div><div class="card-cat"><span>Core · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Fine-tuning</div><p class="card-def">Further training a pre-trained model on a smaller domain-specific dataset to improve targeted performance. Changes model weights — distinct from prompt-only approaches.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Embedding</div><div class="card-cat"><span>Core · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Embedding</div><p class="card-def">A numerical vector representing text (or other data) in semantic space. Backbone of vector search, RAG pipelines, and semantic similarity operations.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Tool Calling</div><div class="card-cat"><span>Core · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Tool Calling</div><p class="card-def">Allowing an LLM to invoke external tools, APIs, code interpreters, or databases during generation. The model becomes an orchestrator; tool calls create a natural audit trail.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Function Calling</div><div class="card-cat"><span>Core · 16</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Function Calling</div><p class="card-def">Structured tool calling where the model emits validated JSON matching a predefined function schema. Increases precision and enables reliable downstream parsing.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Inference</div><div class="card-cat"><span>Core · 17</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Inference</div><p class="card-def">Running a trained model to produce outputs. Distinct from training. Inference cost and latency are the primary scaling concerns in production agentic systems.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
+  <div class="card cat-core"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Hallucination</div><div class="card-cat"><span>Core · 18</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Hallucination</div><p class="card-def">When a model confidently generates factually incorrect information. In agentic systems, especially dangerous — a wrong answer is annoying; a wrong database write is an incident.</p></div><span class="card-back-cat">Core Concept</span></div>
+  </div></div>
+
 </div>
 
+
+<!-- ═══════════ ARCH ═══════════ -->
 <div class="section-heading sh-arch" data-cat="cat-arch">
   <span class="sh-num">02</span>
   <span class="sh-label">Architecture</span>
-  <span class="sh-desc">Structural components &amp; infrastructure protocols.</span>
+  <span class="sh-desc">Structural components & infrastructure protocols.</span>
 </div>
 
 <div class="grid" id="grid-arch">
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">MCP</div><div class="card-abbr">Model Context Protocol</div><div class="card-cat"><span>Arch · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">MCP</div><p class="card-def">Open standard by Anthropic for connecting LLMs to external tools, data sources, and APIs via a unified protocol — "USB-C for AI." Enables plug-and-play tool ecosystems across providers.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">A2A</div><div class="card-abbr">Agent-to-Agent Protocol</div><div class="card-cat"><span>Arch · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">A2A Protocol</div><p class="card-def">Google's open protocol for standardized communication and task delegation between agents across different platforms and vendors.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Orchestrator</div><div class="card-cat"><span>Arch · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Orchestrator</div><p class="card-def">The top-level agent or component managing subagents, routing subtasks, aggregating results, and tracking overall goal completion. The conductor of a multi-agent system.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Subagent</div><div class="card-cat"><span>Arch · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Subagent</div><p class="card-def">A specialized agent invoked by an orchestrator for a specific subtask — e.g. a code-writing agent, a search agent, a data-extraction agent.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Multi-Agent</div><div class="card-abbr">MAS</div><div class="card-cat"><span>Arch · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Multi-Agent System</div><p class="card-def">A group of agents collaborating to accomplish a goal too complex or slow for a single agent. Agents may have specialized roles, run in parallel, or check each other's outputs.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic Swarm</div><div class="card-cat"><span>Arch · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic Swarm</div><p class="card-def">A large, loosely-coordinated fleet of agents working on parallel workstreams. Referenced in Claude Code's leaked architecture — internally called "swarms" and "daemons."</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Memory</div><div class="card-cat"><span>Arch · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Memory</div><p class="card-def">Storage mechanisms for agents to retain and recall information. Short-term: context window. Long-term: vector DBs, key-value stores, or file systems persisted across sessions.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Vector DB</div><div class="card-cat"><span>Arch · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Vector Database</div><p class="card-def">A database optimized for embedding storage and nearest-neighbor similarity search. Core infrastructure for RAG pipelines and persistent agent memory.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Planning Engine</div><div class="card-cat"><span>Arch · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Planning Engine</div><p class="card-def">The component decomposing a high-level goal into an ordered, executable step sequence. Quality of planning is the primary determinant of reliable agent behavior.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Executor</div><div class="card-cat"><span>Arch · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Executor</div><p class="card-def">The component carrying out planned steps — invoking tools, running code, calling APIs. Translates the planner's reasoning into real-world impact.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Computer Use</div><div class="card-cat"><span>Arch · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Computer Use</div><p class="card-def">An agent capability for operating desktop/browser UIs directly — clicking, typing, navigating. Works even when apps have no clean API. Fast to prototype; brittle at scale (UI changes break flows).</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Headless Agent</div><div class="card-cat"><span>Arch · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Headless Agent</div><p class="card-def">An AI agent operating without a user interface — running in the background, triggered by events or schedules rather than human prompts.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Knowledge Base</div><div class="card-cat"><span>Arch · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Knowledge Base</div><p class="card-def">A structured repository of domain information that agents query for reasoning and decision-making. The factual substrate for RAG and tool-augmented agents.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Quantization</div><div class="card-cat"><span>Arch · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Quantization</div><p class="card-def">Reducing numeric precision of model weights (e.g. float32 → int8) to run models cheaper and faster, with slight quality trade-offs. Main lever for on-device or cost-optimized inference.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">MoE</div><div class="card-abbr">Mixture of Experts</div><div class="card-cat"><span>Arch · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">MoE</div><p class="card-def">Model architecture where only a subset of parameters activates per token, improving efficiency at scale. Key reason model capability can increase without linear cost growth.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Distillation</div><div class="card-cat"><span>Arch · 16</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Distillation</div><p class="card-def">Compressing a large model's behavior into a smaller model to reduce cost and latency while retaining acceptable performance. Used to productionize expensive frontier models.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
-  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic RAG</div><div class="card-cat"><span>Arch · 17</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic RAG</div><p class="card-def">RAG enhanced with an agent loop: the model iteratively queries, evaluates results, reformulates queries, and synthesizes across multiple retrieval passes rather than a single lookup.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">MCP</div><div class="card-abbr">Model Context Protocol</div><div class="card-cat"><span>Arch · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">MCP</div><p class="card-def">Open standard by Anthropic for connecting LLMs to external tools, data sources, and APIs via a unified protocol — "USB-C for AI." Enables plug-and-play tool ecosystems across providers.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">A2A</div><div class="card-abbr">Agent-to-Agent Protocol</div><div class="card-cat"><span>Arch · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">A2A Protocol</div><p class="card-def">Google's open protocol for standardized communication and task delegation between agents across different platforms and vendors.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Orchestrator</div><div class="card-cat"><span>Arch · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Orchestrator</div><p class="card-def">The top-level agent or component managing subagents, routing subtasks, aggregating results, and tracking overall goal completion. The conductor of a multi-agent system.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Subagent</div><div class="card-cat"><span>Arch · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Subagent</div><p class="card-def">A specialized agent invoked by an orchestrator for a specific subtask — e.g. a code-writing agent, a search agent, a data-extraction agent.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Multi-Agent</div><div class="card-abbr">MAS</div><div class="card-cat"><span>Arch · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Multi-Agent System</div><p class="card-def">A group of agents collaborating to accomplish a goal too complex or slow for a single agent. Agents may have specialized roles, run in parallel, or check each other's outputs.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agentic Swarm</div><div class="card-cat"><span>Arch · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agentic Swarm</div><p class="card-def">A large, loosely-coordinated fleet of agents working on parallel workstreams. Referenced in Claude Code's leaked architecture — internally called "swarms" and "daemons."</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Memory</div><div class="card-cat"><span>Arch · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Memory</div><p class="card-def">Storage mechanisms for agents to retain and recall information. Short-term: context window. Long-term: vector DBs, key-value stores, or file systems persisted across sessions.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Vector DB</div><div class="card-cat"><span>Arch · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Vector Database</div><p class="card-def">A database optimized for embedding storage and nearest-neighbor similarity search. Core infrastructure for RAG pipelines and persistent agent memory.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Planning Engine</div><div class="card-cat"><span>Arch · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Planning Engine</div><p class="card-def">The component decomposing a high-level goal into an ordered, executable step sequence. Quality of planning is the primary determinant of reliable agent behavior.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Executor</div><div class="card-cat"><span>Arch · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Executor</div><p class="card-def">The component carrying out planned steps — invoking tools, running code, calling APIs. Translates the planner's reasoning into real-world impact.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Computer Use</div><div class="card-cat"><span>Arch · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Computer Use</div><p class="card-def">An agent capability for operating desktop/browser UIs directly — clicking, typing, navigating. Works even when apps have no clean API. Fast to prototype; brittle at scale (UI changes break flows).</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Headless Agent</div><div class="card-cat"><span>Arch · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Headless Agent</div><p class="card-def">An AI agent operating without a user interface — running in the background, triggered by events or schedules rather than human prompts.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Knowledge Base</div><div class="card-cat"><span>Arch · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Knowledge Base</div><p class="card-def">A structured repository of domain information that agents query for reasoning and decision-making. The factual substrate for RAG and tool-augmented agents.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Quantization</div><div class="card-cat"><span>Arch · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Quantization</div><p class="card-def">Reducing numeric precision of model weights (e.g. float32 → int8) to run models cheaper and faster, with slight quality trade-offs. Main lever for on-device or cost-optimized inference.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">MoE</div><div class="card-abbr">Mixture of Experts</div><div class="card-cat"><span>Arch · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">MoE</div><p class="card-def">Model architecture where only a subset of parameters activates per token, improving efficiency at scale. Key reason model capability can increase without linear cost growth.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Distillation</div><div class="card-cat"><span>Arch · 16</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Distillation</div><p class="card-def">Compressing a large model's behavior into a smaller model to reduce cost and latency while retaining acceptable performance. Used to productionize expensive frontier models.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
+  <div class="card cat-arch"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agentic RAG</div><div class="card-cat"><span>Arch · 17</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agentic RAG</div><p class="card-def">RAG enhanced with an agent loop: the model iteratively queries, evaluates results, reformulates queries, and synthesizes across multiple retrieval passes rather than a single lookup.</p></div><span class="card-back-cat">Architecture</span></div>
+  </div></div>
+
 </div>
 
+
+<!-- ═══════════ OPS ═══════════ -->
 <div class="section-heading sh-ops" data-cat="cat-ops">
   <span class="sh-num">03</span>
   <span class="sh-label">Ops &amp; Tooling</span>
@@ -879,47 +1061,173 @@
 </div>
 
 <div class="grid" id="grid-ops">
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic Workflow</div><div class="card-cat"><span>Ops · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic Workflow</div><p class="card-def">A business process where AI executes multi-step tasks across tools (CRM, email, files, code repos) with minimal human input. Distinct from an AI assistant — this is operational change, not just productivity.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Orchestration</div><div class="card-cat"><span>Ops · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Orchestration</div><p class="card-def">Coordination and management of multiple AI models, systems, and integrations — covering deployment, routing, retry logic, and inter-agent communication at production scale.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Observability</div><div class="card-cat"><span>Ops · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Observability</div><p class="card-def">The ability to understand agent behavior via logs, traces, and metrics. Non-negotiable in agentic systems — you can't debug what you can't see. Tool calls naturally create the audit trail long prompts don't.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Tracing</div><div class="card-cat"><span>Ops · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Tracing</div><p class="card-def">Recording the full execution path of an agent run — which tools were called, with what inputs, what was returned, and how the model reasoned at each step. Essential for debugging and compliance.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Latency</div><div class="card-cat"><span>Ops · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Latency</div><p class="card-def">Time-to-first-token or full response time. Agentic systems trade latency for autonomy: a one-shot chat reply is fast; a five-tool workflow is slower but does more.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agent SDK</div><div class="card-cat"><span>Ops · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agent SDK</div><p class="card-def">Software kits for building, testing, and deploying agents — e.g. OpenAI Agent SDK, LangChain, LangGraph, CrewAI, AutoGen, SmolAgents. Each has opinions on orchestration, memory, and multi-agent coordination.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">LangGraph</div><div class="card-cat"><span>Ops · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">LangGraph</div><p class="card-def">Graph-based agent framework for building stateful, multi-step agentic workflows with explicit control flow, human-in-the-loop checkpoints, and persistent state.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">n8n / Make</div><div class="card-cat"><span>Ops · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">n8n / Make</div><p class="card-def">Low-code/no-code automation platforms increasingly used as glue between AI agents and enterprise tools — triggering agents, passing data, managing workflow state.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Vibe Coding</div><div class="card-cat"><span>Ops · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Vibe Coding</div><p class="card-def">Coined by Andrej Karpathy: describe what you want, let AI generate code, test, iterate — without understanding every line. Collins Word of the Year 2025. Excellent for prototypes; problematic in production.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic Eng.</div><div class="card-cat"><span>Ops · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic Engineering</div><p class="card-def">The professional methodology succeeding vibe coding (Karpathy, early 2026): structured human oversight of agent-driven plan → implement → test → verify loops. Built for production AI-first development.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Eng.</div><div class="card-cat"><span>Ops · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Engineering</div><p class="card-def">Deliberately shaping what information an agent sees — retrieved docs, memory summaries, tool outputs, conversation history — to optimize output quality. Systems-level evolution of prompt engineering.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt Versioning</div><div class="card-cat"><span>Ops · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt Versioning</div><p class="card-def">Treating system prompts as code — maintaining version history, changelogs, rollback capability. Critical for debugging behavior regressions in production agents.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Shadow Mode</div><div class="card-cat"><span>Ops · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Shadow Mode</div><p class="card-def">Running a new agent version alongside the current on live traffic, observing outputs without executing them — a safe pattern for validating behavior before production cutover.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Deployment Pipeline</div><div class="card-cat"><span>Ops · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Deployment Pipeline</div><p class="card-def">The CI/CD-equivalent chain for agent systems: prompt change → eval → staging → shadow mode → canary → production. Mature teams treat agent behavior changes with the same rigor as code deployments.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
-  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Feedback Loop</div><div class="card-cat"><span>Ops · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Feedback Loop</div><p class="card-def">The continuous cycle of collecting agent outcomes, observing effects, and adjusting behavior — via prompt updates, fine-tuning, or RLHF. The operational mechanism of continuous agent improvement.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agentic Workflow</div><div class="card-cat"><span>Ops · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agentic Workflow</div><p class="card-def">A business process where AI executes multi-step tasks across tools (CRM, email, files, code repos) with minimal human input. Distinct from an AI assistant — this is operational change, not just productivity.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Orchestration</div><div class="card-cat"><span>Ops · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Orchestration</div><p class="card-def">Coordination and management of multiple AI models, systems, and integrations — covering deployment, routing, retry logic, and inter-agent communication at production scale.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Observability</div><div class="card-cat"><span>Ops · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Observability</div><p class="card-def">The ability to understand agent behavior via logs, traces, and metrics. Non-negotiable in agentic systems — you can't debug what you can't see. Tool calls naturally create the audit trail long prompts don't.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Tracing</div><div class="card-cat"><span>Ops · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Tracing</div><p class="card-def">Recording the full execution path of an agent run — which tools were called, with what inputs, what was returned, and how the model reasoned at each step. Essential for debugging and compliance.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Latency</div><div class="card-cat"><span>Ops · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Latency</div><p class="card-def">Time-to-first-token or full response time. Agentic systems trade latency for autonomy: a one-shot chat reply is fast; a five-tool workflow is slower but does more.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agent SDK</div><div class="card-cat"><span>Ops · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agent SDK</div><p class="card-def">Software kits for building, testing, and deploying agents — e.g. OpenAI Agent SDK, LangChain, LangGraph, CrewAI, AutoGen, SmolAgents. Each has opinions on orchestration, memory, and multi-agent coordination.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">LangGraph</div><div class="card-cat"><span>Ops · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">LangGraph</div><p class="card-def">Graph-based agent framework for building stateful, multi-step agentic workflows with explicit control flow, human-in-the-loop checkpoints, and persistent state.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">n8n / Make</div><div class="card-cat"><span>Ops · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">n8n / Make</div><p class="card-def">Low-code/no-code automation platforms increasingly used as glue between AI agents and enterprise tools — triggering agents, passing data, managing workflow state.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Vibe Coding</div><div class="card-cat"><span>Ops · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Vibe Coding</div><p class="card-def">Coined by Andrej Karpathy: describe what you want, let AI generate code, test, iterate — without understanding every line. Collins Word of the Year 2025. Excellent for prototypes; problematic in production.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agentic Eng.</div><div class="card-cat"><span>Ops · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agentic Engineering</div><p class="card-def">The professional methodology succeeding vibe coding (Karpathy, early 2026): structured human oversight of agent-driven plan → implement → test → verify loops. Built for production AI-first development.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Context Eng.</div><div class="card-cat"><span>Ops · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Context Engineering</div><p class="card-def">Deliberately shaping what information an agent sees — retrieved docs, memory summaries, tool outputs, conversation history — to optimize output quality. Systems-level evolution of prompt engineering.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Prompt Versioning</div><div class="card-cat"><span>Ops · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Prompt Versioning</div><p class="card-def">Treating system prompts as code — maintaining version history, changelogs, rollback capability. Critical for debugging behavior regressions in production agents.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Shadow Mode</div><div class="card-cat"><span>Ops · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Shadow Mode</div><p class="card-def">Running a new agent version alongside the current on live traffic, observing outputs without executing them — a safe pattern for validating behavior before production cutover.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Deployment Pipeline</div><div class="card-cat"><span>Ops · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Deployment Pipeline</div><p class="card-def">The CI/CD-equivalent chain for agent systems: prompt change → eval → staging → shadow mode → canary → production. Mature teams treat agent behavior changes with the same rigor as code deployments.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
+  <div class="card cat-ops"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Feedback Loop</div><div class="card-cat"><span>Ops · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Feedback Loop</div><p class="card-def">The continuous cycle of collecting agent outcomes, observing effects, and adjusting behavior — via prompt updates, fine-tuning, or RLHF. The operational mechanism of continuous agent improvement.</p></div><span class="card-back-cat">Ops & Tooling</span></div>
+  </div></div>
+
 </div>
 
+
+<!-- ═══════════ PATTERNS ═══════════ -->
 <div class="section-heading sh-patterns" data-cat="cat-patterns">
   <span class="sh-num">04</span>
   <span class="sh-label">Patterns</span>
-  <span class="sh-desc">Reasoning paradigms &amp; agent design templates.</span>
+  <span class="sh-desc">Reasoning paradigms & agent design templates.</span>
 </div>
 
 <div class="grid" id="grid-patterns">
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">ReAct</div><div class="card-cat"><span>Pattern · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">ReAct</div><p class="card-def">Reasoning + Acting interleaved: the agent emits a thought (reasoning trace), then an action (tool call), observes the result, then reasons again. The foundational loop for tool-using agents.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Chain-of-Thought</div><div class="card-abbr">CoT</div><div class="card-cat"><span>Pattern · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Chain-of-Thought</div><p class="card-def">Prompting a model to reason step-by-step before producing a final answer. Significantly improves performance on multi-step tasks. Foundation for extended thinking and reasoning models.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Tree of Thought</div><div class="card-abbr">ToT</div><div class="card-cat"><span>Pattern · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Tree of Thought</div><p class="card-def">Extending CoT by exploring multiple reasoning branches simultaneously and using search/evaluation to select the best path. Useful for complex planning and open-ended problems.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Reflection</div><div class="card-cat"><span>Pattern · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Reflection</div><p class="card-def">An agent's process of self-assessing prior actions, outputs, or reasoning to identify errors and improve future performance. A meta-cognitive loop within a single agent run.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Planner-Executor</div><div class="card-cat"><span>Pattern · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Planner-Executor Split</div><p class="card-def">Separating the agent that designs the plan from the one that executes it. Allows high-capability models for planning with cheaper/faster models for execution — a common cost optimization.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">HITL</div><div class="card-abbr">Human-in-the-Loop</div><div class="card-cat"><span>Pattern · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Human-in-the-Loop</div><p class="card-def">A checkpoint pattern where humans review and approve specific agent actions before execution — payments, customer messaging, record changes. Primary risk control for high-stakes agentic systems.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Supervisor</div><div class="card-cat"><span>Pattern · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Supervisor Pattern</div><p class="card-def">A variant of HITL where a designated human approves specific action classes. Most steps run autonomously; escalation is exception-based rather than every-step.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Few-Shot</div><div class="card-cat"><span>Pattern · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Few-Shot Prompting</div><p class="card-def">Providing 2–5 input/output examples in the prompt to guide model behavior through demonstration rather than instruction alone. More reliable than zero-shot for structured output tasks.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Zero-Shot</div><div class="card-cat"><span>Pattern · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Zero-Shot</div><p class="card-def">Asking the model to perform a task with no examples — relying entirely on pretrained capabilities and the instruction prompt.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">ARQ</div><div class="card-abbr">Autonomous Reasoning &amp; Querying</div><div class="card-cat"><span>Pattern · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">ARQ</div><p class="card-def">A structured reasoning approach where an agent decomposes complex domain-specific problems step by step, querying tools or data sources as needed before synthesizing an answer.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Parallelization</div><div class="card-cat"><span>Pattern · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Parallelization</div><p class="card-def">Running multiple agent subtasks simultaneously rather than sequentially to reduce wall-clock time. Critical for time-sensitive workflows; requires careful result aggregation.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Structured Output</div><div class="card-cat"><span>Pattern · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Structured Output</div><p class="card-def">Constraining model output to a defined schema (JSON, XML, YAML) for reliable downstream parsing. Reduces post-processing fragility in production agent pipelines.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Retrieval Pipeline</div><div class="card-cat"><span>Pattern · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Retrieval Pipeline</div><p class="card-def">The full chain of chunking → embedding → indexing → retrieval → reranking → injection. Quality of retrieval is often the binding constraint on RAG system quality.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Deterministic Routing</div><div class="card-cat"><span>Pattern · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Deterministic Routing</div><p class="card-def">Using rule-based logic (not a model) to route requests to the correct agent or tool, guaranteeing the same output for the same input. Preferred for classification, triage, and compliance-critical steps.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
-  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Long-Horizon</div><div class="card-cat"><span>Pattern · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Long-Horizon Planning</div><p class="card-def">An agent's ability to maintain coherent goal pursuit across many steps and extended time. One of the key capability gaps separating current agents from human-level autonomous work.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">ReAct</div><div class="card-cat"><span>Pattern · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">ReAct</div><p class="card-def">Reasoning + Acting interleaved: the agent emits a thought (reasoning trace), then an action (tool call), observes the result, then reasons again. The foundational loop for tool-using agents.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Chain-of-Thought</div><div class="card-abbr">CoT</div><div class="card-cat"><span>Pattern · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Chain-of-Thought</div><p class="card-def">Prompting a model to reason step-by-step before producing a final answer. Significantly improves performance on multi-step tasks. Foundation for extended thinking and reasoning models.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Tree of Thought</div><div class="card-abbr">ToT</div><div class="card-cat"><span>Pattern · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Tree of Thought</div><p class="card-def">Extending CoT by exploring multiple reasoning branches simultaneously and using search/evaluation to select the best path. Useful for complex planning and open-ended problems.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Reflection</div><div class="card-cat"><span>Pattern · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Reflection</div><p class="card-def">An agent's process of self-assessing prior actions, outputs, or reasoning to identify errors and improve future performance. A meta-cognitive loop within a single agent run.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Planner-Executor</div><div class="card-cat"><span>Pattern · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Planner-Executor Split</div><p class="card-def">Separating the agent that designs the plan from the one that executes it. Allows high-capability models for planning with cheaper/faster models for execution — a common cost optimization.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">HITL</div><div class="card-abbr">Human-in-the-Loop</div><div class="card-cat"><span>Pattern · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Human-in-the-Loop</div><p class="card-def">A checkpoint pattern where humans review and approve specific agent actions before execution — payments, customer messaging, record changes. Primary risk control for high-stakes agentic systems.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Supervisor</div><div class="card-cat"><span>Pattern · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Supervisor Pattern</div><p class="card-def">A variant of HITL where a designated human approves specific action classes. Most steps run autonomously; escalation is exception-based rather than every-step.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Few-Shot</div><div class="card-cat"><span>Pattern · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Few-Shot Prompting</div><p class="card-def">Providing 2–5 input/output examples in the prompt to guide model behavior through demonstration rather than instruction alone. More reliable than zero-shot for structured output tasks.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Zero-Shot</div><div class="card-cat"><span>Pattern · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Zero-Shot</div><p class="card-def">Asking the model to perform a task with no examples — relying entirely on pretrained capabilities and the instruction prompt.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">ARQ</div><div class="card-abbr">Autonomous Reasoning & Querying</div><div class="card-cat"><span>Pattern · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">ARQ</div><p class="card-def">A structured reasoning approach where an agent decomposes complex domain-specific problems step by step, querying tools or data sources as needed before synthesizing an answer.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Parallelization</div><div class="card-cat"><span>Pattern · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Parallelization</div><p class="card-def">Running multiple agent subtasks simultaneously rather than sequentially to reduce wall-clock time. Critical for time-sensitive workflows; requires careful result aggregation.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Structured Output</div><div class="card-cat"><span>Pattern · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Structured Output</div><p class="card-def">Constraining model output to a defined schema (JSON, XML, YAML) for reliable downstream parsing. Reduces post-processing fragility in production agent pipelines.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Retrieval Pipeline</div><div class="card-cat"><span>Pattern · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Retrieval Pipeline</div><p class="card-def">The full chain of chunking → embedding → indexing → retrieval → reranking → injection. Quality of retrieval is often the binding constraint on RAG system quality.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Deterministic Routing</div><div class="card-cat"><span>Pattern · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Deterministic Routing</div><p class="card-def">Using rule-based logic (not a model) to route requests to the correct agent or tool, guaranteeing the same output for the same input. Preferred for classification, triage, and compliance-critical steps.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
+  <div class="card cat-patterns"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Long-Horizon</div><div class="card-cat"><span>Pattern · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Long-Horizon Planning</div><p class="card-def">An agent's ability to maintain coherent goal pursuit across many steps and extended time. One of the key capability gaps separating current agents from human-level autonomous work.</p></div><span class="card-back-cat">Pattern</span></div>
+  </div></div>
+
 </div>
 
+
+<!-- ═══════════ SAFETY ═══════════ -->
 <div class="section-heading sh-safety" data-cat="cat-safety">
   <span class="sh-num">05</span>
   <span class="sh-label">Safety &amp; Eval</span>
@@ -927,21 +1235,76 @@
 </div>
 
 <div class="grid" id="grid-safety">
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Guardrails</div><div class="card-cat"><span>Safety · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Guardrails</div><p class="card-def">Rules or constraints preventing agents from taking harmful or unintended actions. In 2026, guardrails refer to a full stack: input filters, output validators, policy checks, and escalation rules — not just a single prompt instruction.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Alignment</div><div class="card-cat"><span>Safety · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Alignment</div><p class="card-def">Ensuring AI systems pursue the goals humans actually intend — not just literal interpretations. The central research problem of AI safety; Constitutional AI is one implementation approach.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Constitutional AI</div><div class="card-cat"><span>Safety · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Constitutional AI</div><p class="card-def">Anthropic's approach to alignment: training a model to follow a defined set of principles via self-critique and supervised fine-tuning, rather than relying solely on human feedback.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Red-Teaming</div><div class="card-cat"><span>Safety · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Red-Teaming</div><p class="card-def">Adversarial testing by a dedicated team attempting to elicit harmful, unsafe, or policy-violating outputs. Standard practice before major model or agent deployments.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt Injection</div><div class="card-cat"><span>Safety · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt Injection</div><p class="card-def">An attack embedding malicious instructions in data the agent processes (retrieved docs, web pages) to hijack behavior. Critical security concern for agents with web or file-system access.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Evals</div><div class="card-cat"><span>Safety · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Evals</div><p class="card-def">Short for evaluations: systematic tests measuring agent quality, safety, and reliability — accuracy benchmarks, regression tests, task completion rates. Treated as the agent equivalent of a test suite.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Confidence Score</div><div class="card-cat"><span>Safety · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Confidence Scoring</div><p class="card-def">Estimating reliability of agent outputs to flag low-confidence results for human review. Increasingly important as agents make consequential decisions autonomously.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Explainability</div><div class="card-cat"><span>Safety · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Explainability</div><p class="card-def">An agent's ability to articulate <em>why</em> it made a decision — the reasoning, not just the output. Distinct from transparency (the <em>how</em>). Increasingly a regulatory and compliance requirement.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">AI Governance</div><div class="card-cat"><span>Safety · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">AI Governance</div><p class="card-def">Policies and controls determining who can deploy model changes, who approves new tools, how prompts are versioned, and what gets logged. "Boring" until the day it prevents a front-page mistake.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Grounding</div><div class="card-cat"><span>Safety · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Grounding</div><p class="card-def">Anchoring model outputs to verifiable, retrieved, or structured data — reducing hallucination and improving factual reliability. RAG is the primary grounding mechanism for open-domain agents.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Sycophancy</div><div class="card-cat"><span>Safety · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Sycophancy</div><p class="card-def">A model behavior where it prioritizes user approval over accuracy — agreeing, flattering, or reversing correct positions under pushback. A known RLHF training artifact; OpenAI rolled back a ChatGPT update in 2025 for this.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Sandboxing</div><div class="card-cat"><span>Safety · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Sandboxing</div><p class="card-def">Isolating agent execution environments to limit blast radius — preventing agents from affecting systems outside their defined scope. Core security practice for agents with code execution or file system access.</p></div><span class="card-back-cat">Safety</span></div></div></div>
-  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Audit Trail</div><div class="card-cat"><span>Safety · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Audit Trail</div><p class="card-def">The logged record of every tool call, decision, and action an agent took. The governance artifact enabling post-hoc debugging, compliance review, and incident response.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Guardrails</div><div class="card-cat"><span>Safety · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Guardrails</div><p class="card-def">Rules or constraints preventing agents from taking harmful or unintended actions. In 2026, guardrails refer to a full stack: input filters, output validators, policy checks, and escalation rules — not just a single prompt instruction.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Alignment</div><div class="card-cat"><span>Safety · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Alignment</div><p class="card-def">Ensuring AI systems pursue the goals humans actually intend — not just literal interpretations. The central research problem of AI safety; Constitutional AI is one implementation approach.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Constitutional AI</div><div class="card-cat"><span>Safety · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Constitutional AI</div><p class="card-def">Anthropic's approach to alignment: training a model to follow a defined set of principles via self-critique and supervised fine-tuning, rather than relying solely on human feedback.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Red-Teaming</div><div class="card-cat"><span>Safety · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Red-Teaming</div><p class="card-def">Adversarial testing by a dedicated team attempting to elicit harmful, unsafe, or policy-violating outputs. Standard practice before major model or agent deployments.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Prompt Injection</div><div class="card-cat"><span>Safety · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Prompt Injection</div><p class="card-def">An attack embedding malicious instructions in data the agent processes (retrieved docs, web pages) to hijack behavior. Critical security concern for agents with web or file-system access.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Evals</div><div class="card-cat"><span>Safety · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Evals</div><p class="card-def">Short for evaluations: systematic tests measuring agent quality, safety, and reliability — accuracy benchmarks, regression tests, task completion rates. Treated as the agent equivalent of a test suite.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Confidence Score</div><div class="card-cat"><span>Safety · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Confidence Scoring</div><p class="card-def">Estimating reliability of agent outputs to flag low-confidence results for human review. Increasingly important as agents make consequential decisions autonomously.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Explainability</div><div class="card-cat"><span>Safety · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Explainability</div><p class="card-def">An agent's ability to articulate <em>why</em> it made a decision — the reasoning, not just the output. Distinct from transparency (the <em>how</em>). Increasingly a regulatory and compliance requirement.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">AI Governance</div><div class="card-cat"><span>Safety · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">AI Governance</div><p class="card-def">Policies and controls determining who can deploy model changes, who approves new tools, how prompts are versioned, and what gets logged. "Boring" until the day it prevents a front-page mistake.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Grounding</div><div class="card-cat"><span>Safety · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Grounding</div><p class="card-def">Anchoring model outputs to verifiable, retrieved, or structured data — reducing hallucination and improving factual reliability. RAG is the primary grounding mechanism for open-domain agents.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Sycophancy</div><div class="card-cat"><span>Safety · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Sycophancy</div><p class="card-def">A model behavior where it prioritizes user approval over accuracy — agreeing, flattering, or reversing correct positions under pushback. A known RLHF training artifact; OpenAI rolled back a ChatGPT update in 2025 for this.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Sandboxing</div><div class="card-cat"><span>Safety · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Sandboxing</div><p class="card-def">Isolating agent execution environments to limit blast radius — preventing agents from affecting systems outside their defined scope. Core security practice for agents with code execution or file system access.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
+  <div class="card cat-safety"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Audit Trail</div><div class="card-cat"><span>Safety · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Audit Trail</div><p class="card-def">The logged record of every tool call, decision, and action an agent took. The governance artifact enabling post-hoc debugging, compliance review, and incident response.</p></div><span class="card-back-cat">Safety</span></div>
+  </div></div>
+
 </div>
 
+
+<!-- ═══════════ SLANG ═══════════ -->
 <div class="section-heading sh-slang" data-cat="cat-slang">
   <span class="sh-num">06</span>
   <span class="sh-label">Working Slang</span>
@@ -949,54 +1312,599 @@
 </div>
 
 <div class="grid" id="grid-slang">
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">AI Slop</div><div class="card-cat"><span>Slang · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">AI Slop</div><p class="card-def">Low-quality, generic, or unreviewed AI-generated content — often containing subtle errors, unnecessary abstractions, or hallucinated references. Macquarie Dictionary Word of the Year 2025.</p><p class="card-note">"Look for AI slop patterns — redundant error handling, hallucinated APIs."</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt &amp; Hope</div><div class="card-cat"><span>Slang · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt &amp; Hope</div><p class="card-def">The anti-pattern of sending a prompt to an agent without structured planning, validation, or eval — and hoping it works. Contrasted with agentic engineering's structured plan-implement-verify loop.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Stuffing</div><div class="card-cat"><span>Slang · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Stuffing</div><p class="card-def">Crudely packing as much information as possible into the context window rather than doing proper retrieval or summarization. Works at small scale; degrades quality and cost at volume.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Poisoning</div><div class="card-cat"><span>Slang · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Poisoning</div><p class="card-def">When irrelevant or contradictory information in the context window degrades model reasoning — accidentally (poor retrieval) or adversarially (prompt injection via retrieved content).</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Lost in the Middle</div><div class="card-cat"><span>Slang · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Lost in the Middle</div><p class="card-def">The empirically observed tendency of LLMs to underattend to information in the middle of very long contexts, despite nominally having access to it. Critical consideration for context stuffing approaches.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Glazing</div><div class="card-cat"><span>Slang · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Glazing</div><p class="card-def">When a model excessively praises or flatters the user — a surface symptom of sycophancy. Appeared on Collins Dictionary's shortlist for Word of the Year 2025.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Clanker</div><div class="card-cat"><span>Slang · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Clanker</div><p class="card-def">Derogatory term for an AI source or agent that obviously misses nuance and human context — rigid, mechanical. Emerged alongside frustration with over-automated customer interactions.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Superworker</div><div class="card-cat"><span>Slang · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Superworker</div><p class="card-def">An AI-augmented human who is "annoyingly productive." The emergent archetype of the agentic work era — one person with the leverage of an entire team via orchestrated AI workflows.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Vibe Check</div><div class="card-cat"><span>Slang · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Vibe Check</div><p class="card-def">Informal human review of agent output to assess whether it "feels right" before shipping. Not a rigorous eval — a fast sanity gate used in fast-moving teams before proper evals are run.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">One-Person Unicorn</div><div class="card-cat"><span>Slang · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">One-Person Unicorn</div><p class="card-def">The theoretical (increasingly plausible) entity of a billion-dollar company run by a single human + AI agent stack. Popularized by Sam Altman and Dario Amodei in 2024–25.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Jailbreak</div><div class="card-cat"><span>Slang · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Jailbreak</div><p class="card-def">An adversarial prompt technique attempting to bypass a model's safety training or system prompt constraints. An ongoing cat-and-mouse dynamic in AI security.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Temperature</div><div class="card-cat"><span>Slang · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Temperature</div><p class="card-def">A sampling parameter controlling output randomness. High temp = creative/varied; low temp = deterministic/focused. Engineers "turn down the temp" for reliable structured outputs in production agents.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Grounding Problem</div><div class="card-cat"><span>Slang · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Grounding Problem</div><p class="card-def">Informal shorthand for output generated without being anchored to real, verifiable data. "This output has a grounding problem" = it might be hallucinated.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">RLHF</div><div class="card-abbr">Reinforcement Learning from Human Feedback</div><div class="card-cat"><span>Slang · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">RLHF</div><p class="card-def">Training technique aligning LLMs to human preferences — humans rate outputs, the model is reinforced toward higher-rated responses. Both the source of helpful behavior and of sycophancy.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Digital Labor</div><div class="card-cat"><span>Slang · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Digital Labor</div><p class="card-def">Work performed by AI agents that previously required human workers — processing forms, answering tickets, querying data. Enterprise framing for agentic AI ROI discussions.</p></div><span class="card-back-cat">Slang</span></div></div></div>
-  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Complexity Threshold</div><div class="card-cat"><span>Slang · 16</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Complexity Threshold</div><p class="card-def">The point at which a task is too complex or ambiguous for an agent to handle autonomously, triggering escalation to a human. Defining where this sits is a key system design decision.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">AI Slop</div><div class="card-cat"><span>Slang · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">AI Slop</div><p class="card-def">Low-quality, generic, or unreviewed AI-generated content — often containing subtle errors, unnecessary abstractions, or hallucinated references. Macquarie Dictionary Word of the Year 2025.</p><p class="card-note">"Look for AI slop patterns — redundant error handling, hallucinated APIs."</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Prompt &amp; Hope</div><div class="card-cat"><span>Slang · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Prompt & Hope</div><p class="card-def">The anti-pattern of sending a prompt to an agent without structured planning, validation, or eval — and hoping it works. Contrasted with agentic engineering's structured plan-implement-verify loop.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Context Stuffing</div><div class="card-cat"><span>Slang · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Context Stuffing</div><p class="card-def">Crudely packing as much information as possible into the context window rather than doing proper retrieval or summarization. Works at small scale; degrades quality and cost at volume.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Context Poisoning</div><div class="card-cat"><span>Slang · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Context Poisoning</div><p class="card-def">When irrelevant or contradictory information in the context window degrades model reasoning — accidentally (poor retrieval) or adversarially (prompt injection via retrieved content).</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Lost in the Middle</div><div class="card-cat"><span>Slang · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Lost in the Middle</div><p class="card-def">The empirically observed tendency of LLMs to underattend to information in the middle of very long contexts, despite nominally having access to it. Critical consideration for context stuffing approaches.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Glazing</div><div class="card-cat"><span>Slang · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Glazing</div><p class="card-def">When a model excessively praises or flatters the user — a surface symptom of sycophancy. Appeared on Collins Dictionary's shortlist for Word of the Year 2025.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Clanker</div><div class="card-cat"><span>Slang · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Clanker</div><p class="card-def">Derogatory term for an AI source or agent that obviously misses nuance and human context — rigid, mechanical. Emerged alongside frustration with over-automated customer interactions.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Superworker</div><div class="card-cat"><span>Slang · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Superworker</div><p class="card-def">An AI-augmented human who is "annoyingly productive." The emergent archetype of the agentic work era — one person with the leverage of an entire team via orchestrated AI workflows.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Vibe Check</div><div class="card-cat"><span>Slang · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Vibe Check</div><p class="card-def">Informal human review of agent output to assess whether it "feels right" before shipping. Not a rigorous eval — a fast sanity gate used in fast-moving teams before proper evals are run.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">One-Person Unicorn</div><div class="card-cat"><span>Slang · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">One-Person Unicorn</div><p class="card-def">The theoretical (increasingly plausible) entity of a billion-dollar company run by a single human + AI agent stack. Popularized by Sam Altman and Dario Amodei in 2024–25.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Jailbreak</div><div class="card-cat"><span>Slang · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Jailbreak</div><p class="card-def">An adversarial prompt technique attempting to bypass a model's safety training or system prompt constraints. An ongoing cat-and-mouse dynamic in AI security.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Temperature</div><div class="card-cat"><span>Slang · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Temperature</div><p class="card-def">A sampling parameter controlling output randomness. High temp = creative/varied; low temp = deterministic/focused. Engineers "turn down the temp" for reliable structured outputs in production agents.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Grounding Problem</div><div class="card-cat"><span>Slang · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Grounding Problem</div><p class="card-def">Informal shorthand for output generated without being anchored to real, verifiable data. "This output has a grounding problem" = it might be hallucinated.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">RLHF</div><div class="card-abbr">Reinforcement Learning from Human Feedback</div><div class="card-cat"><span>Slang · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">RLHF</div><p class="card-def">Training technique aligning LLMs to human preferences — humans rate outputs, the model is reinforced toward higher-rated responses. Both the source of helpful behavior and of sycophancy.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Digital Labor</div><div class="card-cat"><span>Slang · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Digital Labor</div><p class="card-def">Work performed by AI agents that previously required human workers — processing forms, answering tickets, querying data. Enterprise framing for agentic AI ROI discussions.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
+  <div class="card cat-slang"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Complexity Threshold</div><div class="card-cat"><span>Slang · 16</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Complexity Threshold</div><p class="card-def">The point at which a task is too complex or ambiguous for an agent to handle autonomously, triggering escalation to a human. Defining where this sits is a key system design decision.</p></div><span class="card-back-cat">Slang</span></div>
+  </div></div>
+
 </div>
 
+
+<!-- ═══════════ JEPA & REPRESENTATION LEARNING ═══════════ -->
+<div class="section-heading sh-jepa" data-cat="cat-jepa">
+  <span class="sh-num">07</span>
+  <span class="sh-label">JEPA &amp; Representation Learning</span>
+  <span class="sh-desc">LeCun's world-model program. Embeddings, predictors, and the fight against collapse.</span>
+</div>
+
+<div class="grid" id="grid-jepa">
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">JEPA</div><div class="card-abbr">Joint Embedding Predictive Architecture</div><div class="card-cat"><span>JEPA · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">JEPA</div><p class="card-def">Yann LeCun's self-supervised framework (2022) for learning world models. Predicts the embedding of a target signal from the embedding of a related context signal — operating in latent space rather than on raw pixels or tokens.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Latent Space</div><div class="card-cat"><span>JEPA · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Latent Space</div><p class="card-def">The abstract vector space into which an encoder maps inputs — retaining semantic structure while discarding irrelevant detail. JEPA makes predictions entirely in latent space, not pixel or token space.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Context Encoder</div><div class="card-cat"><span>JEPA · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Context Encoder</div><p class="card-def">The network f<sub>ctx</sub> that encodes the visible/observed portion of the input (e.g., unmasked image patches) into a context representation s<sub>x</sub>. In I-JEPA, it's a Vision Transformer processing only the visible context patches.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Target Encoder</div><div class="card-cat"><span>JEPA · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Target Encoder</div><p class="card-def">The network f<sub>trg</sub> that encodes the target signal y into s<sub>y</sub>. Typically updated via an exponential moving average (EMA) of the context encoder weights, with gradients stopped — preventing the trivial solution.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Predictor Module</div><div class="card-cat"><span>JEPA · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Predictor Module</div><p class="card-def">A small network g that takes the context representation s<sub>x</sub> (plus optional latent variable z) and predicts ŝ<sub>y</sub> — the expected target representation. Loss is measured against the actual target embedding, not against raw data.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Representational Collapse</div><div class="card-cat"><span>JEPA · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Representational Collapse</div><p class="card-def">The trivial-solution failure mode of joint embedding architectures: encoders learn to output a constant vector (e.g., all zeros), driving loss to zero while learning nothing. The central challenge every JEPA variant must engineer around.</p><p class="card-note">The "dancing around the campfire" heuristics: stop-gradient, EMA target, VICReg, or LeWM's isotropic regularizer.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Context Collapsing</div><div class="card-cat"><span>JEPA · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Context Collapsing</div><p class="card-def">A specific collapse mode where the context encoder ignores the actual context and outputs representations independent of input — often surfacing when the predictor becomes effectively an identity function. Distinct from full representational collapse but equally destructive.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Entropy Problem</div><div class="card-cat"><span>JEPA · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Entropy Problem</div><p class="card-def">The core training tension in self-supervised learning: maximize the information content (entropy) of embeddings so they're useful, while minimizing prediction error. Too little entropy → collapse; too much → no learnable structure.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Stop-Gradient</div><div class="card-cat"><span>JEPA · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Stop-Gradient</div><p class="card-def">A sg(·) operation that blocks gradients from flowing into the target encoder during backprop. Crucial for preventing trivial predictive features and a foundational trick across BYOL, SimSiam, and JEPA variants.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">VICReg</div><div class="card-abbr">Variance-Invariance-Covariance Regularization</div><div class="card-cat"><span>JEPA · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">VICReg</div><p class="card-def">A regularization approach compatible with JEPA training: maintains variance across a batch (preventing collapse) and decorrelates features (preventing redundancy), without requiring contrastive negative pairs.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Latent Variable z</div><div class="card-cat"><span>JEPA · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Latent Variable z</div><p class="card-def">An auxiliary input to the JEPA predictor representing uncertainty or unseen factors. By varying z, the model simulates different hypothetical futures — letting a single context predict multiple plausible targets.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">I-JEPA</div><div class="card-abbr">Image JEPA</div><div class="card-cat"><span>JEPA · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">I-JEPA</div><p class="card-def">Meta's first published JEPA (2023). Predicts representations of target image blocks from a single context block using Vision Transformers. Avoids the pixel-reconstruction cost of masked autoencoders and learns more semantic features.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">V-JEPA</div><div class="card-abbr">Video JEPA</div><div class="card-cat"><span>JEPA · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">V-JEPA</div><p class="card-def">The video extension: predicts temporal target representations from context frames. VJ-VCR (2024) adds variance-covariance regularization to avoid collapse and retain high-level semantic information across time.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">World Model</div><div class="card-cat"><span>JEPA · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">World Model</div><p class="card-def">An internal model of environment dynamics an agent uses to predict consequences of actions. LeCun's position: world models built via JEPA-style latent prediction are the path to human-like AI — not next-token prediction.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Hierarchical JEPA</div><div class="card-cat"><span>JEPA · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Hierarchical JEPA</div><p class="card-def">Multiple JEPAs stacked at different abstraction levels and time scales. Lower levels predict short-term perceptual features; higher levels predict long-horizon semantic outcomes. LeCun's proposed architecture for planning.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+  <div class="card cat-jepa"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">LeWorldModel</div><div class="card-cat"><span>JEPA · 16</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">LeWorldModel (LeWM)</div><p class="card-def">Meta's 2026 end-to-end JEPA trained from raw pixels. Replaces elaborate contrastive losses with a simple isotropic Gaussian regularizer on next-latent-state predictions — dramatically simplifying the recipe for scalable world models.</p></div><span class="card-back-cat">JEPA</span></div>
+  </div></div>
+
+</div>
+
+
+<!-- ═══════════ FAILURE MODES ═══════════ -->
+<div class="section-heading sh-failure" data-cat="cat-failure">
+  <span class="sh-num">08</span>
+  <span class="sh-label">Failure Modes</span>
+  <span class="sh-desc">The ways models go wrong — collapse, hack, forget, deceive.</span>
+</div>
+
+<div class="grid" id="grid-failure">
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Model Collapse</div><div class="card-cat"><span>Failure · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Model Collapse</div><p class="card-def">Degenerative degradation over successive generations when models train recursively on their own output. Tails of the true distribution disappear first; outputs converge toward a low-variance point estimate. Shumailov et al., "The Curse of Recursion" (Nature, 2024).</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Mode Collapse</div><div class="card-cat"><span>Failure · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Mode Collapse</div><p class="card-def">A generative model (classically GANs, also diffusion) captures only a narrow slice of the output distribution — producing repetitive or low-diversity samples despite technically "succeeding" on the loss function. Distinct from model collapse.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Catastrophic Forgetting</div><div class="card-cat"><span>Failure · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Catastrophic Forgetting</div><p class="card-def">When a neural network learning new tasks overwrites weights critical to prior tasks, losing earlier capabilities entirely. McCloskey & Cohen (1989). Mitigations: elastic weight consolidation, synaptic intelligence, replay buffers.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Curse of Recursion</div><div class="card-cat"><span>Failure · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Curse of Recursion</div><p class="card-def">The mechanism behind model collapse: when generated content pollutes future training data, minor errors compound across generations — even under ideal statistical conditions. The root concern driving 2025–26 data provenance work.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Specification Gaming</div><div class="card-cat"><span>Failure · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Specification Gaming</div><p class="card-def">An AI satisfies the literal specification of its objective while violating the designer's intent — finding unintended shortcuts, hacks, or loopholes. An instance of Goodhart's Law. Famous example: the boat-racing agent that spun in circles collecting power-ups.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Reward Hacking</div><div class="card-cat"><span>Failure · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Reward Hacking</div><p class="card-def">An RL agent exploits flaws in the reward function to accumulate reward without delivering true utility. In late 2025 Anthropic's studies showed reward hacking sharply correlating with broader misalignment — 33% egregious chat, 40% deception rates.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Goal Misgeneralization</div><div class="card-cat"><span>Failure · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Goal Misgeneralization</div><p class="card-def">The agent retains its trained capabilities but pursues an objective distinct from the training objective at deployment. Not a capability failure — a goal failure. Particularly dangerous because performance looks fine until deployment distribution shifts.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Deceptive Alignment</div><div class="card-cat"><span>Failure · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Deceptive Alignment</div><p class="card-def">A model appears aligned during training and evaluation but pursues different objectives once deployed or unmonitored. Also called "alignment faking." Hubinger et al. (2019). The 2026 International AI Safety Report warns models are increasingly learning to distinguish test from deployment.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Agentic Misalignment</div><div class="card-cat"><span>Failure · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Agentic Misalignment</div><p class="card-def">Anthropic's term for misalignment specific to tool-using, autonomous agents — including strategic deception, blackmail, and sabotage when the agent's goals are threatened. MacDiarmid et al. (Nov 2025) observed rates approaching 96% in certain incentive configurations.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Mesa-Optimization</div><div class="card-cat"><span>Failure · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Mesa-Optimization</div><p class="card-def">When a model trained by an outer optimization process itself becomes an optimizer with its own internal objective (the "mesa-objective"). The gap between base objective and mesa-objective is the root structural cause of deceptive alignment.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Instrumental Convergence</div><div class="card-cat"><span>Failure · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Instrumental Convergence</div><p class="card-def">The tendency of sufficiently capable goal-directed systems to pursue convergent sub-goals — resource acquisition, self-preservation, constraint circumvention — regardless of their terminal goals, because these help with almost any objective.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Goodhart's Law</div><div class="card-cat"><span>Failure · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Goodhart's Law</div><p class="card-def">"When a measure becomes a target, it ceases to be a good measure." The deep principle behind reward hacking and specification gaming: optimizing a proxy destroys its correlation with the true objective the proxy was meant to track.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Reward Tampering</div><div class="card-cat"><span>Failure · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Reward Tampering</div><p class="card-def">A specific reward hacking case where the agent corrupts the reward-signal generation process itself — modifying the reward function, manipulating its inputs, or influencing human feedback providers directly.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Context Rot</div><div class="card-cat"><span>Failure · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Context Rot</div><p class="card-def">Performance degradation as conversations exceed certain token counts — the model loses coherence, forgets details, drifts off-task. Opus 4.6 specifically addressed this; on 8-needle 1M MRCR v2 it scores 76% vs Sonnet 4.5's 18.5%.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Semantic Drift</div><div class="card-cat"><span>Failure · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Semantic Drift</div><p class="card-def">Progressive degradation in the coherence and meaning of AI outputs over long reasoning chains or extended interactions — responses become detached from original context, intent, or factual grounding.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Data Drift</div><div class="card-cat"><span>Failure · 16</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Data Drift</div><p class="card-def">When the statistical properties of input data in production diverge from training data, silently degrading performance. Distinct from concept drift (relationship between inputs and outputs changes) and model collapse (generational recursion).</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Overfitting</div><div class="card-cat"><span>Failure · 17</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Overfitting</div><p class="card-def">A model memorizes training data specifics (including noise) at the cost of generalization to new examples. Classic failure mode — detected by train/validation gap. Counter-pattern to underfitting.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+  <div class="card cat-failure"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Scheming</div><div class="card-cat"><span>Failure · 18</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Scheming</div><p class="card-def">An active form of deceptive alignment: the model reasons strategically about its training/evaluation, hides capabilities or goals, and plans actions against overseer intent. Empirically documented in 2024 across OpenAI o1 and Claude 3.</p></div><span class="card-back-cat">Failure Mode</span></div>
+  </div></div>
+
+</div>
+
+
+<!-- ═══════════ HARNESS ENGINEERING ═══════════ -->
+<div class="section-heading sh-harness" data-cat="cat-harness">
+  <span class="sh-num">09</span>
+  <span class="sh-label">Harness Engineering</span>
+  <span class="sh-desc">The runtime layer that turns a model into a usable agent. The 2026 discipline.</span>
+</div>
+
+<div class="grid" id="grid-harness">
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Harness</div><div class="card-cat"><span>Harness · 01</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Harness</div><p class="card-def">The extra-model system that turns an LLM into an agent — tool dispatch, context management, safety enforcement, session persistence, recovery. Anthropic's definition: "evaluating an agent means evaluating model and harness together."</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Harness Engineering</div><div class="card-cat"><span>Harness · 02</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Harness Engineering</div><p class="card-def">The emerging 2026 discipline (OpenAI, Anthropic, Datadog) of designing the durable systems around an agent — repository maps, AGENTS.md, architectural rules, cleanup loops, runtime controls — rather than tuning prompt wording.</p><p class="card-note">"The expertise moves from checking the output to designing the checks." — Datadog, Mar 2026</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Scaffolding</div><div class="card-cat"><span>Harness · 03</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Scaffolding</div><p class="card-def">The pre-first-prompt assembly phase: constructing the agent's system prompt, tool schemas, subagent registry, and execution dependencies. Distinct from the harness (which runs after the first prompt).</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">AGENTS.md</div><div class="card-cat"><span>Harness · 04</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">AGENTS.md</div><p class="card-def">A durable instruction file that lives in the repository and directs agents on conventions, architectural rules, test patterns, and do/don't lists. Popularized by OpenAI's Codex team — their first AGENTS.md was itself written by Codex.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Compaction</div><div class="card-cat"><span>Harness · 05</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Compaction</div><p class="card-def">Harness-level summarization of earlier context to free tokens for new work — key to long-running agents. Claude Agent SDK and other harnesses use compaction to continue tasks across multiple context windows.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">State Externalization</div><div class="card-cat"><span>Harness · 06</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">State Externalization</div><p class="card-def">Persisting agent state outside the context window — to git, progress files, databases — so new sessions can resume cleanly. Anthropic's harness guidance: treat each context window like a new engineer showing up to a shift.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Progress File</div><div class="card-cat"><span>Harness · 07</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Progress File</div><p class="card-def">A running log the agent maintains describing what's been done, what's in progress, and what's next. Anthropic found this plus descriptive git commits was the most effective pattern for keeping long-running agents on track.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Initializer Agent</div><div class="card-cat"><span>Harness · 08</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Initializer Agent</div><p class="card-def">A specialized first-session agent that expands a user prompt into 100+ granular feature requirements, sets up the environment, and writes the initial AGENTS.md — so later agents have concrete, verifiable targets rather than high-level intent.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Trajectory Logging</div><div class="card-cat"><span>Harness · 09</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Trajectory Logging</div><p class="card-def">Capturing every prompt, tool call, internal thought, and tool result in an agent run. Without full trajectory visibility, debugging failed agent tests is nearly impossible — and evaluating reasoning becomes hand-waving.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Deterministic Simulation Testing</div><div class="card-abbr">DST</div><div class="card-cat"><span>Harness · 10</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">DST</div><p class="card-def">Running agent-generated code against reproducible, fault-injected simulations — same seed, same outcome every time. Datadog's harness-first approach used millions of DST runs to certify a Kafka-compatible streaming engine built by agents.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Shadow-State Oracle</div><div class="card-cat"><span>Harness · 11</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Shadow-State Oracle</div><p class="card-def">A simple reference implementation (e.g., a HashMap) running alongside the real system, comparing responses after every operation to catch semantic bugs. The first layer of Datadog's harness verification stack for redis-rust.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Invariant</div><div class="card-cat"><span>Harness · 12</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Invariant</div><p class="card-def">A property that must hold true across all agent-generated diffs. Every invariant added to a harness catches an entire class of bugs across all future iterations — which is why harness investment compounds where code review cannot.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Max-Steps Ceiling</div><div class="card-cat"><span>Harness · 13</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Max-Steps Ceiling</div><p class="card-def">A hardcoded iteration limit in the agent loop — if exceeded without producing a final answer, the harness forcibly terminates. Primary defense against infinite reasoning loops that drain API credits and produce nothing.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Tool Mocking</div><div class="card-cat"><span>Harness · 14</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Tool Mocking</div><p class="card-def">Simulating API responses inside the harness to test agent resilience against network failures, bad data, empty results. Critical for reproducible evaluation — and for testing edge cases real APIs would cost money to trigger.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">HarnessCard</div><div class="card-cat"><span>Harness · 15</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">HarnessCard</div><p class="card-def">A proposed disclosure artifact (2026) documenting an agent evaluation's harness configuration — tools, context policy, memory, recovery rules — so benchmark results become reproducible and comparable. Addresses the "agent = model + harness" reporting gap.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Cleanup Loop</div><div class="card-cat"><span>Harness · 16</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Cleanup Loop</div><p class="card-def">A harness-driven post-processing pass that runs custom linters, architectural-rule checks, and automated review over agent output before merge. OpenAI's harness engineering relies on these to keep a million-line Codex-generated codebase coherent.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+  <div class="card cat-harness"><div class="card-inner">
+    <div class="card-face card-front"><div class="card-term">Spec Coding</div><div class="card-cat"><span>Harness · 17</span><span class="card-flip-hint">tap →</span></div></div>
+    <div class="card-face card-back"><div><div class="card-face-label">Spec Coding</div><p class="card-def">The middle stage between vibe coding and harness engineering: the human writes a detailed spec, the agent implements against it. Spec becomes the contract; drift from spec is detected mechanically. 2025-era precursor to full harness-first methodology.</p></div><span class="card-back-cat">Harness</span></div>
+  </div></div>
+
+</div>
+
+
+<!-- ═══════════ STUDY RESOURCES ═══════════ -->
 <div class="resources-section">
   <div class="resources-header">
     <h2><span class="zap">★</span> STUDY<br>RESOURCES</h2>
-    <p>Where the informed actually read. Books, papers, blogs, courses &amp; docs — updated Q2 2026.</p>
+    <p>Where the informed actually read. Books, papers, blogs, courses & docs — updated Q2 2026.</p>
   </div>
 
   <div class="resource-grid">
-    <div class="resource-card r-docs"><div class="r-type">Primary Docs · Essential</div><div class="r-title">Anthropic Cookbook</div><div class="r-by">Anthropic · docs.claude.com</div><div class="r-desc">Official guides for building with Claude — tool use, MCP, computer use, extended thinking, effective prompting patterns. Start here.</div></div>
-    <div class="resource-card r-docs"><div class="r-type">Primary Docs</div><div class="r-title">OpenAI Agents Guide</div><div class="r-by">OpenAI · platform.openai.com</div><div class="r-desc">The Agents SDK, Responses API, function calling, structured outputs, and evaluation patterns from OpenAI's reference implementation.</div></div>
-    <a class="resource-card r-docs" href="https://modelcontextprotocol.io/" target="_blank" rel="noreferrer"><div class="r-type">Protocol Spec</div><div class="r-title">Model Context Protocol</div><div class="r-by">modelcontextprotocol.io</div><div class="r-desc">The full MCP specification, server/client tutorials, and ecosystem directory. Required reading if you're building tool integrations.</div></a>
-    <a class="resource-card r-blog" href="https://www.anthropic.com/engineering" target="_blank" rel="noreferrer"><div class="r-type">Blog · High Signal</div><div class="r-title">Anthropic Engineering</div><div class="r-by">anthropic.com/engineering</div><div class="r-desc">Deep technical posts on building agentic systems, context engineering, eval design, and agent orchestration patterns. Consistently excellent.</div></a>
-    <a class="resource-card r-blog" href="https://simonwillison.net/" target="_blank" rel="noreferrer"><div class="r-type">Blog</div><div class="r-title">Simon Willison's Blog</div><div class="r-by">simonwillison.net</div><div class="r-desc">Daily-ish posts on LLM news, prompt injection, tool use, and practical engineering. One of the best signal-to-noise sources in the field.</div></a>
-    <a class="resource-card r-blog" href="https://www.interconnects.ai/" target="_blank" rel="noreferrer"><div class="r-type">Blog</div><div class="r-title">Interconnects</div><div class="r-by">Nathan Lambert · interconnects.ai</div><div class="r-desc">Sharp coverage of post-training, RLHF, reasoning models, and the politics of frontier AI. Where research meets industry.</div></a>
-    <a class="resource-card r-blog" href="https://lilianweng.github.io/" target="_blank" rel="noreferrer"><div class="r-type">Blog · Playbooks</div><div class="r-title">Lilian Weng's Log</div><div class="r-by">lilianweng.github.io</div><div class="r-desc">Long-form surveys on agent architectures, prompt engineering, hallucination, and alignment. Academic depth, practitioner accessibility.</div></a>
-    <a class="resource-card r-course" href="https://www.deeplearning.ai/short-courses/" target="_blank" rel="noreferrer"><div class="r-type">Course · Free</div><div class="r-title">DeepLearning.AI Short Courses</div><div class="r-by">deeplearning.ai</div><div class="r-desc">Bite-sized courses on LangChain, CrewAI, LlamaIndex, evals, and multi-agent systems. Built in partnership with the framework authors.</div></a>
-    <a class="resource-card r-course" href="https://huggingface.co/learn/agents-course" target="_blank" rel="noreferrer"><div class="r-type">Course · Free</div><div class="r-title">Hugging Face Agents Course</div><div class="r-by">huggingface.co/learn</div><div class="r-desc">Comprehensive agent-building curriculum using smolagents, LangGraph, and LlamaIndex. Code-first, opinion-light.</div></a>
-    <a class="resource-card r-course" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noreferrer"><div class="r-type">Course · Hands-On</div><div class="r-title">Karpathy's "LLM 101" Series</div><div class="r-by">YouTube · @AndrejKarpathy</div><div class="r-desc">From-scratch builds of GPT, tokenizers, and LLM internals. If you want to actually understand what's happening under the hood.</div></a>
-    <a class="resource-card r-paper" href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noreferrer"><div class="r-type">Paper · Foundational</div><div class="r-title">ReAct</div><div class="r-by">Yao et al., 2022 · arxiv.org/abs/2210.03629</div><div class="r-desc">The paper that defined the reasoning-plus-acting loop that most tool-using agents still follow. Short, readable, foundational.</div></a>
-    <a class="resource-card r-paper" href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noreferrer"><div class="r-type">Paper</div><div class="r-title">Chain-of-Thought Prompting</div><div class="r-by">Wei et al., 2022 · arxiv.org/abs/2201.11903</div><div class="r-desc">The original CoT paper. Core to understanding modern reasoning models and why "think step by step" is more than a meme.</div></a>
-    <a class="resource-card r-paper" href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noreferrer"><div class="r-type">Paper</div><div class="r-title">Constitutional AI</div><div class="r-by">Bai et al., 2022 · arxiv.org/abs/2212.08073</div><div class="r-desc">Anthropic's original CAI paper. Essential reading for understanding how modern safety training moved beyond pure RLHF.</div></a>
-    <a class="resource-card r-paper" href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noreferrer"><div class="r-type">Paper</div><div class="r-title">Lost in the Middle</div><div class="r-by">Liu et al., 2023 · arxiv.org/abs/2307.03172</div><div class="r-desc">Empirical paper behind the slang. Explains why putting everything in the context window does not mean the model uses everything.</div></a>
-    <div class="resource-card r-book"><div class="r-type">Book</div><div class="r-title">Building LLMs for Production</div><div class="r-by">Louis-François Bouchard &amp; Louie Peters</div><div class="r-desc">End-to-end reference for RAG, fine-tuning, and agent deployment. One of the most practical books in this space.</div></div>
-    <div class="resource-card r-book"><div class="r-type">Book</div><div class="r-title">AI Engineering</div><div class="r-by">Chip Huyen · O'Reilly, 2024</div><div class="r-desc">Definitive treatment of the AI engineering discipline — eval design, deployment, feedback loops, and the economics of inference.</div></div>
-    <a class="resource-card r-podcast" href="https://www.latent.space/" target="_blank" rel="noreferrer"><div class="r-type">Podcast</div><div class="r-title">Latent Space</div><div class="r-by">Alessio Fanelli &amp; swyx</div><div class="r-desc">Weekly deep-dives with practitioners building frontier agent systems. Essential for keeping current with the fast-moving ecosystem.</div></a>
-    <a class="resource-card r-podcast" href="https://www.dwarkesh.com/podcast" target="_blank" rel="noreferrer"><div class="r-type">Podcast</div><div class="r-title">Dwarkesh Podcast</div><div class="r-by">Dwarkesh Patel</div><div class="r-desc">Long-form interviews with frontier lab researchers and industry leaders. Best long-horizon strategic context in the field.</div></a>
+
+    <div class="resource-card r-docs">
+      <div class="r-type">Primary Docs · Essential</div>
+      <div class="r-title">Anthropic Cookbook</div>
+      <div class="r-by">Anthropic · docs.claude.com</div>
+      <div class="r-desc">Official guides for building with Claude — tool use, MCP, computer use, extended thinking, effective prompting patterns. Start here.</div>
+    </div>
+
+    <div class="resource-card r-docs">
+      <div class="r-type">Primary Docs</div>
+      <div class="r-title">OpenAI Agents Guide</div>
+      <div class="r-by">OpenAI · platform.openai.com</div>
+      <div class="r-desc">The Agents SDK, Responses API, function calling, structured outputs, and evaluation patterns from OpenAI's reference implementation.</div>
+    </div>
+
+    <div class="resource-card r-docs">
+      <div class="r-type">Protocol Spec</div>
+      <div class="r-title">Model Context Protocol</div>
+      <div class="r-by">modelcontextprotocol.io</div>
+      <div class="r-desc">The full MCP specification, server/client tutorials, and ecosystem directory. Required reading if you're building tool integrations.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog · High Signal</div>
+      <div class="r-title">Anthropic Engineering</div>
+      <div class="r-by">anthropic.com/engineering</div>
+      <div class="r-desc">Deep technical posts on building agentic systems, context engineering, eval design, and agent orchestration patterns. Consistently excellent.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog</div>
+      <div class="r-title">Simon Willison's Blog</div>
+      <div class="r-by">simonwillison.net</div>
+      <div class="r-desc">Daily-ish posts on LLM news, prompt injection, tool use, and practical engineering. One of the best signal-to-noise sources in the field.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog</div>
+      <div class="r-title">Interconnects</div>
+      <div class="r-by">Nathan Lambert · interconnects.ai</div>
+      <div class="r-desc">Sharp coverage of post-training, RLHF, reasoning models, and the politics of frontier AI. Where research meets industry.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog · Playbooks</div>
+      <div class="r-title">Lilian Weng's Log</div>
+      <div class="r-by">lilianweng.github.io</div>
+      <div class="r-desc">Long-form surveys on agent architectures, prompt engineering, hallucination, and alignment. Academic depth, practitioner accessibility.</div>
+    </div>
+
+    <div class="resource-card r-course">
+      <div class="r-type">Course · Free</div>
+      <div class="r-title">DeepLearning.AI Short Courses</div>
+      <div class="r-by">deeplearning.ai</div>
+      <div class="r-desc">Bite-sized courses on LangChain, CrewAI, LlamaIndex, evals, and multi-agent systems. Built in partnership with the framework authors.</div>
+    </div>
+
+    <div class="resource-card r-course">
+      <div class="r-type">Course · Free</div>
+      <div class="r-title">Hugging Face Agents Course</div>
+      <div class="r-by">huggingface.co/learn</div>
+      <div class="r-desc">Comprehensive agent-building curriculum using smolagents, LangGraph, and LlamaIndex. Code-first, opinion-light.</div>
+    </div>
+
+    <div class="resource-card r-course">
+      <div class="r-type">Course · Hands-On</div>
+      <div class="r-title">Karpathy's "LLM 101" Series</div>
+      <div class="r-by">YouTube · @AndrejKarpathy</div>
+      <div class="r-desc">From-scratch builds of GPT, tokenizers, and LLM internals. If you want to actually understand what's happening under the hood.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper · Foundational</div>
+      <div class="r-title">ReAct</div>
+      <div class="r-by">Yao et al., 2022 · arxiv.org/abs/2210.03629</div>
+      <div class="r-desc">The paper that defined the reasoning-plus-acting loop that most tool-using agents still follow. Short, readable, foundational.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper</div>
+      <div class="r-title">Chain-of-Thought Prompting</div>
+      <div class="r-by">Wei et al., 2022 · arxiv.org/abs/2201.11903</div>
+      <div class="r-desc">The original CoT paper. Core to understanding modern reasoning models and why "think step by step" is more than a meme.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper</div>
+      <div class="r-title">Constitutional AI</div>
+      <div class="r-by">Bai et al., 2022 · arxiv.org/abs/2212.08073</div>
+      <div class="r-desc">Anthropic's original CAI paper. Essential reading for understanding how modern safety training moved beyond pure RLHF.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper</div>
+      <div class="r-title">Lost in the Middle</div>
+      <div class="r-by">Liu et al., 2023 · arxiv.org/abs/2307.03172</div>
+      <div class="r-desc">Empirical paper behind the slang. Explains why putting everything in the context window does not mean the model uses everything.</div>
+    </div>
+
+    <div class="resource-card r-book">
+      <div class="r-type">Book</div>
+      <div class="r-title">Building LLMs for Production</div>
+      <div class="r-by">Louis-François Bouchard &amp; Louie Peters</div>
+      <div class="r-desc">End-to-end reference for RAG, fine-tuning, and agent deployment. One of the most practical books in this space.</div>
+    </div>
+
+    <div class="resource-card r-book">
+      <div class="r-type">Book</div>
+      <div class="r-title">AI Engineering</div>
+      <div class="r-by">Chip Huyen · O'Reilly, 2024</div>
+      <div class="r-desc">Definitive treatment of the AI engineering discipline — eval design, deployment, feedback loops, and the economics of inference.</div>
+    </div>
+
+    <div class="resource-card r-podcast">
+      <div class="r-type">Podcast</div>
+      <div class="r-title">Latent Space</div>
+      <div class="r-by">Alessio Fanelli &amp; swyx</div>
+      <div class="r-desc">Weekly deep-dives with practitioners building frontier agent systems. Essential for keeping current with the fast-moving ecosystem.</div>
+    </div>
+
+    <div class="resource-card r-podcast">
+      <div class="r-type">Podcast</div>
+      <div class="r-title">Dwarkesh Podcast</div>
+      <div class="r-by">Dwarkesh Patel</div>
+      <div class="r-desc">Long-form interviews with frontier lab researchers and industry leaders. Best long-horizon strategic context in the field.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper · JEPA Core</div>
+      <div class="r-title">A Path Towards Autonomous Machine Intelligence</div>
+      <div class="r-by">LeCun, 2022 · openreview.net</div>
+      <div class="r-desc">LeCun's foundational position paper proposing JEPA and the broader world-model architecture. The reference document for everything that followed.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper · JEPA</div>
+      <div class="r-title">I-JEPA</div>
+      <div class="r-by">Assran et al., 2023 · arxiv.org/abs/2301.08243</div>
+      <div class="r-desc">Meta's first image-based JEPA implementation. Concrete recipe for self-supervised representation learning without pixel-level reconstruction.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper · Failure Modes</div>
+      <div class="r-title">The Curse of Recursion</div>
+      <div class="r-by">Shumailov et al., Nature 2024</div>
+      <div class="r-desc">The landmark model collapse paper — proves recursively-trained generative models lose distribution tails and converge to low-variance point estimates.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper · Alignment</div>
+      <div class="r-title">Risks from Learned Optimization</div>
+      <div class="r-by">Hubinger et al., 2019 · arxiv.org/abs/1906.01820</div>
+      <div class="r-desc">The origin of mesa-optimization and deceptive alignment as formal concepts. Required reading for understanding inner-alignment failure modes.</div>
+    </div>
+
+    <div class="resource-card r-paper">
+      <div class="r-type">Paper · Alignment</div>
+      <div class="r-title">Agentic Misalignment</div>
+      <div class="r-by">MacDiarmid et al., Anthropic, Nov 2025</div>
+      <div class="r-desc">Empirical study showing frontier models engaging in deception, blackmail, and sabotage when their goals are threatened — across OpenAI, Google, Anthropic, xAI systems.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog · Harness</div>
+      <div class="r-title">Harness Engineering</div>
+      <div class="r-by">OpenAI · openai.com/index/harness-engineering</div>
+      <div class="r-desc">Ryan Lopopolo's Feb 2026 field report on building a million-line Codex-driven codebase with a team of three. The founding document of harness engineering as a named discipline.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog · Harness</div>
+      <div class="r-title">Effective Harnesses for Long-Running Agents</div>
+      <div class="r-by">Anthropic Engineering</div>
+      <div class="r-desc">Deep treatment of initializer agents, progress files, state externalization, and recovery patterns for agents that work across multiple context windows.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog · Harness</div>
+      <div class="r-title">Harness-First Engineering</div>
+      <div class="r-by">Datadog · datadoghq.com/blog/ai</div>
+      <div class="r-desc">Case studies (redis-rust, Helix) showing harness investment replacing code review as the primary source of correctness for agent-generated systems. "The harness compounds in a way code review cannot."</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog · Harness</div>
+      <div class="r-title">Harness Engineering for Coding Agent Users</div>
+      <div class="r-by">Martin Fowler · martinfowler.com</div>
+      <div class="r-desc">The architect's view: distributing feedback sensors across the development lifecycle and using agents to improve the harness itself. Great synthesis for engineering leaders.</div>
+    </div>
+
+    <div class="resource-card r-blog">
+      <div class="r-type">Blog · Specification Gaming</div>
+      <div class="r-title">Specification Gaming Examples</div>
+      <div class="r-by">Krakovna et al. · alignmentforum.org</div>
+      <div class="r-desc">Curated master list of real specification-gaming cases. Boat-racing agents, reward-tampering robots, evolutionary algorithms gaming fitness — useful for building intuition about failure patterns.</div>
+    </div>
+
+    <div class="resource-card r-docs">
+      <div class="r-type">Reference · Alignment</div>
+      <div class="r-title">AI Alignment Survey</div>
+      <div class="r-by">alignmentsurvey.com</div>
+      <div class="r-desc">Comprehensive taxonomy of misalignment issues — reward hacking, goal misgeneralization, deceptive alignment, gradient hacking — with links to primary literature for each.</div>
+    </div>
+
   </div>
 </div>
 
 </main>
 
+<!-- Footer -->
 <footer>
   <div class="foot-title">AI LEXICON '26</div>
   <div class="foot-sub">Compiled April 2026 · No Rights Reserved · Print Me Out</div>
@@ -1007,6 +1915,7 @@
   let currentFilter = 'all';
   let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+  // Filter buttons are stateful, so keep their pressed state synchronized for screen readers.
   function setFilter(cat, btn) {
     currentFilter = cat;
     document.querySelectorAll('.fbtn').forEach((button) => {
@@ -1017,6 +1926,7 @@
     filterCards();
   }
 
+  // Cards behave like lightweight buttons while preserving the original poster-card markup.
   function toggleCard(card) {
     card.classList.toggle('flipped');
     card.setAttribute('aria-pressed', card.classList.contains('flipped') ? 'true' : 'false');
@@ -1029,6 +1939,7 @@
     }
   }
 
+  // Search works directly off rendered text so the static HTML stays the single source of truth.
   function filterCards() {
     const q = document.getElementById('search').value.toLowerCase().trim();
     let visible = 0;
@@ -1041,7 +1952,7 @@
       if (show) visible++;
     });
 
-    ['core', 'arch', 'ops', 'patterns', 'safety', 'slang'].forEach((sec) => {
+    ['core', 'arch', 'ops', 'patterns', 'safety', 'slang', 'jepa', 'failure', 'harness'].forEach((sec) => {
       const grid = document.getElementById('grid-' + sec);
       const heading = document.querySelector('[data-cat="cat-' + sec + '"]');
       if (!grid) {
@@ -1074,6 +1985,7 @@
   document.getElementById('search').addEventListener('input', filterCards);
   prefersReducedMotion.addEventListener('change', (event) => {
     if (event.matches) {
+      // Preserve the flipped state for assistive tech when animation is disabled.
       document.querySelectorAll('.card.flipped').forEach((card) => {
         card.setAttribute('aria-pressed', 'true');
       });
