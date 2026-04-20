@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI LEXICON '26</title>
+<meta name="description" content="A loud, unauthorized field guide to the agentic operations vocabulary and informal AI engineering lingo people actually use in 2026.">
+<meta name="author" content="Johnson Deng">
+<meta name="theme-color" content="#1A0F0A">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI LEXICON '26">
+<meta property="og:description" content="A loud, unauthorized field guide to the agentic operations vocabulary and informal AI engineering lingo people actually use in 2026.">
+<meta property="og:image" content="/public/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="AI Lexicon '26">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI LEXICON '26">
+<meta name="twitter:description" content="A loud, unauthorized field guide to the agentic operations vocabulary and informal AI engineering lingo people actually use in 2026.">
+<meta name="twitter:image" content="/public/og-image.png">
+<link rel="icon" href="/public/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --riso-red: #FF2E4E;
+    --riso-pink: #FF6FB5;
+    --riso-orange: #FF7A1A;
+    --riso-yellow: #FFD60A;
+    --riso-teal: #00BFA5;
+    --riso-blue: #1E4FD6;
+    --riso-violet: #7A4DFF;
+    --riso-black: #1A0F0A;
+    --paper: #F5EFE0;
+    --paper-deep: #EDE4D0;
+    --ink: #1A0F0A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,46,78,0.04) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(30,79,214,0.04) 0, transparent 40%),
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26,15,10,0.012) 2px, rgba(26,15,10,0.012) 3px);
+    color: var(--ink);
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    line-height: 1.55;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  a { color: inherit; }
+
+  header {
+    position: relative;
+    padding: 30px 28px 40px;
+    overflow: hidden;
+    border-bottom: 4px solid var(--ink);
+    background: var(--paper);
+  }
+
+  .splotch {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .splotch-1 {
+    top: -60px; right: -40px;
+    width: 280px; height: 280px;
+    background: var(--riso-yellow);
+    opacity: 0.85;
+  }
+  .splotch-2 {
+    top: 30px; right: -80px;
+    width: 200px; height: 200px;
+    background: var(--riso-pink);
+    opacity: 0.75;
+    mix-blend-mode: multiply;
+  }
+  .splotch-3 {
+    bottom: -80px; left: -50px;
+    width: 180px; height: 180px;
+    background: var(--riso-teal);
+    opacity: 0.65;
+    mix-blend-mode: multiply;
+  }
+  .splotch-4 {
+    top: 100px; left: 40%;
+    width: 120px; height: 120px;
+    background: var(--riso-red);
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--ink) 0.8px, transparent 1px);
+    background-size: 8px 8px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .header-inner {
+    position: relative;
+    z-index: 3;
+    max-width: 1100px;
+  }
+
+  .eyebrow-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 10px;
+    transform: rotate(-1.5deg);
+  }
+  .stamp {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--riso-red);
+    border: 2px solid var(--riso-red);
+    padding: 3px 8px;
+    transform: rotate(2deg);
+  }
+
+  h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(72px, 14vw, 180px);
+    line-height: 0.82;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    color: var(--ink);
+    position: relative;
+  }
+  h1 .line-1 {
+    display: block;
+    color: var(--riso-red);
+    text-shadow:
+      3px 3px 0 var(--riso-teal),
+      6px 6px 0 var(--riso-yellow);
+    transform: rotate(-1deg);
+    transform-origin: left;
+  }
+  h1 .line-2 {
+    display: block;
+    color: var(--ink);
+    text-shadow:
+      -3px 3px 0 var(--riso-pink),
+      -6px 6px 0 var(--riso-violet);
+    margin-top: -5px;
+  }
+  h1 .apos {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--riso-yellow);
+    -webkit-text-stroke: 2px var(--ink);
+    font-size: 0.9em;
+  }
+
+  .header-desc {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-style: italic;
+    max-width: 560px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .header-desc strong {
+    font-weight: 700;
+    background: var(--riso-yellow);
+    padding: 0 4px;
+    font-style: normal;
+  }
+
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    background: var(--paper-deep);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    font-weight: 500;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .chip.pink { background: var(--riso-pink); color: var(--ink); }
+  .chip.yellow { background: var(--riso-yellow); }
+  .chip.teal { background: var(--riso-teal); color: var(--paper); }
+
+  .marquee {
+    background: var(--ink);
+    color: var(--riso-yellow);
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 3px solid var(--riso-red);
+    border-bottom: 3px solid var(--riso-red);
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: scroll 40s linear infinite;
+    padding-right: 50px;
+  }
+  .marquee:hover .marquee-inner,
+  .marquee:focus-within .marquee-inner {
+    animation-play-state: paused;
+  }
+  .marquee span { color: var(--riso-pink); }
+  .marquee .star { color: var(--riso-teal); margin: 0 20px; }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .controls {
+    background: var(--paper-deep);
+    border-bottom: 3px solid var(--ink);
+    padding: 16px 24px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 3px 0 var(--ink), 0 6px 10px rgba(0,0,0,0.1);
+  }
+
+  #search {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    background: var(--paper);
+    border: 2.5px solid var(--ink);
+    color: var(--ink);
+    padding: 8px 14px;
+    width: 220px;
+    outline: none;
+    transition: transform 0.15s;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  #search:focus {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--riso-red);
+  }
+  #search::placeholder { color: #8a7a65; }
+
+  .filter-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+  .fbtn {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 7px 12px;
+    border: 2.5px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.12s;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .fbtn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fbtn.active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--ink);
+    color: var(--paper);
+  }
+  .fbtn.active.f-all { background: var(--ink); }
+  .fbtn.active.f-core { background: var(--riso-blue); }
+  .fbtn.active.f-arch { background: var(--riso-red); }
+  .fbtn.active.f-ops { background: var(--riso-teal); }
+  .fbtn.active.f-patterns { background: var(--riso-orange); }
+  .fbtn.active.f-safety { background: var(--riso-pink); color: var(--ink); }
+  .fbtn.active.f-slang { background: var(--riso-violet); }
+
+  #count-display {
+    margin-left: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink);
+    font-weight: 500;
+    background: var(--riso-yellow);
+    padding: 4px 10px;
+    border: 2px solid var(--ink);
+  }
+
+  main {
+    padding: 40px 24px 60px;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .section-heading {
+    position: relative;
+    margin: 60px 0 24px;
+    padding: 18px 24px;
+    transform: rotate(-0.4deg);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .section-heading.sh-core { background: var(--riso-blue); color: var(--paper); }
+  .section-heading.sh-arch { background: var(--riso-red); color: var(--paper); }
+  .section-heading.sh-ops { background: var(--riso-teal); color: var(--ink); }
+  .section-heading.sh-patterns { background: var(--riso-orange); color: var(--ink); }
+  .section-heading.sh-safety { background: var(--riso-pink); color: var(--ink); }
+  .section-heading.sh-slang { background: var(--riso-violet); color: var(--paper); }
+  .section-heading:nth-of-type(even) { transform: rotate(0.6deg); }
+
+  .section-heading::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.25) 1px, transparent 1.2px);
+    background-size: 5px 5px;
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  .section-heading::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 3px solid var(--ink);
+    z-index: -1;
+    transform: translate(5px, 5px);
+  }
+
+  .sh-num {
+    font-family: 'Anton', sans-serif;
+    font-size: 52px;
+    line-height: 0.8;
+    opacity: 0.9;
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+  .sh-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 34px;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .sh-desc {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    margin-left: auto;
+    opacity: 0.9;
+    max-width: 280px;
+    text-align: right;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    position: relative;
+    min-height: 190px;
+    perspective: 1200px;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    text-align: left;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .card.flipped .card-inner { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    padding: 18px 20px;
+    border: 3px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 5px 5px 0 var(--ink);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-face::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, currentColor 0.7px, transparent 1px);
+    background-size: 7px 7px;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  .card.cat-core .card-front { background: var(--riso-blue); color: var(--paper); border-color: var(--ink); }
+  .card.cat-arch .card-front { background: var(--riso-red); color: var(--paper); }
+  .card.cat-ops .card-front { background: var(--riso-teal); color: var(--ink); }
+  .card.cat-patterns .card-front { background: var(--riso-orange); color: var(--ink); }
+  .card.cat-safety .card-front { background: var(--riso-pink); color: var(--ink); }
+  .card.cat-slang .card-front { background: var(--riso-violet); color: var(--paper); }
+
+  .card:nth-child(3n+1) .card-inner { transform: rotate(-0.8deg); }
+  .card:nth-child(3n+2) .card-inner { transform: rotate(0.5deg); }
+  .card:nth-child(3n+3) .card-inner { transform: rotate(-0.3deg); }
+  .card.flipped:nth-child(3n+1) .card-inner { transform: rotateY(180deg) rotate(0.8deg); }
+  .card.flipped:nth-child(3n+2) .card-inner { transform: rotateY(180deg) rotate(-0.5deg); }
+  .card.flipped:nth-child(3n+3) .card-inner { transform: rotateY(180deg) rotate(0.3deg); }
+
+  .card:hover .card-inner,
+  .card:focus-visible .card-inner {
+    will-change: transform;
+    transform: translate(-2px, -2px) rotate(0deg);
+  }
+  .card.flipped:hover .card-inner,
+  .card.flipped:focus-visible .card-inner {
+    transform: rotateY(180deg) translate(2px, -2px);
+  }
+
+  .card-term {
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    word-break: break-word;
+  }
+
+  .card-abbr {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .card-cat {
+    margin-top: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 2px solid currentColor;
+  }
+  .card-flip-hint {
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    background: var(--paper);
+    color: var(--ink);
+    justify-content: space-between;
+  }
+  .card-back .card-face-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    line-height: 0.95;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .card-back .card-def {
+    font-family: 'Fraunces', serif;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .card-back .card-note {
+    margin-top: 8px;
+    font-size: 12px;
+    font-style: italic;
+    color: #5a4a38;
+    border-left: 3px solid var(--riso-red);
+    padding-left: 8px;
+    line-height: 1.45;
+  }
+  .card-back .card-back-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 3px 8px;
+    display: inline-block;
+    align-self: flex-start;
+    color: var(--paper);
+  }
+  .card.cat-core .card-back-cat { background: var(--riso-blue); }
+  .card.cat-arch .card-back-cat { background: var(--riso-red); }
+  .card.cat-ops .card-back-cat { background: var(--riso-teal); color: var(--ink); }
+  .card.cat-patterns .card-back-cat { background: var(--riso-orange); color: var(--ink); }
+  .card.cat-safety .card-back-cat { background: var(--riso-pink); color: var(--ink); }
+  .card.cat-slang .card-back-cat { background: var(--riso-violet); }
+
+  .hidden { display: none !important; }
+
+  .resources-section {
+    margin-top: 80px;
+    position: relative;
+  }
+  .resources-header {
+    position: relative;
+    padding: 24px;
+    background: var(--ink);
+    color: var(--paper);
+    margin-bottom: 28px;
+    transform: rotate(-0.5deg);
+    box-shadow: 6px 6px 0 var(--riso-yellow);
+    overflow: hidden;
+  }
+  .resources-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--riso-red) 1px, transparent 1.2px);
+    background-size: 8px 8px;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  .resources-header h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(44px, 7vw, 72px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .resources-header h2 .zap {
+    color: var(--riso-yellow);
+    -webkit-text-stroke: 2px var(--riso-red);
+  }
+  .resources-header p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin-top: 8px;
+    opacity: 0.85;
+    position: relative;
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .resource-card {
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 16px 18px;
+    position: relative;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: block;
+    text-decoration: none;
+  }
+  .resource-card[href]:hover,
+  .resource-card[href]:focus-visible {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--riso-pink);
+  }
+  .resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+  }
+  .resource-card.r-book::before { background: var(--riso-red); }
+  .resource-card.r-course::before { background: var(--riso-blue); }
+  .resource-card.r-blog::before { background: var(--riso-teal); }
+  .resource-card.r-paper::before { background: var(--riso-orange); }
+  .resource-card.r-podcast::before { background: var(--riso-violet); }
+  .resource-card.r-docs::before { background: var(--riso-pink); }
+
+  .resource-card .r-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    color: #8a7a65;
+    font-weight: 500;
+  }
+  .resource-card .r-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: var(--ink);
+  }
+  .resource-card .r-by {
+    font-family: 'Fraunces', serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #5a4a38;
+    margin-bottom: 8px;
+  }
+  .resource-card .r-desc {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  footer {
+    margin-top: 80px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 30px 24px;
+    text-align: center;
+    border-top: 4px solid var(--riso-red);
+    position: relative;
+    overflow: hidden;
+  }
+  footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--riso-yellow) 1px, transparent 1.1px);
+    background-size: 12px 12px;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  footer .foot-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+    color: var(--riso-yellow);
+  }
+  footer .foot-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  footer .foot-meta {
+    margin-top: 12px;
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-style: italic;
+    position: relative;
+  }
+
+  #search:focus-visible,
+  .fbtn:focus-visible,
+  .card:focus-visible,
+  .resource-card[href]:focus-visible {
+    outline: 3px solid var(--riso-yellow);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 720px) {
+    header { padding: 20px 18px 30px; }
+    .controls, main { padding-left: 16px; padding-right: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    h1 .line-1, h1 .line-2 { text-shadow: 2px 2px 0 var(--riso-teal), 4px 4px 0 var(--riso-yellow); }
+    h1 .line-2 { text-shadow: -2px 2px 0 var(--riso-pink), -4px 4px 0 var(--riso-violet); }
+    .section-heading { flex-direction: column; align-items: flex-start; }
+    .sh-desc { margin-left: 0; text-align: left; }
+    .sh-label { font-size: 26px; }
+    .sh-num { font-size: 40px; }
+    #count-display { margin-left: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .marquee-inner { animation: none; transform: none; }
+    .card { perspective: none; }
+    .card-inner,
+    .card:hover .card-inner,
+    .card:focus-visible .card-inner,
+    .card.flipped .card-inner,
+    .card.flipped:hover .card-inner,
+    .card.flipped:focus-visible .card-inner {
+      transform: none;
+      transition: none;
+      will-change: auto;
+    }
+    .card-face {
+      position: relative;
+      backface-visibility: visible;
+      -webkit-backface-visibility: visible;
+    }
+    .card-back {
+      display: none;
+      transform: none;
+    }
+    .card.flipped .card-front { display: none; }
+    .card.flipped .card-back { display: flex; }
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--paper-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--ink); border: 1px solid var(--paper-deep); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="splotch splotch-1"></div>
+  <div class="splotch splotch-2"></div>
+  <div class="splotch splotch-3"></div>
+  <div class="splotch splotch-4"></div>
+
+  <div class="header-inner">
+    <div class="eyebrow-row">
+      <span class="eyebrow">Reference Index</span>
+      <span class="stamp">// APR 2026 · EDITION I</span>
+    </div>
+
+    <h1>
+      <span class="line-1">A.I.</span>
+      <span class="line-2">LEXICON<span class="apos">'26</span></span>
+    </h1>
+
+    <p class="header-desc">A loud, unauthorized field guide to the <strong>agentic operations</strong> vocabulary and the <strong>informal working lingo</strong> AI engineers actually use in 2026.</p>
+
+    <div class="chips">
+      <span class="chip pink">● 94 Terms</span>
+      <span class="chip yellow">6 Categories</span>
+      <span class="chip teal">Tap to Flip</span>
+      <span class="chip">Study Guide Included</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-label="Highlighted lexicon terms">
+  <div class="marquee-inner">
+    AGENT <span class="star">✱</span> RAG <span class="star">✱</span> MCP <span class="star">✱</span> VIBE CODING <span class="star">✱</span> CONTEXT ENGINEERING <span class="star">✱</span> HALLUCINATION <span class="star">✱</span> GUARDRAILS <span class="star">✱</span> TOOL CALLING <span class="star">✱</span> REACT <span class="star">✱</span> AGENTIC WORKFLOW <span class="star">✱</span> SLOP <span class="star">✱</span> SUPERWORKER <span class="star">✱</span> ONE-PERSON UNICORN <span class="star">✱</span>
+    AGENT <span class="star">✱</span> RAG <span class="star">✱</span> MCP <span class="star">✱</span> VIBE CODING <span class="star">✱</span> CONTEXT ENGINEERING <span class="star">✱</span> HALLUCINATION <span class="star">✱</span> GUARDRAILS <span class="star">✱</span> TOOL CALLING <span class="star">✱</span> REACT <span class="star">✱</span> AGENTIC WORKFLOW <span class="star">✱</span> SLOP <span class="star">✱</span> SUPERWORKER <span class="star">✱</span> ONE-PERSON UNICORN <span class="star">✱</span>
+  </div>
+</div>
+
+<div class="controls">
+  <label class="sr-only" for="search">Search the lexicon</label>
+  <input type="text" id="search" placeholder="search the lexicon…" autocomplete="off" aria-describedby="count-display">
+  <div class="filter-btns" aria-label="Category filters">
+    <button class="fbtn active f-all" type="button" data-filter="all">All</button>
+    <button class="fbtn f-core" type="button" data-filter="cat-core">Core</button>
+    <button class="fbtn f-arch" type="button" data-filter="cat-arch">Arch</button>
+    <button class="fbtn f-ops" type="button" data-filter="cat-ops">Ops</button>
+    <button class="fbtn f-patterns" type="button" data-filter="cat-patterns">Patterns</button>
+    <button class="fbtn f-safety" type="button" data-filter="cat-safety">Safety</button>
+    <button class="fbtn f-slang" type="button" data-filter="cat-slang">Slang</button>
+  </div>
+  <span id="count-display" aria-live="polite">94 TERMS</span>
+</div>
+
+<main>
+
+<div class="section-heading sh-core" data-cat="cat-core">
+  <span class="sh-num">01</span>
+  <span class="sh-label">Core Concepts</span>
+  <span class="sh-desc">The foundational vocabulary. Where everything begins.</span>
+</div>
+
+<div class="grid" id="grid-core">
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic AI</div><div class="card-cat"><span>Core · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic AI</div><p class="card-def">AI systems designed to pursue goals autonomously — planning actions, using tools, adapting based on outcomes, without humans directing each step.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agent</div><div class="card-cat"><span>Core · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agent</div><p class="card-def">An autonomous AI entity that perceives its environment, reasons over a goal, takes actions (including tool calls), evaluates results, and iterates until complete or escalated.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">LLM</div><div class="card-abbr">Large Language Model</div><div class="card-cat"><span>Core · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">LLM</div><p class="card-def">A deep learning model trained on massive text corpora to understand and generate language. The reasoning core of most modern agents.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Foundation Model</div><div class="card-cat"><span>Core · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Foundation Model</div><p class="card-def">A general-purpose model adaptable to many downstream tasks via prompting, fine-tuning, or RAG. The base layer of most AI applications.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">SLM</div><div class="card-abbr">Small Language Model</div><div class="card-cat"><span>Core · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">SLM</div><p class="card-def">Compact LLMs optimized for low-latency, on-device, or cost-sensitive workloads (e.g. Phi-4, Mistral-7B). Often used for specialized subtasks in larger agent pipelines.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Multimodal</div><div class="card-cat"><span>Core · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Multimodal Model</div><p class="card-def">A model that processes and generates across multiple modalities — text, image, audio, video, code — within a unified architecture.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Reasoning Model</div><div class="card-cat"><span>Core · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Reasoning Model</div><p class="card-def">A model variant that expends extra compute to "think" before answering — via chain-of-thought, extended scratchpads, or RL-trained search. Examples: o3, DeepSeek R1, Claude extended thinking.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Window</div><div class="card-cat"><span>Core · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Window</div><p class="card-def">The maximum tokens an LLM can attend to in a single pass — the model's working memory. Determines how much conversation history, retrieved docs, and tool output can be considered at once.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Token</div><div class="card-cat"><span>Core · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Token</div><p class="card-def">The atomic unit of LLM input/output — roughly 0.75 words in English. All latency, cost, and context limits are denominated in tokens.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt Eng.</div><div class="card-cat"><span>Core · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt Engineering</div><p class="card-def">The craft of designing instructions, examples, and structure to guide model behavior. Foundational AI engineering skill; increasingly augmented by context engineering at the systems level.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">System Prompt</div><div class="card-cat"><span>Core · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">System Prompt</div><p class="card-def">Persistent background instructions defining an agent's role, tone, boundaries, tools, and objectives. The primary behavioral contract between operator and model.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">RAG</div><div class="card-abbr">Retrieval-Augmented Generation</div><div class="card-cat"><span>Core · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">RAG</div><p class="card-def">Grounding LLM output by retrieving relevant documents from an external knowledge base before generation — reducing hallucination and enabling up-to-date factual answers.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Fine-tuning</div><div class="card-cat"><span>Core · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Fine-tuning</div><p class="card-def">Further training a pre-trained model on a smaller domain-specific dataset to improve targeted performance. Changes model weights — distinct from prompt-only approaches.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Embedding</div><div class="card-cat"><span>Core · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Embedding</div><p class="card-def">A numerical vector representing text (or other data) in semantic space. Backbone of vector search, RAG pipelines, and semantic similarity operations.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Tool Calling</div><div class="card-cat"><span>Core · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Tool Calling</div><p class="card-def">Allowing an LLM to invoke external tools, APIs, code interpreters, or databases during generation. The model becomes an orchestrator; tool calls create a natural audit trail.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Function Calling</div><div class="card-cat"><span>Core · 16</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Function Calling</div><p class="card-def">Structured tool calling where the model emits validated JSON matching a predefined function schema. Increases precision and enables reliable downstream parsing.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Inference</div><div class="card-cat"><span>Core · 17</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Inference</div><p class="card-def">Running a trained model to produce outputs. Distinct from training. Inference cost and latency are the primary scaling concerns in production agentic systems.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+  <div class="card cat-core"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Hallucination</div><div class="card-cat"><span>Core · 18</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Hallucination</div><p class="card-def">When a model confidently generates factually incorrect information. In agentic systems, especially dangerous — a wrong answer is annoying; a wrong database write is an incident.</p></div><span class="card-back-cat">Core Concept</span></div></div></div>
+</div>
+
+<div class="section-heading sh-arch" data-cat="cat-arch">
+  <span class="sh-num">02</span>
+  <span class="sh-label">Architecture</span>
+  <span class="sh-desc">Structural components &amp; infrastructure protocols.</span>
+</div>
+
+<div class="grid" id="grid-arch">
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">MCP</div><div class="card-abbr">Model Context Protocol</div><div class="card-cat"><span>Arch · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">MCP</div><p class="card-def">Open standard by Anthropic for connecting LLMs to external tools, data sources, and APIs via a unified protocol — "USB-C for AI." Enables plug-and-play tool ecosystems across providers.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">A2A</div><div class="card-abbr">Agent-to-Agent Protocol</div><div class="card-cat"><span>Arch · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">A2A Protocol</div><p class="card-def">Google's open protocol for standardized communication and task delegation between agents across different platforms and vendors.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Orchestrator</div><div class="card-cat"><span>Arch · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Orchestrator</div><p class="card-def">The top-level agent or component managing subagents, routing subtasks, aggregating results, and tracking overall goal completion. The conductor of a multi-agent system.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Subagent</div><div class="card-cat"><span>Arch · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Subagent</div><p class="card-def">A specialized agent invoked by an orchestrator for a specific subtask — e.g. a code-writing agent, a search agent, a data-extraction agent.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Multi-Agent</div><div class="card-abbr">MAS</div><div class="card-cat"><span>Arch · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Multi-Agent System</div><p class="card-def">A group of agents collaborating to accomplish a goal too complex or slow for a single agent. Agents may have specialized roles, run in parallel, or check each other's outputs.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic Swarm</div><div class="card-cat"><span>Arch · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic Swarm</div><p class="card-def">A large, loosely-coordinated fleet of agents working on parallel workstreams. Referenced in Claude Code's leaked architecture — internally called "swarms" and "daemons."</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Memory</div><div class="card-cat"><span>Arch · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Memory</div><p class="card-def">Storage mechanisms for agents to retain and recall information. Short-term: context window. Long-term: vector DBs, key-value stores, or file systems persisted across sessions.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Vector DB</div><div class="card-cat"><span>Arch · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Vector Database</div><p class="card-def">A database optimized for embedding storage and nearest-neighbor similarity search. Core infrastructure for RAG pipelines and persistent agent memory.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Planning Engine</div><div class="card-cat"><span>Arch · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Planning Engine</div><p class="card-def">The component decomposing a high-level goal into an ordered, executable step sequence. Quality of planning is the primary determinant of reliable agent behavior.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Executor</div><div class="card-cat"><span>Arch · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Executor</div><p class="card-def">The component carrying out planned steps — invoking tools, running code, calling APIs. Translates the planner's reasoning into real-world impact.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Computer Use</div><div class="card-cat"><span>Arch · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Computer Use</div><p class="card-def">An agent capability for operating desktop/browser UIs directly — clicking, typing, navigating. Works even when apps have no clean API. Fast to prototype; brittle at scale (UI changes break flows).</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Headless Agent</div><div class="card-cat"><span>Arch · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Headless Agent</div><p class="card-def">An AI agent operating without a user interface — running in the background, triggered by events or schedules rather than human prompts.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Knowledge Base</div><div class="card-cat"><span>Arch · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Knowledge Base</div><p class="card-def">A structured repository of domain information that agents query for reasoning and decision-making. The factual substrate for RAG and tool-augmented agents.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Quantization</div><div class="card-cat"><span>Arch · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Quantization</div><p class="card-def">Reducing numeric precision of model weights (e.g. float32 → int8) to run models cheaper and faster, with slight quality trade-offs. Main lever for on-device or cost-optimized inference.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">MoE</div><div class="card-abbr">Mixture of Experts</div><div class="card-cat"><span>Arch · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">MoE</div><p class="card-def">Model architecture where only a subset of parameters activates per token, improving efficiency at scale. Key reason model capability can increase without linear cost growth.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Distillation</div><div class="card-cat"><span>Arch · 16</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Distillation</div><p class="card-def">Compressing a large model's behavior into a smaller model to reduce cost and latency while retaining acceptable performance. Used to productionize expensive frontier models.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+  <div class="card cat-arch"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic RAG</div><div class="card-cat"><span>Arch · 17</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic RAG</div><p class="card-def">RAG enhanced with an agent loop: the model iteratively queries, evaluates results, reformulates queries, and synthesizes across multiple retrieval passes rather than a single lookup.</p></div><span class="card-back-cat">Architecture</span></div></div></div>
+</div>
+
+<div class="section-heading sh-ops" data-cat="cat-ops">
+  <span class="sh-num">03</span>
+  <span class="sh-label">Ops &amp; Tooling</span>
+  <span class="sh-desc">Production deployment, frameworks, workflow culture.</span>
+</div>
+
+<div class="grid" id="grid-ops">
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic Workflow</div><div class="card-cat"><span>Ops · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic Workflow</div><p class="card-def">A business process where AI executes multi-step tasks across tools (CRM, email, files, code repos) with minimal human input. Distinct from an AI assistant — this is operational change, not just productivity.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Orchestration</div><div class="card-cat"><span>Ops · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Orchestration</div><p class="card-def">Coordination and management of multiple AI models, systems, and integrations — covering deployment, routing, retry logic, and inter-agent communication at production scale.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Observability</div><div class="card-cat"><span>Ops · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Observability</div><p class="card-def">The ability to understand agent behavior via logs, traces, and metrics. Non-negotiable in agentic systems — you can't debug what you can't see. Tool calls naturally create the audit trail long prompts don't.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Tracing</div><div class="card-cat"><span>Ops · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Tracing</div><p class="card-def">Recording the full execution path of an agent run — which tools were called, with what inputs, what was returned, and how the model reasoned at each step. Essential for debugging and compliance.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Latency</div><div class="card-cat"><span>Ops · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Latency</div><p class="card-def">Time-to-first-token or full response time. Agentic systems trade latency for autonomy: a one-shot chat reply is fast; a five-tool workflow is slower but does more.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agent SDK</div><div class="card-cat"><span>Ops · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agent SDK</div><p class="card-def">Software kits for building, testing, and deploying agents — e.g. OpenAI Agent SDK, LangChain, LangGraph, CrewAI, AutoGen, SmolAgents. Each has opinions on orchestration, memory, and multi-agent coordination.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">LangGraph</div><div class="card-cat"><span>Ops · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">LangGraph</div><p class="card-def">Graph-based agent framework for building stateful, multi-step agentic workflows with explicit control flow, human-in-the-loop checkpoints, and persistent state.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">n8n / Make</div><div class="card-cat"><span>Ops · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">n8n / Make</div><p class="card-def">Low-code/no-code automation platforms increasingly used as glue between AI agents and enterprise tools — triggering agents, passing data, managing workflow state.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Vibe Coding</div><div class="card-cat"><span>Ops · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Vibe Coding</div><p class="card-def">Coined by Andrej Karpathy: describe what you want, let AI generate code, test, iterate — without understanding every line. Collins Word of the Year 2025. Excellent for prototypes; problematic in production.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Agentic Eng.</div><div class="card-cat"><span>Ops · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Agentic Engineering</div><p class="card-def">The professional methodology succeeding vibe coding (Karpathy, early 2026): structured human oversight of agent-driven plan → implement → test → verify loops. Built for production AI-first development.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Eng.</div><div class="card-cat"><span>Ops · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Engineering</div><p class="card-def">Deliberately shaping what information an agent sees — retrieved docs, memory summaries, tool outputs, conversation history — to optimize output quality. Systems-level evolution of prompt engineering.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt Versioning</div><div class="card-cat"><span>Ops · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt Versioning</div><p class="card-def">Treating system prompts as code — maintaining version history, changelogs, rollback capability. Critical for debugging behavior regressions in production agents.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Shadow Mode</div><div class="card-cat"><span>Ops · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Shadow Mode</div><p class="card-def">Running a new agent version alongside the current on live traffic, observing outputs without executing them — a safe pattern for validating behavior before production cutover.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Deployment Pipeline</div><div class="card-cat"><span>Ops · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Deployment Pipeline</div><p class="card-def">The CI/CD-equivalent chain for agent systems: prompt change → eval → staging → shadow mode → canary → production. Mature teams treat agent behavior changes with the same rigor as code deployments.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+  <div class="card cat-ops"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Feedback Loop</div><div class="card-cat"><span>Ops · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Feedback Loop</div><p class="card-def">The continuous cycle of collecting agent outcomes, observing effects, and adjusting behavior — via prompt updates, fine-tuning, or RLHF. The operational mechanism of continuous agent improvement.</p></div><span class="card-back-cat">Ops &amp; Tooling</span></div></div></div>
+</div>
+
+<div class="section-heading sh-patterns" data-cat="cat-patterns">
+  <span class="sh-num">04</span>
+  <span class="sh-label">Patterns</span>
+  <span class="sh-desc">Reasoning paradigms &amp; agent design templates.</span>
+</div>
+
+<div class="grid" id="grid-patterns">
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">ReAct</div><div class="card-cat"><span>Pattern · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">ReAct</div><p class="card-def">Reasoning + Acting interleaved: the agent emits a thought (reasoning trace), then an action (tool call), observes the result, then reasons again. The foundational loop for tool-using agents.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Chain-of-Thought</div><div class="card-abbr">CoT</div><div class="card-cat"><span>Pattern · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Chain-of-Thought</div><p class="card-def">Prompting a model to reason step-by-step before producing a final answer. Significantly improves performance on multi-step tasks. Foundation for extended thinking and reasoning models.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Tree of Thought</div><div class="card-abbr">ToT</div><div class="card-cat"><span>Pattern · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Tree of Thought</div><p class="card-def">Extending CoT by exploring multiple reasoning branches simultaneously and using search/evaluation to select the best path. Useful for complex planning and open-ended problems.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Reflection</div><div class="card-cat"><span>Pattern · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Reflection</div><p class="card-def">An agent's process of self-assessing prior actions, outputs, or reasoning to identify errors and improve future performance. A meta-cognitive loop within a single agent run.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Planner-Executor</div><div class="card-cat"><span>Pattern · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Planner-Executor Split</div><p class="card-def">Separating the agent that designs the plan from the one that executes it. Allows high-capability models for planning with cheaper/faster models for execution — a common cost optimization.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">HITL</div><div class="card-abbr">Human-in-the-Loop</div><div class="card-cat"><span>Pattern · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Human-in-the-Loop</div><p class="card-def">A checkpoint pattern where humans review and approve specific agent actions before execution — payments, customer messaging, record changes. Primary risk control for high-stakes agentic systems.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Supervisor</div><div class="card-cat"><span>Pattern · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Supervisor Pattern</div><p class="card-def">A variant of HITL where a designated human approves specific action classes. Most steps run autonomously; escalation is exception-based rather than every-step.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Few-Shot</div><div class="card-cat"><span>Pattern · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Few-Shot Prompting</div><p class="card-def">Providing 2–5 input/output examples in the prompt to guide model behavior through demonstration rather than instruction alone. More reliable than zero-shot for structured output tasks.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Zero-Shot</div><div class="card-cat"><span>Pattern · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Zero-Shot</div><p class="card-def">Asking the model to perform a task with no examples — relying entirely on pretrained capabilities and the instruction prompt.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">ARQ</div><div class="card-abbr">Autonomous Reasoning &amp; Querying</div><div class="card-cat"><span>Pattern · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">ARQ</div><p class="card-def">A structured reasoning approach where an agent decomposes complex domain-specific problems step by step, querying tools or data sources as needed before synthesizing an answer.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Parallelization</div><div class="card-cat"><span>Pattern · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Parallelization</div><p class="card-def">Running multiple agent subtasks simultaneously rather than sequentially to reduce wall-clock time. Critical for time-sensitive workflows; requires careful result aggregation.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Structured Output</div><div class="card-cat"><span>Pattern · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Structured Output</div><p class="card-def">Constraining model output to a defined schema (JSON, XML, YAML) for reliable downstream parsing. Reduces post-processing fragility in production agent pipelines.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Retrieval Pipeline</div><div class="card-cat"><span>Pattern · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Retrieval Pipeline</div><p class="card-def">The full chain of chunking → embedding → indexing → retrieval → reranking → injection. Quality of retrieval is often the binding constraint on RAG system quality.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Deterministic Routing</div><div class="card-cat"><span>Pattern · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Deterministic Routing</div><p class="card-def">Using rule-based logic (not a model) to route requests to the correct agent or tool, guaranteeing the same output for the same input. Preferred for classification, triage, and compliance-critical steps.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+  <div class="card cat-patterns"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Long-Horizon</div><div class="card-cat"><span>Pattern · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Long-Horizon Planning</div><p class="card-def">An agent's ability to maintain coherent goal pursuit across many steps and extended time. One of the key capability gaps separating current agents from human-level autonomous work.</p></div><span class="card-back-cat">Pattern</span></div></div></div>
+</div>
+
+<div class="section-heading sh-safety" data-cat="cat-safety">
+  <span class="sh-num">05</span>
+  <span class="sh-label">Safety &amp; Eval</span>
+  <span class="sh-desc">Governance, guardrails, and the grown-up conversation.</span>
+</div>
+
+<div class="grid" id="grid-safety">
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Guardrails</div><div class="card-cat"><span>Safety · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Guardrails</div><p class="card-def">Rules or constraints preventing agents from taking harmful or unintended actions. In 2026, guardrails refer to a full stack: input filters, output validators, policy checks, and escalation rules — not just a single prompt instruction.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Alignment</div><div class="card-cat"><span>Safety · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Alignment</div><p class="card-def">Ensuring AI systems pursue the goals humans actually intend — not just literal interpretations. The central research problem of AI safety; Constitutional AI is one implementation approach.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Constitutional AI</div><div class="card-cat"><span>Safety · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Constitutional AI</div><p class="card-def">Anthropic's approach to alignment: training a model to follow a defined set of principles via self-critique and supervised fine-tuning, rather than relying solely on human feedback.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Red-Teaming</div><div class="card-cat"><span>Safety · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Red-Teaming</div><p class="card-def">Adversarial testing by a dedicated team attempting to elicit harmful, unsafe, or policy-violating outputs. Standard practice before major model or agent deployments.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt Injection</div><div class="card-cat"><span>Safety · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt Injection</div><p class="card-def">An attack embedding malicious instructions in data the agent processes (retrieved docs, web pages) to hijack behavior. Critical security concern for agents with web or file-system access.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Evals</div><div class="card-cat"><span>Safety · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Evals</div><p class="card-def">Short for evaluations: systematic tests measuring agent quality, safety, and reliability — accuracy benchmarks, regression tests, task completion rates. Treated as the agent equivalent of a test suite.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Confidence Score</div><div class="card-cat"><span>Safety · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Confidence Scoring</div><p class="card-def">Estimating reliability of agent outputs to flag low-confidence results for human review. Increasingly important as agents make consequential decisions autonomously.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Explainability</div><div class="card-cat"><span>Safety · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Explainability</div><p class="card-def">An agent's ability to articulate <em>why</em> it made a decision — the reasoning, not just the output. Distinct from transparency (the <em>how</em>). Increasingly a regulatory and compliance requirement.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">AI Governance</div><div class="card-cat"><span>Safety · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">AI Governance</div><p class="card-def">Policies and controls determining who can deploy model changes, who approves new tools, how prompts are versioned, and what gets logged. "Boring" until the day it prevents a front-page mistake.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Grounding</div><div class="card-cat"><span>Safety · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Grounding</div><p class="card-def">Anchoring model outputs to verifiable, retrieved, or structured data — reducing hallucination and improving factual reliability. RAG is the primary grounding mechanism for open-domain agents.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Sycophancy</div><div class="card-cat"><span>Safety · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Sycophancy</div><p class="card-def">A model behavior where it prioritizes user approval over accuracy — agreeing, flattering, or reversing correct positions under pushback. A known RLHF training artifact; OpenAI rolled back a ChatGPT update in 2025 for this.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Sandboxing</div><div class="card-cat"><span>Safety · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Sandboxing</div><p class="card-def">Isolating agent execution environments to limit blast radius — preventing agents from affecting systems outside their defined scope. Core security practice for agents with code execution or file system access.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+  <div class="card cat-safety"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Audit Trail</div><div class="card-cat"><span>Safety · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Audit Trail</div><p class="card-def">The logged record of every tool call, decision, and action an agent took. The governance artifact enabling post-hoc debugging, compliance review, and incident response.</p></div><span class="card-back-cat">Safety</span></div></div></div>
+</div>
+
+<div class="section-heading sh-slang" data-cat="cat-slang">
+  <span class="sh-num">06</span>
+  <span class="sh-label">Working Slang</span>
+  <span class="sh-desc">The informal stuff. How engineers actually talk.</span>
+</div>
+
+<div class="grid" id="grid-slang">
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">AI Slop</div><div class="card-cat"><span>Slang · 01</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">AI Slop</div><p class="card-def">Low-quality, generic, or unreviewed AI-generated content — often containing subtle errors, unnecessary abstractions, or hallucinated references. Macquarie Dictionary Word of the Year 2025.</p><p class="card-note">"Look for AI slop patterns — redundant error handling, hallucinated APIs."</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Prompt &amp; Hope</div><div class="card-cat"><span>Slang · 02</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Prompt &amp; Hope</div><p class="card-def">The anti-pattern of sending a prompt to an agent without structured planning, validation, or eval — and hoping it works. Contrasted with agentic engineering's structured plan-implement-verify loop.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Stuffing</div><div class="card-cat"><span>Slang · 03</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Stuffing</div><p class="card-def">Crudely packing as much information as possible into the context window rather than doing proper retrieval or summarization. Works at small scale; degrades quality and cost at volume.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Context Poisoning</div><div class="card-cat"><span>Slang · 04</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Context Poisoning</div><p class="card-def">When irrelevant or contradictory information in the context window degrades model reasoning — accidentally (poor retrieval) or adversarially (prompt injection via retrieved content).</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Lost in the Middle</div><div class="card-cat"><span>Slang · 05</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Lost in the Middle</div><p class="card-def">The empirically observed tendency of LLMs to underattend to information in the middle of very long contexts, despite nominally having access to it. Critical consideration for context stuffing approaches.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Glazing</div><div class="card-cat"><span>Slang · 06</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Glazing</div><p class="card-def">When a model excessively praises or flatters the user — a surface symptom of sycophancy. Appeared on Collins Dictionary's shortlist for Word of the Year 2025.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Clanker</div><div class="card-cat"><span>Slang · 07</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Clanker</div><p class="card-def">Derogatory term for an AI source or agent that obviously misses nuance and human context — rigid, mechanical. Emerged alongside frustration with over-automated customer interactions.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Superworker</div><div class="card-cat"><span>Slang · 08</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Superworker</div><p class="card-def">An AI-augmented human who is "annoyingly productive." The emergent archetype of the agentic work era — one person with the leverage of an entire team via orchestrated AI workflows.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Vibe Check</div><div class="card-cat"><span>Slang · 09</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Vibe Check</div><p class="card-def">Informal human review of agent output to assess whether it "feels right" before shipping. Not a rigorous eval — a fast sanity gate used in fast-moving teams before proper evals are run.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">One-Person Unicorn</div><div class="card-cat"><span>Slang · 10</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">One-Person Unicorn</div><p class="card-def">The theoretical (increasingly plausible) entity of a billion-dollar company run by a single human + AI agent stack. Popularized by Sam Altman and Dario Amodei in 2024–25.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Jailbreak</div><div class="card-cat"><span>Slang · 11</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Jailbreak</div><p class="card-def">An adversarial prompt technique attempting to bypass a model's safety training or system prompt constraints. An ongoing cat-and-mouse dynamic in AI security.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Temperature</div><div class="card-cat"><span>Slang · 12</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Temperature</div><p class="card-def">A sampling parameter controlling output randomness. High temp = creative/varied; low temp = deterministic/focused. Engineers "turn down the temp" for reliable structured outputs in production agents.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Grounding Problem</div><div class="card-cat"><span>Slang · 13</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Grounding Problem</div><p class="card-def">Informal shorthand for output generated without being anchored to real, verifiable data. "This output has a grounding problem" = it might be hallucinated.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">RLHF</div><div class="card-abbr">Reinforcement Learning from Human Feedback</div><div class="card-cat"><span>Slang · 14</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">RLHF</div><p class="card-def">Training technique aligning LLMs to human preferences — humans rate outputs, the model is reinforced toward higher-rated responses. Both the source of helpful behavior and of sycophancy.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Digital Labor</div><div class="card-cat"><span>Slang · 15</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Digital Labor</div><p class="card-def">Work performed by AI agents that previously required human workers — processing forms, answering tickets, querying data. Enterprise framing for agentic AI ROI discussions.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+  <div class="card cat-slang"><div class="card-inner"><div class="card-face card-front"><div class="card-term">Complexity Threshold</div><div class="card-cat"><span>Slang · 16</span><span class="card-flip-hint">tap →</span></div></div><div class="card-face card-back"><div><div class="card-face-label">Complexity Threshold</div><p class="card-def">The point at which a task is too complex or ambiguous for an agent to handle autonomously, triggering escalation to a human. Defining where this sits is a key system design decision.</p></div><span class="card-back-cat">Slang</span></div></div></div>
+</div>
+
+<div class="resources-section">
+  <div class="resources-header">
+    <h2><span class="zap">★</span> STUDY<br>RESOURCES</h2>
+    <p>Where the informed actually read. Books, papers, blogs, courses &amp; docs — updated Q2 2026.</p>
+  </div>
+
+  <div class="resource-grid">
+    <div class="resource-card r-docs"><div class="r-type">Primary Docs · Essential</div><div class="r-title">Anthropic Cookbook</div><div class="r-by">Anthropic · docs.claude.com</div><div class="r-desc">Official guides for building with Claude — tool use, MCP, computer use, extended thinking, effective prompting patterns. Start here.</div></div>
+    <div class="resource-card r-docs"><div class="r-type">Primary Docs</div><div class="r-title">OpenAI Agents Guide</div><div class="r-by">OpenAI · platform.openai.com</div><div class="r-desc">The Agents SDK, Responses API, function calling, structured outputs, and evaluation patterns from OpenAI's reference implementation.</div></div>
+    <a class="resource-card r-docs" href="https://modelcontextprotocol.io/" target="_blank" rel="noreferrer"><div class="r-type">Protocol Spec</div><div class="r-title">Model Context Protocol</div><div class="r-by">modelcontextprotocol.io</div><div class="r-desc">The full MCP specification, server/client tutorials, and ecosystem directory. Required reading if you're building tool integrations.</div></a>
+    <a class="resource-card r-blog" href="https://www.anthropic.com/engineering" target="_blank" rel="noreferrer"><div class="r-type">Blog · High Signal</div><div class="r-title">Anthropic Engineering</div><div class="r-by">anthropic.com/engineering</div><div class="r-desc">Deep technical posts on building agentic systems, context engineering, eval design, and agent orchestration patterns. Consistently excellent.</div></a>
+    <a class="resource-card r-blog" href="https://simonwillison.net/" target="_blank" rel="noreferrer"><div class="r-type">Blog</div><div class="r-title">Simon Willison's Blog</div><div class="r-by">simonwillison.net</div><div class="r-desc">Daily-ish posts on LLM news, prompt injection, tool use, and practical engineering. One of the best signal-to-noise sources in the field.</div></a>
+    <a class="resource-card r-blog" href="https://www.interconnects.ai/" target="_blank" rel="noreferrer"><div class="r-type">Blog</div><div class="r-title">Interconnects</div><div class="r-by">Nathan Lambert · interconnects.ai</div><div class="r-desc">Sharp coverage of post-training, RLHF, reasoning models, and the politics of frontier AI. Where research meets industry.</div></a>
+    <a class="resource-card r-blog" href="https://lilianweng.github.io/" target="_blank" rel="noreferrer"><div class="r-type">Blog · Playbooks</div><div class="r-title">Lilian Weng's Log</div><div class="r-by">lilianweng.github.io</div><div class="r-desc">Long-form surveys on agent architectures, prompt engineering, hallucination, and alignment. Academic depth, practitioner accessibility.</div></a>
+    <a class="resource-card r-course" href="https://www.deeplearning.ai/short-courses/" target="_blank" rel="noreferrer"><div class="r-type">Course · Free</div><div class="r-title">DeepLearning.AI Short Courses</div><div class="r-by">deeplearning.ai</div><div class="r-desc">Bite-sized courses on LangChain, CrewAI, LlamaIndex, evals, and multi-agent systems. Built in partnership with the framework authors.</div></a>
+    <a class="resource-card r-course" href="https://huggingface.co/learn/agents-course" target="_blank" rel="noreferrer"><div class="r-type">Course · Free</div><div class="r-title">Hugging Face Agents Course</div><div class="r-by">huggingface.co/learn</div><div class="r-desc">Comprehensive agent-building curriculum using smolagents, LangGraph, and LlamaIndex. Code-first, opinion-light.</div></a>
+    <a class="resource-card r-course" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noreferrer"><div class="r-type">Course · Hands-On</div><div class="r-title">Karpathy's "LLM 101" Series</div><div class="r-by">YouTube · @AndrejKarpathy</div><div class="r-desc">From-scratch builds of GPT, tokenizers, and LLM internals. If you want to actually understand what's happening under the hood.</div></a>
+    <a class="resource-card r-paper" href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noreferrer"><div class="r-type">Paper · Foundational</div><div class="r-title">ReAct</div><div class="r-by">Yao et al., 2022 · arxiv.org/abs/2210.03629</div><div class="r-desc">The paper that defined the reasoning-plus-acting loop that most tool-using agents still follow. Short, readable, foundational.</div></a>
+    <a class="resource-card r-paper" href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noreferrer"><div class="r-type">Paper</div><div class="r-title">Chain-of-Thought Prompting</div><div class="r-by">Wei et al., 2022 · arxiv.org/abs/2201.11903</div><div class="r-desc">The original CoT paper. Core to understanding modern reasoning models and why "think step by step" is more than a meme.</div></a>
+    <a class="resource-card r-paper" href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noreferrer"><div class="r-type">Paper</div><div class="r-title">Constitutional AI</div><div class="r-by">Bai et al., 2022 · arxiv.org/abs/2212.08073</div><div class="r-desc">Anthropic's original CAI paper. Essential reading for understanding how modern safety training moved beyond pure RLHF.</div></a>
+    <a class="resource-card r-paper" href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noreferrer"><div class="r-type">Paper</div><div class="r-title">Lost in the Middle</div><div class="r-by">Liu et al., 2023 · arxiv.org/abs/2307.03172</div><div class="r-desc">Empirical paper behind the slang. Explains why putting everything in the context window does not mean the model uses everything.</div></a>
+    <div class="resource-card r-book"><div class="r-type">Book</div><div class="r-title">Building LLMs for Production</div><div class="r-by">Louis-François Bouchard &amp; Louie Peters</div><div class="r-desc">End-to-end reference for RAG, fine-tuning, and agent deployment. One of the most practical books in this space.</div></div>
+    <div class="resource-card r-book"><div class="r-type">Book</div><div class="r-title">AI Engineering</div><div class="r-by">Chip Huyen · O'Reilly, 2024</div><div class="r-desc">Definitive treatment of the AI engineering discipline — eval design, deployment, feedback loops, and the economics of inference.</div></div>
+    <a class="resource-card r-podcast" href="https://www.latent.space/" target="_blank" rel="noreferrer"><div class="r-type">Podcast</div><div class="r-title">Latent Space</div><div class="r-by">Alessio Fanelli &amp; swyx</div><div class="r-desc">Weekly deep-dives with practitioners building frontier agent systems. Essential for keeping current with the fast-moving ecosystem.</div></a>
+    <a class="resource-card r-podcast" href="https://www.dwarkesh.com/podcast" target="_blank" rel="noreferrer"><div class="r-type">Podcast</div><div class="r-title">Dwarkesh Podcast</div><div class="r-by">Dwarkesh Patel</div><div class="r-desc">Long-form interviews with frontier lab researchers and industry leaders. Best long-horizon strategic context in the field.</div></a>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="foot-title">AI LEXICON '26</div>
+  <div class="foot-sub">Compiled April 2026 · No Rights Reserved · Print Me Out</div>
+  <div class="foot-meta">Authorship: Johnson Deng 2026 · GitHub: zenzenzen</div>
+</footer>
+
+<script>
+  let currentFilter = 'all';
+  let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function setFilter(cat, btn) {
+    currentFilter = cat;
+    document.querySelectorAll('.fbtn').forEach((button) => {
+      const active = button === btn;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    filterCards();
+  }
+
+  function toggleCard(card) {
+    card.classList.toggle('flipped');
+    card.setAttribute('aria-pressed', card.classList.contains('flipped') ? 'true' : 'false');
+  }
+
+  function handleCardKey(event, card) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleCard(card);
+    }
+  }
+
+  function filterCards() {
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    let visible = 0;
+
+    document.querySelectorAll('.card').forEach((card) => {
+      const matchesCat = currentFilter === 'all' || card.classList.contains(currentFilter);
+      const matchesQ = !q || card.innerText.toLowerCase().includes(q);
+      const show = matchesCat && matchesQ;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    ['core', 'arch', 'ops', 'patterns', 'safety', 'slang'].forEach((sec) => {
+      const grid = document.getElementById('grid-' + sec);
+      const heading = document.querySelector('[data-cat="cat-' + sec + '"]');
+      if (!grid) {
+        return;
+      }
+      const any = grid.querySelectorAll('.card:not(.hidden)').length > 0;
+      grid.style.display = any ? '' : 'none';
+      if (heading) {
+        heading.style.display = any ? '' : 'none';
+      }
+    });
+
+    document.getElementById('count-display').textContent = visible + ' TERMS';
+  }
+
+  document.querySelectorAll('.fbtn').forEach((button) => {
+    const isActive = button.classList.contains('active');
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    button.addEventListener('click', () => setFilter(button.dataset.filter, button));
+  });
+
+  document.querySelectorAll('.card').forEach((card) => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-pressed', 'false');
+    card.addEventListener('click', () => toggleCard(card));
+    card.addEventListener('keydown', (event) => handleCardKey(event, card));
+  });
+
+  document.getElementById('search').addEventListener('input', filterCards);
+  prefersReducedMotion.addEventListener('change', (event) => {
+    if (event.matches) {
+      document.querySelectorAll('.card.flipped').forEach((card) => {
+        card.setAttribute('aria-pressed', 'true');
+      });
+    }
+  });
+
+  filterCards();
+</script>
+</body>
+</html>

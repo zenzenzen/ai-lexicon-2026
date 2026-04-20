@@ -1,0 +1,13 @@
+{
+  "name": "ai-lexicon-2026",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Johnson Deng <github.com/zenzenzen>",
+  "scripts": {
+    "build": "mkdir -p dist/public && html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true index.html -o dist/index.html && cp -R public/. dist/public/",
+    "preview": "npx serve dist"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
