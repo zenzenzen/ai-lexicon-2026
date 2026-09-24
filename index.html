@@ -297,7 +297,8 @@
   }
   #search::placeholder { color: #8a7a65; }
 
-  .filter-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-btns,
+  .bulk-actions { display: flex; gap: 6px; flex-wrap: wrap; }
   .fbtn {
     font-family: 'Archivo Black', sans-serif;
     font-size: 11px;
@@ -330,6 +331,8 @@
   .fbtn.active.f-jepa { background: var(--riso-lime); color: var(--ink); }
   .fbtn.active.f-failure { background: var(--riso-navy); }
   .fbtn.active.f-harness { background: var(--riso-rust); }
+  .fbtn.f-reveal { background: var(--riso-yellow); }
+  .fbtn.f-reset { background: var(--paper); }
 
   #count-display {
     margin-left: auto;
@@ -846,6 +849,10 @@
     <button class="fbtn f-jepa" type="button" data-filter="cat-jepa">JEPA</button>
     <button class="fbtn f-failure" type="button" data-filter="cat-failure">Failures</button>
     <button class="fbtn f-harness" type="button" data-filter="cat-harness">Harness</button>
+  </div>
+  <div class="bulk-actions" aria-label="Visible card actions">
+    <button class="fbtn f-reveal" type="button" id="reveal-visible">Reveal</button>
+    <button class="fbtn f-reset" type="button" id="reset-visible">Reset</button>
   </div>
   <span id="count-display" aria-live="polite">145 TERMS</span>
 </div>
@@ -1918,7 +1925,7 @@
   // Filter buttons are stateful, so keep their pressed state synchronized for screen readers.
   function setFilter(cat, btn) {
     currentFilter = cat;
-    document.querySelectorAll('.fbtn').forEach((button) => {
+    document.querySelectorAll('.fbtn[data-filter]').forEach((button) => {
       const active = button === btn;
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', active ? 'true' : 'false');
@@ -1926,10 +1933,14 @@
     filterCards();
   }
 
+  function setCardFlipped(card, flipped) {
+    card.classList.toggle('flipped', flipped);
+    card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+  }
+
   // Cards behave like lightweight buttons while preserving the original poster-card markup.
   function toggleCard(card) {
-    card.classList.toggle('flipped');
-    card.setAttribute('aria-pressed', card.classList.contains('flipped') ? 'true' : 'false');
+    setCardFlipped(card, !card.classList.contains('flipped'));
   }
 
   function handleCardKey(event, card) {
@@ -1937,6 +1948,14 @@
       event.preventDefault();
       toggleCard(card);
     }
+  }
+
+  function getVisibleCards() {
+    return Array.from(document.querySelectorAll('.card:not(.hidden)'));
+  }
+
+  function setVisibleCardsFlipped(flipped) {
+    getVisibleCards().forEach((card) => setCardFlipped(card, flipped));
   }
 
   // Search works directly off rendered text so the static HTML stays the single source of truth.
@@ -1968,11 +1987,14 @@
     document.getElementById('count-display').textContent = visible + ' TERMS';
   }
 
-  document.querySelectorAll('.fbtn').forEach((button) => {
+  document.querySelectorAll('.fbtn[data-filter]').forEach((button) => {
     const isActive = button.classList.contains('active');
     button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     button.addEventListener('click', () => setFilter(button.dataset.filter, button));
   });
+
+  document.getElementById('reveal-visible').addEventListener('click', () => setVisibleCardsFlipped(true));
+  document.getElementById('reset-visible').addEventListener('click', () => setVisibleCardsFlipped(false));
 
   document.querySelectorAll('.card').forEach((card) => {
     card.setAttribute('role', 'button');
