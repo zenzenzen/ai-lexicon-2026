@@ -206,7 +206,7 @@ This section tracks the actual files put in place during Phase 1 scaffolding. Up
 
 ### Remaining Phase 1 work (next PRs)
 
-1. Extract all 145 cards from `index.html` into `content/cards/*.json` (semi-automated; verify each).
+1. Extract all 220 cards from `index.html` into `content/cards/*.json` (semi-automated; verify each).
 2. Extend renderer to emit the full `<main>` block (currently just per-section grids).
 3. Replace the inline cards in `index.html` with a render-time placeholder/marker, and have `render.mjs` splice the rendered HTML into the page template before minification.
 4. Wire `render` into `npm run build` once the rendered output byte-matches a golden snapshot.
