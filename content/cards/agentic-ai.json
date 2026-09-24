@@ -1,0 +1,8 @@
+{
+  "id": "agentic-ai",
+  "term": "Agentic AI",
+  "category": "core",
+  "index": 1,
+  "canonical_definition": "AI systems designed to pursue goals autonomously — planning actions, using tools, adapting based on outcomes, without humans directing each step.",
+  "related_ids": ["agent", "tool-calling", "reasoning-model"]
+}

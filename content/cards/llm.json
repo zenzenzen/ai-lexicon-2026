@@ -1,0 +1,9 @@
+{
+  "id": "llm",
+  "term": "LLM",
+  "abbreviation": "Large Language Model",
+  "category": "core",
+  "index": 3,
+  "canonical_definition": "A deep learning model trained on massive text corpora to understand and generate language. The reasoning core of most modern agents.",
+  "related_ids": ["foundation-model", "slm", "reasoning-model", "token"]
+}

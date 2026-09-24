@@ -1,0 +1,98 @@
+{
+  "deck": {
+    "id": "ai-lexicon-2026",
+    "title": "AI LEXICON '26",
+    "audience": "builders, operators, and applied professionals",
+    "version": "0.1.0",
+    "description": "A loud, unauthorized field guide to the agentic operations vocabulary and informal AI engineering lingo people actually use in 2026."
+  },
+  "categories": [
+    {
+      "id": "core",
+      "section_number": "01",
+      "label": "Core Concepts",
+      "short_label": "Core",
+      "back_label": "Core Concept",
+      "banner_label": "CORE",
+      "description": "The foundational vocabulary. Where everything begins."
+    },
+    {
+      "id": "arch",
+      "section_number": "02",
+      "label": "Architecture",
+      "short_label": "Arch",
+      "back_label": "Architecture",
+      "banner_label": "ARCH",
+      "description": "Structural components & infrastructure protocols."
+    },
+    {
+      "id": "ops",
+      "section_number": "03",
+      "label": "Ops & Tooling",
+      "short_label": "Ops",
+      "back_label": "Ops & Tooling",
+      "banner_label": "OPS",
+      "description": "Production deployment, frameworks, workflow culture."
+    },
+    {
+      "id": "patterns",
+      "section_number": "04",
+      "label": "Patterns",
+      "short_label": "Pattern",
+      "back_label": "Pattern",
+      "banner_label": "PATTERNS",
+      "description": "Reasoning paradigms & agent design templates."
+    },
+    {
+      "id": "safety",
+      "section_number": "05",
+      "label": "Safety & Eval",
+      "short_label": "Safety",
+      "back_label": "Safety",
+      "banner_label": "SAFETY",
+      "description": "Governance, guardrails, and the grown-up conversation."
+    },
+    {
+      "id": "slang",
+      "section_number": "06",
+      "label": "Working Slang",
+      "short_label": "Slang",
+      "back_label": "Slang",
+      "banner_label": "SLANG",
+      "description": "The informal stuff. How engineers actually talk."
+    },
+    {
+      "id": "jepa",
+      "section_number": "07",
+      "label": "JEPA & Representation Learning",
+      "short_label": "JEPA",
+      "back_label": "JEPA",
+      "banner_label": "JEPA & REPRESENTATION LEARNING",
+      "description": "LeCun's world-model program. Embeddings, predictors, and the fight against collapse."
+    },
+    {
+      "id": "failure",
+      "section_number": "08",
+      "label": "Failure Modes",
+      "short_label": "Failure",
+      "back_label": "Failure Mode",
+      "banner_label": "FAILURE MODES",
+      "description": "The ways models go wrong — collapse, hack, forget, deceive."
+    },
+    {
+      "id": "harness",
+      "section_number": "09",
+      "label": "Harness Engineering",
+      "short_label": "Harness",
+      "back_label": "Harness",
+      "banner_label": "HARNESS ENGINEERING",
+      "description": "The runtime layer that turns a model into a usable agent. The 2026 discipline."
+    }
+  ],
+  "personas": [
+    { "id": "builder",   "label": "Builder / Operator",            "default": true,  "status": "active" },
+    { "id": "marketing", "label": "Marketing Practitioner",        "default": false, "status": "planned" },
+    { "id": "finance",   "label": "Finance / FP&A Analyst",        "default": false, "status": "planned" },
+    { "id": "ops",       "label": "Operations / PM / Generalist",  "default": false, "status": "planned" }
+  ]
+}

@@ -5,6 +5,8 @@
   "author": "Johnson Deng <github.com/zenzenzen>",
   "scripts": {
     "build": "mkdir -p dist/public && html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true index.html -o dist/index.html && cp -R public/. dist/public/",
+    "render": "node scripts/build/render.mjs",
+    "render:check": "echo 'render:check not yet implemented — see scripts/build/README.md cutover plan' && exit 0",
     "preview": "npx serve dist"
   },
   "devDependencies": {

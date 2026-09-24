@@ -1,0 +1,9 @@
+{
+  "id": "multimodal",
+  "term": "Multimodal",
+  "alternate_label": "Multimodal Model",
+  "category": "core",
+  "index": 6,
+  "canonical_definition": "A model that processes and generates across multiple modalities — text, image, audio, video, code — within a unified architecture.",
+  "related_ids": ["foundation-model", "embedding"]
+}

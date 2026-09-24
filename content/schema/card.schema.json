@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-lexicon-2026.local/schema/card.schema.json",
+  "title": "AI Lexicon Card",
+  "description": "One concept entry. Renders as a single flippable poster card. One file per card under content/cards/<id>.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "term", "category", "index", "canonical_definition"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Stable kebab-case identifier. Must equal the file's basename."
+    },
+    "term": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Front-of-card display term."
+    },
+    "abbreviation": {
+      "type": "string",
+      "description": "Optional expansion of an acronym, shown under the term on the front face (e.g. 'Large Language Model')."
+    },
+    "alternate_label": {
+      "type": "string",
+      "description": "Optional back-of-card label when it differs from `term` (e.g. front 'Multimodal' / back 'Multimodal Model')."
+    },
+    "category": {
+      "type": "string",
+      "enum": ["core", "arch", "ops", "patterns", "safety", "slang", "jepa", "failure", "harness"],
+      "description": "One of the deck's category IDs."
+    },
+    "index": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "1-based position within the category. Drives the 'Core · 01' label."
+    },
+    "canonical_definition": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Persona-agnostic, accuracy-first definition. Renders inside the back face."
+    },
+    "builder_context": {
+      "type": "string",
+      "description": "Optional technical-audience commentary — system implications, failure modes, where this sits in a stack. Treated as the builder persona's overlay."
+    },
+    "role_overlays": {
+      "type": "object",
+      "description": "Persona-keyed overlays. Keys must match persona IDs in deck.json.",
+      "patternProperties": {
+        "^[a-z][a-z0-9_-]*$": { "$ref": "#/$defs/role_overlay" }
+      },
+      "additionalProperties": false
+    },
+    "related_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "uniqueItems": true,
+      "description": "Other card IDs related to this one. Used for 'related' surfaces."
+    },
+    "evidence_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "url"],
+        "properties": {
+          "label": { "type": "string" },
+          "url":   { "type": "string", "format": "uri" }
+        }
+      },
+      "description": "Optional links backing claims in the definition or overlays."
+    },
+    "version": {
+      "type": "string",
+      "description": "Semver-ish content version for this card; bump on definition changes."
+    }
+  },
+  "$defs": {
+    "role_overlay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["confidence"],
+      "properties": {
+        "confidence": {
+          "type": "string",
+          "enum": ["draft", "reviewed", "verified"],
+          "description": "Drafts must not render publicly under a 'reviewed' badge."
+        },
+        "what_it_is_for_you": { "type": "string" },
+        "where_it_shows_up":  { "type": "array", "items": { "type": "string" } },
+        "watch_outs":         { "type": "array", "items": { "type": "string" } },
+        "scenario": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["prompt", "answer_id"],
+          "properties": {
+            "prompt":     { "type": "string" },
+            "answer_id":  { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+            "distractors": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+            }
+          }
+        },
+        "applicable_artifact": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "title", "body"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["prompt", "checklist", "workflow", "decision_aid", "guardrail", "spec"]
+            },
+            "title":             { "type": "string" },
+            "body":              { "type": "string", "description": "Copy-pasteable content. May be multi-line." },
+            "guardrails":        { "type": "array", "items": { "type": "string" } },
+            "ready_in_minutes":  { "type": "integer", "minimum": 1 }
+          }
+        },
+        "generated_by": { "type": "string", "description": "Model + commit/version that drafted this overlay." },
+        "reviewed_by":  { "type": "string", "description": "Human reviewer who approved this overlay." },
+        "reviewed_at":  { "type": "string", "format": "date" }
+      },
+      "allOf": [
+        {
+          "if":   { "properties": { "confidence": { "const": "reviewed" } }, "required": ["confidence"] },
+          "then": { "required": ["confidence", "reviewed_by", "reviewed_at"] }
+        },
+        {
+          "if":   { "properties": { "confidence": { "const": "verified" } }, "required": ["confidence"] },
+          "then": { "required": ["confidence", "reviewed_by", "reviewed_at"] }
+        }
+      ]
+    }
+  }
+}
