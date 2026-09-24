@@ -555,6 +555,41 @@
     color: var(--ink);
     font-weight: 400;
   }
+
+  /* The back face is a fixed-height box, so a long definition scrolls instead of
+     clipping. The scroll port is the wrapper around label + definition; .card-back's
+     only other child is the category badge, which stays pinned below it.
+     min-height:0 is load-bearing — a flex child defaults to min-height:auto and would
+     push past the card rather than scroll inside it. */
+  .card-back > div {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  /* The native bar is hidden so the indicator below is the only one, and looks the
+     same everywhere: macOS and iOS overlay bars stay invisible until you drag, while
+     Windows draws a wide one that would sit alongside it. */
+  .card-back > div { scrollbar-width: none; }
+  .card-back > div::-webkit-scrollbar { display: none; }
+
+  .card-scroll {
+    position: absolute;
+    right: 9px;
+    width: 4px;
+    background: rgba(26, 15, 10, 0.16);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    touch-action: none;
+  }
+  .card.flipped .card-scroll { opacity: 1; }
+  .card-scroll-thumb {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 18px;
+    background: var(--ink);
+  }
   .card-back .card-note {
     margin-top: 8px;
     font-size: 12px;
@@ -788,6 +823,8 @@
     }
     .card.flipped .card-front { display: none; }
     .card.flipped .card-back { display: flex; }
+    .card-back > div { overflow-y: visible; }
+    .card-scroll { display: none; }
   }
 
   ::-webkit-scrollbar { width: 8px; }
@@ -2311,6 +2348,44 @@
   function setCardFlipped(card, flipped) {
     card.classList.toggle('flipped', flipped);
     card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+
+    const body = cardBody(card);
+    if (!body) {
+      return;
+    }
+    if (flipped) {
+      // Measured on open rather than at load, so it stays correct after a reflow.
+      syncScrollbar(card);
+    } else {
+      body.scrollTop = 0;
+    }
+  }
+
+  function cardBody(card) {
+    return card.querySelector('.card-back > div');
+  }
+
+  // Sizes and positions the indicator, and hides it when the definition already fits.
+  function syncScrollbar(card) {
+    const body = cardBody(card);
+    const bar = card.querySelector('.card-scroll');
+    if (!body || !bar) {
+      return;
+    }
+    const overflow = body.scrollHeight - body.clientHeight;
+    if (overflow <= 4) {
+      bar.hidden = true;
+      return;
+    }
+    bar.hidden = false;
+    bar.style.top = body.offsetTop + 'px';
+    bar.style.height = body.clientHeight + 'px';
+
+    const thumb = bar.firstElementChild;
+    const ratio = body.clientHeight / body.scrollHeight;
+    const thumbHeight = Math.max(18, body.clientHeight * ratio);
+    thumb.style.height = thumbHeight + 'px';
+    thumb.style.top = (body.scrollTop / overflow) * (body.clientHeight - thumbHeight) + 'px';
   }
 
   // Cards behave like lightweight buttons while preserving the original poster-card markup.
@@ -2322,7 +2397,19 @@
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       toggleCard(card);
+      return;
     }
+
+    // Arrow keys read a long definition, so a scrollable card costs no extra tab stop.
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+      return;
+    }
+    const body = card.classList.contains('flipped') && cardBody(card);
+    if (!body || body.scrollHeight <= body.clientHeight) {
+      return;
+    }
+    event.preventDefault();
+    body.scrollTop += event.key === 'ArrowDown' ? 40 : -40;
   }
 
   function getVisibleCards() {
@@ -2371,12 +2458,78 @@
   document.getElementById('reveal-visible').addEventListener('click', () => setVisibleCardsFlipped(true));
   document.getElementById('reset-visible').addEventListener('click', () => setVisibleCardsFlipped(false));
 
+  // A drag that scrolls a definition must not also read as a tap that flips the card,
+  // so pointer travel past this threshold suppresses the click. One code path covers
+  // touch drag, stylus, and mouse text selection.
+  const DRAG_SLOP_PX = 8;
+
   document.querySelectorAll('.card').forEach((card) => {
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-pressed', 'false');
-    card.addEventListener('click', () => toggleCard(card));
+
+    let pointer = null;
+    card.addEventListener('pointerdown', (event) => {
+      pointer = { x: event.clientX, y: event.clientY, dragged: false };
+    });
+    card.addEventListener('pointermove', (event) => {
+      if (pointer && (Math.abs(event.clientX - pointer.x) > DRAG_SLOP_PX ||
+                      Math.abs(event.clientY - pointer.y) > DRAG_SLOP_PX)) {
+        pointer.dragged = true;
+      }
+    });
+    card.addEventListener('pointercancel', () => { pointer = null; });
+    card.addEventListener('click', () => {
+      const dragged = pointer !== null && pointer.dragged;
+      pointer = null;
+      if (!dragged) {
+        toggleCard(card);
+      }
+    });
+
     card.addEventListener('keydown', (event) => handleCardKey(event, card));
+
+    const body = cardBody(card);
+    const back = card.querySelector('.card-back');
+    if (!body || !back) {
+      return;
+    }
+
+    const bar = document.createElement('div');
+    bar.className = 'card-scroll';
+    bar.hidden = true;
+    bar.setAttribute('aria-hidden', 'true');
+    bar.appendChild(document.createElement('div')).className = 'card-scroll-thumb';
+    back.appendChild(bar);
+
+    body.addEventListener('scroll', () => syncScrollbar(card), { passive: true });
+
+    // Dragging the indicator scrolls the definition. Pointer events cover mouse and
+    // touch alike; the card's own flip is suppressed while the drag is in progress.
+    let drag = null;
+    bar.addEventListener('pointerdown', (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      const travel = body.clientHeight - bar.firstElementChild.offsetHeight;
+      drag = { y: event.clientY, top: body.scrollTop, travel: travel };
+      bar.setPointerCapture(event.pointerId);
+    });
+    bar.addEventListener('pointermove', (event) => {
+      if (!drag || drag.travel <= 0) {
+        return;
+      }
+      const overflow = body.scrollHeight - body.clientHeight;
+      body.scrollTop = drag.top + ((event.clientY - drag.y) / drag.travel) * overflow;
+    });
+    const endDrag = (event) => {
+      if (drag) {
+        drag = null;
+        bar.releasePointerCapture(event.pointerId);
+      }
+    };
+    bar.addEventListener('pointerup', endDrag);
+    bar.addEventListener('pointercancel', endDrag);
+    bar.addEventListener('click', (event) => event.stopPropagation());
   });
 
   document.getElementById('search').addEventListener('input', filterCards);
