@@ -1,0 +1,19 @@
+{
+  "id": "mixed-precision",
+  "term": "Mixed Precision / NVFP4 / MXFP8",
+  "category": "arch",
+  "index": 23,
+  "canonical_definition": "Using multiple numerical formats in one model or training process; NVFP4 and MXFP8 are distinct low-bit floating-point formats with scaling conventions.",
+  "builder_context": "Do not assume a generic four-bit runtime consumes these native formats directly. Hardware-specific support or converted weights may be necessary.",
+  "related_ids": [
+    "quantization",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

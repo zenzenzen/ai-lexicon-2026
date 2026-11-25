@@ -1,0 +1,24 @@
+{
+  "id": "unified-memory",
+  "term": "Unified Memory and Bandwidth",
+  "category": "ops",
+  "index": 17,
+  "canonical_definition": "A shared physical memory pool used by CPU and GPU on Apple Silicon; bandwidth describes the rate at which data can be transferred.",
+  "builder_context": "A 32 GB Mac shares memory with the OS, applications, model weights, caches and runtime buffers. Disk size is an incomplete predictor of peak memory.",
+  "related_ids": [
+    "model-weights",
+    "numeric-precision",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/docs/hub/mlx"
+    },
+    {
+      "label": "Apple MLX",
+      "url": "https://github.com/ml-explore/mlx"
+    }
+  ],
+  "version": "0.1.0"
+}

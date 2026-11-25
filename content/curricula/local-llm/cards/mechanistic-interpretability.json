@@ -1,0 +1,20 @@
+{
+  "id": "mechanistic-interpretability",
+  "term": "Mechanistic Interpretability",
+  "category": "safety",
+  "index": 15,
+  "canonical_definition": "Research into how internal components, activations or circuits give rise to model behavior.",
+  "builder_context": "Inspect or intervene on internal representations and compare causal effects rather than relying solely on a model’s written explanation.",
+  "related_ids": [
+    "looped-transformer",
+    "monitorability",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

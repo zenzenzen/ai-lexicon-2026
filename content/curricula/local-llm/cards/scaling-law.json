@@ -1,0 +1,21 @@
+{
+  "id": "scaling-law",
+  "term": "Scaling Law / Held-out Loss",
+  "category": "core",
+  "index": 25,
+  "canonical_definition": "An empirical relationship between resources such as training compute, data or model size and a measured outcome, often held-out loss.",
+  "builder_context": "A compute-equivalent gain is inferred by comparing fitted curves at the same target loss. It is not a direct speed measurement or a guarantee beyond the fitted range.",
+  "related_ids": [
+    "loss-gradient",
+    "pretraining",
+    "evals",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

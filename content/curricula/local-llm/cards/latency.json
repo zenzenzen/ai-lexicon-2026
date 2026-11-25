@@ -1,0 +1,33 @@
+{
+  "id": "latency",
+  "term": "Latency",
+  "category": "ops",
+  "index": 5,
+  "canonical_definition": "Elapsed time between an inference request and a defined response event, such as the first token or completion.",
+  "builder_context": "Separate model loading, prefill, first-token time, decode throughput and total latency; nonstreaming APIs cannot directly measure first-token time.",
+  "related_ids": [
+    "prefill-decode",
+    "reasoning-compute"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://docs.ollama.com/api/generate"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "applicable_artifact": {
+        "type": "workflow",
+        "title": "Measure inference",
+        "body": "python3 benchmark.py --model qwen2.5:1.5b --contexts 2048 4096 --repeat 3",
+        "guardrails": [
+          "Compare warm runs separately; record model digest."
+        ],
+        "ready_in_minutes": 10
+      }
+    }
+  }
+}

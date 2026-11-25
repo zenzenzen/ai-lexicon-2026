@@ -1,0 +1,20 @@
+{
+  "id": "reinforcement-learning",
+  "term": "Reinforcement Learning (RL)",
+  "category": "core",
+  "index": 23,
+  "canonical_definition": "Optimizing a policy to increase expected reward from its actions or generated outputs.",
+  "builder_context": "Reward design, sampled trajectories and credit assignment shape behavior. Reward improvements may diverge from desired behavior.",
+  "related_ids": [
+    "fine-tuning",
+    "loss-gradient",
+    "on-policy-distillation"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "cot-controllability",
+  "term": "CoT Controllability",
+  "category": "safety",
+  "index": 17,
+  "canonical_definition": "The ability to steer properties of a model’s generated reasoning trace through instructions.",
+  "builder_context": "A trace can be legible without being faithful; controllability is a separate property measured under a specific prompting and scoring setup.",
+  "related_ids": [
+    "chain-of-thought",
+    "evals",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

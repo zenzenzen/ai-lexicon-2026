@@ -1,0 +1,23 @@
+{
+  "id": "transformer",
+  "term": "Transformer",
+  "category": "arch",
+  "index": 21,
+  "canonical_definition": "A neural architecture that combines attention with feed-forward transformations and other components to process sequences.",
+  "builder_context": "Decoder-only language models typically stack causal transformer blocks, then map the final representation to vocabulary scores.",
+  "related_ids": [
+    "attention",
+    "neural-network",
+    "llm",
+    "moe",
+    "looped-transformer",
+    "multimodal"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://arxiv.org/abs/1706.03762"
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -6,15 +6,15 @@ A vintage-punk-poster reference for 2026 agentic AI terminology.
 
 ## Development
 
-No build required. Open `index.html` directly in a browser.
-
-For minified output:
+Open `index.html` directly for the original reference deck. For the full deck and Local LLM Deep Dive, build and serve the static output:
 
 ```bash
 npm install
 npm run build
 npm run preview
 ```
+
+Open `/local-llm/` for the Inkling reading path, recall practice, and local model labs. Progress stays in the current browser and is separate from the reference deck.
 
 ## Deployment
 

@@ -1,0 +1,21 @@
+{
+  "id": "embedding",
+  "term": "Embedding",
+  "category": "core",
+  "index": 14,
+  "canonical_definition": "A learned or computed numerical vector representing an input in a space that a model can operate on.",
+  "builder_context": "Token embeddings map IDs into vectors. Retrieval embeddings serve a different purpose: comparing pieces of content in a vector space.",
+  "related_ids": [
+    "token",
+    "model-weights",
+    "attention",
+    "multimodal"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://developers.google.com/machine-learning/crash-course"
+    }
+  ],
+  "version": "0.1.0"
+}

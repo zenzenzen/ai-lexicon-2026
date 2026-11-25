@@ -1,0 +1,48 @@
+{
+  "id": "inference",
+  "term": "Inference",
+  "category": "core",
+  "index": 17,
+  "canonical_definition": "Execution of a trained model to produce predictions or generated output without updating its learned weights.",
+  "builder_context": "A local runtime loads a checkpoint, encodes the prompt, evaluates the network and decodes output tokens.",
+  "related_ids": [
+    "llm",
+    "context-window",
+    "prefill-decode",
+    "quantization",
+    "chain-of-thought",
+    "evals",
+    "harness",
+    "context-engineering"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "You load a checkpoint and generate a response without updating weights. Which concept is this?",
+        "answer_id": "inference",
+        "distractors": [
+          "numeric-precision",
+          "context-window",
+          "kv-cache"
+        ]
+      },
+      "applicable_artifact": {
+        "type": "workflow",
+        "title": "Run a small model",
+        "body": "ollama run qwen2.5:1.5b",
+        "guardrails": [
+          "Install and start Ollama first; use synthetic data."
+        ],
+        "ready_in_minutes": 10
+      }
+    }
+  }
+}

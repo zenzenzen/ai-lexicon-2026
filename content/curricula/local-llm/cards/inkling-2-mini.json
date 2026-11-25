@@ -1,0 +1,47 @@
+{
+  "id": "inkling-2-mini",
+  "term": "Inkling 2 Mini: Report Synthesis",
+  "category": "arch",
+  "index": 29,
+  "canonical_definition": "A multimodal, autoregressive, sparse expert model with shared middle-layer passes, released by Thinking Machines Lab.",
+  "builder_context": "Read its model card and report together. Separate architecture claims, reported evaluation results, and deployment assumptions; compare them with measurements on your own machine.",
+  "related_ids": [
+    "attention-residuals",
+    "mixed-precision",
+    "active-parameters",
+    "healing",
+    "sft",
+    "on-policy-distillation",
+    "reasoning-compute",
+    "mechanistic-interpretability"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+      "label": "Release report",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+      "label": "Local runtime",
+      "url": "https://ollama.com/library/inkling-2-mini"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "applicable_artifact": {
+        "type": "workflow",
+        "title": "Run the target model",
+        "body": "ollama pull inkling-2-mini\npython3 labs/local-llm/benchmark.py --model inkling-2-mini --contexts 2048 --repeat 3",
+        "guardrails": [
+          "Close memory-heavy apps; monitor memory pressure; stop if swap grows quickly."
+        ],
+        "ready_in_minutes": 10
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "neural-network",
+  "term": "Neural Network",
+  "category": "arch",
+  "index": 19,
+  "canonical_definition": "A composition of parameterized transformations that maps inputs to outputs.",
+  "builder_context": "A layer transforms a representation; activations are the values produced for a particular input. Weights are reused across requests.",
+  "related_ids": [
+    "model-weights",
+    "loss-gradient",
+    "attention",
+    "transformer"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://developers.google.com/machine-learning/crash-course"
+    }
+  ],
+  "version": "0.1.0"
+}

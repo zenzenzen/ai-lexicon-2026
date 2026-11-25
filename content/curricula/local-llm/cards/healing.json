@@ -1,0 +1,20 @@
+{
+  "id": "healing",
+  "term": "Post-pruning Healing",
+  "category": "arch",
+  "index": 28,
+  "canonical_definition": "Additional training after pruning intended to recover performance lost when parts of a model were removed.",
+  "builder_context": "Compare a pruned checkpoint before and after healing using held-out evaluations; a recovered average need not mean every capability returns.",
+  "related_ids": [
+    "pruning",
+    "distillation",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

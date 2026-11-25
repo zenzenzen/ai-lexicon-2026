@@ -1,0 +1,20 @@
+{
+  "id": "multimodal",
+  "term": "Multimodal",
+  "category": "core",
+  "index": 6,
+  "canonical_definition": "A model that processes or produces more than one data modality, such as text and images.",
+  "builder_context": "Input and output modalities can differ; a vision encoder may project an image into representations that a language decoder can process.",
+  "related_ids": [
+    "embedding",
+    "transformer",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    }
+  ],
+  "version": "0.1.0"
+}

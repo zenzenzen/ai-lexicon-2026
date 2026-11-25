@@ -1,0 +1,34 @@
+{
+  "id": "pruning",
+  "term": "Pruning",
+  "category": "arch",
+  "index": 27,
+  "canonical_definition": "Removing selected weights, neurons, layers or experts from a trained or partially trained network.",
+  "builder_context": "Removing experts reduces stored parameter count but may also remove capabilities. Further training can recover performance; evaluate before and after.",
+  "related_ids": [
+    "moe",
+    "pretraining",
+    "healing"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "You remove seldom-used experts from a checkpoint. What is this operation?",
+        "answer_id": "pruning",
+        "distractors": [
+          "loss-gradient",
+          "pretraining",
+          "distillation"
+        ]
+      }
+    }
+  }
+}

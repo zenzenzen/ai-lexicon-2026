@@ -1,0 +1,20 @@
+{
+  "id": "chain-of-thought",
+  "term": "Chain-of-Thought",
+  "category": "patterns",
+  "index": 2,
+  "canonical_definition": "An explicit intermediate reasoning trace generated as text before or alongside an answer.",
+  "builder_context": "Text can make some decisions easier to inspect, but it is an incomplete record of internal computation. An articulate trace is not a proof of faithfulness.",
+  "related_ids": [
+    "inference",
+    "reasoning-compute",
+    "cot-controllability"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

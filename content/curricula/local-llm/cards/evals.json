@@ -1,0 +1,22 @@
+{
+  "id": "evals",
+  "term": "Evals",
+  "category": "safety",
+  "index": 6,
+  "canonical_definition": "Systematic tests that measure selected aspects of model or agent behavior under specified conditions.",
+  "builder_context": "Record task set, scoring, model revision, context, sampling, token limits, harness, tool access and repeated trials. Treat a benchmark score as evidence about that configuration.",
+  "related_ids": [
+    "inference",
+    "monitorability",
+    "scaling-law",
+    "no-cot-horizon",
+    "cot-controllability"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

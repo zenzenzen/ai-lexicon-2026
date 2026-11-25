@@ -1,0 +1,20 @@
+{
+  "id": "no-cot-horizon",
+  "term": "No-CoT Time Horizon",
+  "category": "safety",
+  "index": 16,
+  "canonical_definition": "An evaluation statistic estimating the human task duration at which a model answers correctly half the time under a no-written-reasoning protocol.",
+  "builder_context": "Human completion time is a task difficulty proxy, not model wall-clock runtime. A fitted horizon depends on the task set and protocol.",
+  "related_ids": [
+    "reasoning-compute",
+    "evals",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}
