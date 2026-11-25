@@ -1,0 +1,22 @@
+{
+  "id": "llm",
+  "term": "LLM",
+  "category": "core",
+  "index": 3,
+  "canonical_definition": "A large language model is a neural model trained to predict or generate language, typically through token prediction.",
+  "builder_context": "An autoregressive LLM turns token sequences into a distribution for the next token. A chat interface adds formatting and sometimes external tools.",
+  "abbreviation": "Large Language Model",
+  "related_ids": [
+    "transformer",
+    "token",
+    "pretraining",
+    "inference"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+    }
+  ],
+  "version": "0.1.0"
+}

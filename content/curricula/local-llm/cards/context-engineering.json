@@ -1,0 +1,47 @@
+{
+  "id": "context-engineering",
+  "term": "Context Eng.",
+  "category": "ops",
+  "index": 11,
+  "canonical_definition": "Selecting, structuring and supplying the information that a model receives for a task.",
+  "builder_context": "Use retrieval for current facts, prompts for constraints, and durable task state for continuity. A context update can take effect immediately without retraining.",
+  "related_ids": [
+    "context-window",
+    "inference",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+    },
+    {
+      "label": "Anthropic context engineering",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "You select current policy documents and pass them into a fixed model. Which technique is this?",
+        "answer_id": "context-engineering",
+        "distractors": [
+          "loss-gradient",
+          "pretraining",
+          "pruning"
+        ]
+      },
+      "applicable_artifact": {
+        "type": "workflow",
+        "title": "Compare fixed weights, changed context",
+        "body": "Run the benchmark with and without the fictional tariff in the prompt; compare exact-answer correctness.",
+        "guardrails": [
+          "Do not use company records or secrets."
+        ],
+        "ready_in_minutes": 10
+      }
+    }
+  }
+}

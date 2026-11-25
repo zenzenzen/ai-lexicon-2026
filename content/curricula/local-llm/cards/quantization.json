@@ -1,0 +1,35 @@
+{
+  "id": "quantization",
+  "term": "Quantization",
+  "category": "arch",
+  "index": 14,
+  "canonical_definition": "Representing model values using a lower-precision or discrete encoding to reduce storage and potentially improve compute efficiency.",
+  "builder_context": "A naive four-bit estimate is one-half byte per parameter; metadata, scales and higher-precision tensors add overhead. Quality and speed depend on format, training and kernels.",
+  "related_ids": [
+    "numeric-precision",
+    "model-weights",
+    "inference",
+    "mixed-precision"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "You encode weights using fewer bits to reduce checkpoint size. Which concept is this?",
+        "answer_id": "quantization",
+        "distractors": [
+          "numeric-precision",
+          "inference",
+          "context-window"
+        ]
+      }
+    }
+  }
+}

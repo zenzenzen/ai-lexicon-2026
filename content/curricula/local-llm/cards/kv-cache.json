@@ -1,0 +1,20 @@
+{
+  "id": "kv-cache",
+  "term": "KV Cache",
+  "category": "arch",
+  "index": 22,
+  "canonical_definition": "Stored key and value representations from previous sequence positions that can be reused during autoregressive decoding.",
+  "builder_context": "Caching avoids recomputing many earlier attention projections. Size depends on sequence length, layers, KV heads, head dimension, precision and implementation.",
+  "related_ids": [
+    "attention",
+    "context-window",
+    "prefill-decode"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+    }
+  ],
+  "version": "0.1.0"
+}

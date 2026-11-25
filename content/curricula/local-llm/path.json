@@ -1,0 +1,685 @@
+{
+  "id": "local-llm",
+  "label": "Read Inkling 2 Mini, then run it",
+  "persona": "builder",
+  "version": "0.1.0",
+  "target": "inkling-2-mini",
+  "source": "https://thinkingmachines.ai/news/inkling-2-mini/",
+  "card_ids": [
+    "token",
+    "model-weights",
+    "numeric-precision",
+    "embedding",
+    "neural-network",
+    "loss-gradient",
+    "attention",
+    "transformer",
+    "llm",
+    "pretraining",
+    "inference",
+    "context-window",
+    "kv-cache",
+    "prefill-decode",
+    "latency",
+    "unified-memory",
+    "quantization",
+    "mixed-precision",
+    "moe",
+    "active-parameters",
+    "looped-transformer",
+    "attention-residuals",
+    "pruning",
+    "distillation",
+    "healing",
+    "fine-tuning",
+    "sft",
+    "reinforcement-learning",
+    "on-policy-distillation",
+    "chain-of-thought",
+    "evals",
+    "harness",
+    "context-engineering",
+    "reasoning-compute",
+    "monitorability",
+    "mechanistic-interpretability",
+    "scaling-law",
+    "no-cot-horizon",
+    "cot-controllability",
+    "multimodal",
+    "inkling-2-mini"
+  ],
+  "nodes": {
+    "token": {
+      "prerequisite_ids": [],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "Why can two equally long strings consume different numbers of tokens?",
+        "rubric": [
+          "Tokenization maps strings to vocabulary IDs.",
+          "Vocabulary and text segmentation vary."
+        ]
+      },
+      "legacy_inline_term": "Token"
+    },
+    "model-weights": {
+      "prerequisite_ids": [],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "What changes when you give a model a prompt rather than train it?",
+        "rubric": [
+          "Inputs and intermediate activations change during inference.",
+          "Weights remain fixed unless a training or adaptation operation updates them."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "numeric-precision": {
+      "prerequisite_ids": [],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Why are two different four-bit formats not necessarily interchangeable?",
+        "rubric": [
+          "They can encode different values and scaling rules.",
+          "Kernels must support the encoding."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "embedding": {
+      "prerequisite_ids": [
+        "token",
+        "model-weights"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "How does an embedding differ from a token ID?",
+        "rubric": [
+          "An ID identifies a vocabulary entry.",
+          "An embedding is a vector used in computation or similarity."
+        ]
+      },
+      "legacy_inline_term": "Embedding"
+    },
+    "neural-network": {
+      "prerequisite_ids": [
+        "model-weights"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "Distinguish weights from activations in a network.",
+        "rubric": [
+          "Weights persist across requests.",
+          "Activations depend on the input and execution."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "loss-gradient": {
+      "prerequisite_ids": [
+        "neural-network"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "What are the roles of the loss, gradient, and optimizer?",
+        "rubric": [
+          "Loss defines an objective.",
+          "Gradient gives local sensitivity.",
+          "Optimizer applies an update."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "attention": {
+      "prerequisite_ids": [
+        "embedding",
+        "neural-network"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "Why does a causal decoder mask future tokens?",
+        "rubric": [
+          "Prevent access to future targets during prediction.",
+          "Match the autoregressive dependency structure."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "transformer": {
+      "prerequisite_ids": [
+        "attention",
+        "neural-network"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "What does a transformer layer do that a tokenizer does not?",
+        "rubric": [
+          "Transforms vector representations using attention and feed-forward operations.",
+          "A tokenizer maps text to IDs."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "llm": {
+      "prerequisite_ids": [
+        "transformer",
+        "token"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "What is the output of one next-token prediction before sampling?",
+        "rubric": [
+          "A set of scores or probabilities over the vocabulary.",
+          "A decoding rule chooses a token."
+        ]
+      },
+      "legacy_inline_term": "LLM"
+    },
+    "pretraining": {
+      "prerequisite_ids": [
+        "loss-gradient",
+        "llm"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "Why can a pretrained model complete text but struggle to follow chat instructions?",
+        "rubric": [
+          "Its original objective is prediction, not necessarily instruction following.",
+          "Post-training can improve instruction behavior."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "inference": {
+      "prerequisite_ids": [
+        "llm"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Does running a model repeatedly teach it new facts permanently?",
+        "rubric": [
+          "Ordinary inference does not update weights.",
+          "External memory or a new prompt can change later inputs."
+        ]
+      },
+      "legacy_inline_term": "Inference"
+    },
+    "context-window": {
+      "prerequisite_ids": [
+        "token",
+        "inference"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Why might a model advertising a very long context still run poorly on a laptop?",
+        "rubric": [
+          "KV cache and other runtime allocations grow with context.",
+          "Hardware and runtime limits may be lower than the architecture maximum."
+        ]
+      },
+      "legacy_inline_term": "Context Window"
+    },
+    "kv-cache": {
+      "prerequisite_ids": [
+        "attention",
+        "context-window"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "What work does a KV cache save, and what does it cost?",
+        "rubric": [
+          "Reuse previous keys and values.",
+          "Consumes memory as cached positions grow."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "prefill-decode": {
+      "prerequisite_ids": [
+        "inference",
+        "kv-cache"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Why should prompt tokens per second and generation tokens per second be reported separately?",
+        "rubric": [
+          "They measure distinct processing phases.",
+          "Different sequence shapes and bottlenecks affect them."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "latency": {
+      "prerequisite_ids": [
+        "prefill-decode"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Can decode tokens per second alone determine end-to-end latency?",
+        "rubric": [
+          "No: loading, prefill, token count and overhead matter.",
+          "Time to first token needs separate measurement."
+        ]
+      },
+      "legacy_inline_term": "Latency"
+    },
+    "unified-memory": {
+      "prerequisite_ids": [
+        "model-weights",
+        "numeric-precision"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Why might a 20 GB model fail on a machine with 32 GB unified memory?",
+        "rubric": [
+          "Other applications and runtime overhead share the pool.",
+          "KV cache and working buffers consume additional memory."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "quantization": {
+      "prerequisite_ids": [
+        "numeric-precision",
+        "model-weights",
+        "inference"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Estimate raw storage for 8 billion weights at four bits, ignoring overhead.",
+        "rubric": [
+          "About 4 GB in decimal units.",
+          "Actual file size and peak RAM can be larger."
+        ]
+      },
+      "legacy_inline_term": "Quantization"
+    },
+    "mixed-precision": {
+      "prerequisite_ids": [
+        "quantization"
+      ],
+      "strand": "systems",
+      "recall": {
+        "prompt": "Why is a model trained in a low-bit format different from one converted to four bits afterward?",
+        "rubric": [
+          "Training can adapt to the format’s rounding and scaling.",
+          "Post-training conversion may introduce additional error.",
+          "Runtime support is separate."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "moe": {
+      "prerequisite_ids": [
+        "transformer",
+        "model-weights"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "Why are active parameters not a valid estimate of model file size?",
+        "rubric": [
+          "Inactive experts still have stored weights.",
+          "Routing chooses a subset per token."
+        ]
+      },
+      "legacy_inline_term": "MoE"
+    },
+    "active-parameters": {
+      "prerequisite_ids": [
+        "moe"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "A model has 26.4B total and 3.4B active parameters. Which count is closer to the starting point for weight storage?",
+        "rubric": [
+          "Total parameter count.",
+          "Active count describes work, not all stored weights.",
+          "Precision and overhead still matter."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "looped-transformer": {
+      "prerequisite_ids": [
+        "transformer",
+        "active-parameters"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "A 24-layer model repeats its middle 12 layers three times. How many layer applications occur per token?",
+        "rubric": [
+          "48 = 12 non-repeated + 36 repeated applications.",
+          "Only 24 distinct stored layers."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "attention-residuals": {
+      "prerequisite_ids": [
+        "attention",
+        "looped-transformer"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "Why might a learned gate help when adding loops during training?",
+        "rubric": [
+          "Initially restricts the new recurrent signal.",
+          "Can gradually learn to admit useful information.",
+          "Does not guarantee stable training in every model."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "pruning": {
+      "prerequisite_ids": [
+        "moe",
+        "pretraining"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "What tradeoff follows expert pruning?",
+        "rubric": [
+          "Lower stored parameter count.",
+          "Potential performance loss requiring measurement or recovery."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "distillation": {
+      "prerequisite_ids": [
+        "pretraining"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "How is distillation different from copying teacher weights?",
+        "rubric": [
+          "The student learns from teacher-generated targets or signals.",
+          "Weights are optimized rather than simply copied."
+        ]
+      },
+      "legacy_inline_term": "Distillation"
+    },
+    "healing": {
+      "prerequisite_ids": [
+        "pruning",
+        "distillation"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "What evidence would demonstrate successful healing?",
+        "rubric": [
+          "Compare pre-prune, post-prune, and healed performance.",
+          "Use comparable held-out tasks and settings."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "fine-tuning": {
+      "prerequisite_ids": [
+        "pretraining"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "When would fine-tuning be preferable to adding instructions to every request?",
+        "rubric": [
+          "Repeated stable behavior or format across examples.",
+          "Adequate training data and held-out evals.",
+          "Not a default store for frequently changing facts."
+        ]
+      },
+      "legacy_inline_term": "Fine-tuning"
+    },
+    "sft": {
+      "prerequisite_ids": [
+        "fine-tuning",
+        "loss-gradient"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "Why hold out examples when training with SFT?",
+        "rubric": [
+          "Training examples can be memorized.",
+          "Held-out examples test generalization."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "reinforcement-learning": {
+      "prerequisite_ids": [
+        "fine-tuning",
+        "loss-gradient"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "How do SFT and RL differ in their training signals?",
+        "rubric": [
+          "SFT uses target demonstrations.",
+          "RL uses rewards on sampled actions or trajectories."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "on-policy-distillation": {
+      "prerequisite_ids": [
+        "distillation",
+        "reinforcement-learning"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "What makes distillation on-policy?",
+        "rubric": [
+          "Student samples its current policy’s states or trajectories.",
+          "Teacher signal guides learning on those samples."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "chain-of-thought": {
+      "prerequisite_ids": [
+        "inference"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "Does a shorter written reasoning trace imply less internal computation?",
+        "rubric": [
+          "No; computation per token can differ.",
+          "Trace length is not a complete measure of internal work."
+        ]
+      },
+      "legacy_inline_term": "Chain-of-Thought"
+    },
+    "evals": {
+      "prerequisite_ids": [
+        "inference"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "What must be held constant before attributing a benchmark improvement to the model?",
+        "rubric": [
+          "Comparable tasks, scoring and harness.",
+          "Comparable budgets and inference settings.",
+          "Report uncertainty or repeated trials."
+        ]
+      },
+      "legacy_inline_term": "Evals"
+    },
+    "harness": {
+      "prerequisite_ids": [
+        "inference",
+        "context-window"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "Why might the same checkpoint get different coding scores in different harnesses?",
+        "rubric": [
+          "Tool access, context and retries differ.",
+          "Execution and scoring may differ."
+        ]
+      },
+      "legacy_inline_term": "Harness"
+    },
+    "context-engineering": {
+      "prerequisite_ids": [
+        "context-window",
+        "inference"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "A price list changes weekly. Would you retrain or retrieve it at runtime first?",
+        "rubric": [
+          "Retrieve current version with provenance.",
+          "No weight update required.",
+          "Evaluate grounding and access controls."
+        ]
+      },
+      "legacy_inline_term": "Context Eng."
+    },
+    "reasoning-compute": {
+      "prerequisite_ids": [
+        "looped-transformer",
+        "chain-of-thought",
+        "latency"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "How could a model produce fewer tokens yet do more computation per token?",
+        "rubric": [
+          "Repeat internal layers.",
+          "Token count and internal compute are separate quantities.",
+          "Measure wall-clock and quality too."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "monitorability": {
+      "prerequisite_ids": [
+        "reasoning-compute",
+        "evals",
+        "harness"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "Does legible reasoning establish that a monitor can catch all harmful behavior?",
+        "rubric": [
+          "No: legibility differs from faithfulness and detection.",
+          "Detection depends on the monitor and test setting."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "mechanistic-interpretability": {
+      "prerequisite_ids": [
+        "looped-transformer",
+        "monitorability"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "How does an activation intervention differ from reading a reasoning trace?",
+        "rubric": [
+          "It probes or changes internal computation.",
+          "Written traces are observable outputs, not complete internal records."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "scaling-law": {
+      "prerequisite_ids": [
+        "loss-gradient",
+        "pretraining",
+        "evals"
+      ],
+      "strand": "training",
+      "recall": {
+        "prompt": "What does it mean to estimate that a baseline needs more compute to match held-out loss?",
+        "rubric": [
+          "Compare at equal held-out loss rather than equal steps.",
+          "A fitted scaling relationship supports the estimate.",
+          "Do not equate training compute with decode speed."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "no-cot-horizon": {
+      "prerequisite_ids": [
+        "reasoning-compute",
+        "evals"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "If a no-CoT time horizon rises, does the model take that many seconds to respond?",
+        "rubric": [
+          "No; the unit describes human task duration.",
+          "It is a fitted accuracy threshold.",
+          "Compare only under a common protocol."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "cot-controllability": {
+      "prerequisite_ids": [
+        "chain-of-thought",
+        "evals"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "Why can lower trace controllability be interesting without proving improved safety?",
+        "rubric": [
+          "It may make some instructed trace manipulation harder.",
+          "It does not establish that all relevant internal behavior is observable."
+        ]
+      },
+      "legacy_inline_term": null
+    },
+    "multimodal": {
+      "prerequisite_ids": [
+        "embedding",
+        "transformer"
+      ],
+      "strand": "architecture",
+      "recall": {
+        "prompt": "Can a model accept images without generating images?",
+        "rubric": [
+          "Yes; input and output modalities are distinct.",
+          "A vision encoder can supply representations for text generation."
+        ]
+      },
+      "legacy_inline_term": "Multimodal"
+    },
+    "inkling-2-mini": {
+      "prerequisite_ids": [
+        "attention-residuals",
+        "mixed-precision",
+        "active-parameters",
+        "healing",
+        "sft",
+        "on-policy-distillation",
+        "reasoning-compute",
+        "mechanistic-interpretability",
+        "context-engineering",
+        "unified-memory",
+        "scaling-law",
+        "no-cot-horizon",
+        "cot-controllability",
+        "multimodal"
+      ],
+      "strand": "evaluation",
+      "recall": {
+        "prompt": "Explain how this model trades stored weights, computation per token, training choices, and visible reasoning for laptop inference.",
+        "rubric": [
+          "Separate stored weights from weight activations.",
+          "Explain shared-loop depth and low-bit storage.",
+          "Explain pruning and healing.",
+          "Distinguish reported results from causal or universal safety claims.",
+          "Account for local RAM and runtime limitations."
+        ]
+      },
+      "legacy_inline_term": null
+    }
+  },
+  "labs": [
+    "small-model",
+    "precision",
+    "context",
+    "inkling",
+    "report-review"
+  ]
+}

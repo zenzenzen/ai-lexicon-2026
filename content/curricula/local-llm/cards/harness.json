@@ -1,0 +1,34 @@
+{
+  "id": "harness",
+  "term": "Harness",
+  "category": "harness",
+  "index": 1,
+  "canonical_definition": "The surrounding software that manages prompts, context, tools, state, permissions and execution of a model-driven workflow.",
+  "builder_context": "A coding benchmark evaluates a model in some harness. A better harness can change the outcome without changing model weights.",
+  "related_ids": [
+    "inference",
+    "context-window",
+    "monitorability"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "You change only tool dispatch and context management in a coding agent. Which system layer changed?",
+        "answer_id": "harness",
+        "distractors": [
+          "chain-of-thought",
+          "evals",
+          "reasoning-compute"
+        ]
+      }
+    }
+  }
+}

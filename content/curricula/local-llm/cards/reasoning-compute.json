@@ -1,0 +1,23 @@
+{
+  "id": "reasoning-compute",
+  "term": "Reasoning Compute and Token Budget",
+  "category": "patterns",
+  "index": 16,
+  "canonical_definition": "The computation used to solve a problem, which can be spent inside a token prediction or across additional generated tokens and tool actions.",
+  "builder_context": "More internal passes can reduce emitted reasoning tokens on some tasks while increasing work per token. Equal token budgets need not imply equal compute or latency.",
+  "related_ids": [
+    "looped-transformer",
+    "chain-of-thought",
+    "latency",
+    "monitorability",
+    "no-cot-horizon",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

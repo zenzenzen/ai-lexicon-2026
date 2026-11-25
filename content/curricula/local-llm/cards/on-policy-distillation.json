@@ -1,0 +1,20 @@
+{
+  "id": "on-policy-distillation",
+  "term": "On-policy Distillation",
+  "category": "core",
+  "index": 24,
+  "canonical_definition": "Distillation in which training targets are evaluated on states or sequences sampled from the student’s current policy.",
+  "builder_context": "Training on the student’s own distribution can expose mistakes it would actually make, rather than only states visited by a teacher.",
+  "related_ids": [
+    "distillation",
+    "reinforcement-learning",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

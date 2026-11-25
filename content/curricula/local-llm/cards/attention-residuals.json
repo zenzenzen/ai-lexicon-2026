@@ -1,0 +1,20 @@
+{
+  "id": "attention-residuals",
+  "term": "Attention Residuals and Loop Gates",
+  "category": "arch",
+  "index": 26,
+  "canonical_definition": "Mechanisms that combine information from earlier blocks or passes, using learned mixing or gating rather than simply replacing the current representation.",
+  "builder_context": "A gate can limit how strongly a previous pass influences the next one. The exact architecture and initialization should be read from the model report.",
+  "related_ids": [
+    "attention",
+    "looped-transformer",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

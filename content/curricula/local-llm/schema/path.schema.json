@@ -1,0 +1,119 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "label",
+    "persona",
+    "version",
+    "target",
+    "source",
+    "card_ids",
+    "nodes",
+    "labs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "label": {
+      "type": "string"
+    },
+    "persona": {
+      "const": "builder"
+    },
+    "version": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "source": {
+      "type": "string",
+      "format": "uri"
+    },
+    "card_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "nodes": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9]+(-[a-z0-9]+)*$": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "prerequisite_ids",
+            "strand",
+            "recall",
+            "legacy_inline_term"
+          ],
+          "properties": {
+            "prerequisite_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+              },
+              "uniqueItems": true
+            },
+            "strand": {
+              "enum": [
+                "architecture",
+                "systems",
+                "training",
+                "evaluation"
+              ]
+            },
+            "recall": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "prompt",
+                "rubric"
+              ],
+              "properties": {
+                "prompt": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "rubric": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                }
+              }
+            },
+            "legacy_inline_term": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "labs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "uniqueItems": true
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Adaptive curriculum path"
+}

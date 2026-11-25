@@ -1,0 +1,34 @@
+{
+  "id": "sft",
+  "term": "Supervised Fine-tuning (SFT)",
+  "category": "core",
+  "index": 22,
+  "canonical_definition": "Training on labeled input-output examples, commonly demonstrations of desired responses.",
+  "builder_context": "SFT can shape response style and task behavior. The quality and coverage of demonstrations constrain what it learns.",
+  "related_ids": [
+    "fine-tuning",
+    "loss-gradient",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "You train on labeled demonstrations of desired answers. What is this method?",
+        "answer_id": "sft",
+        "distractors": [
+          "loss-gradient",
+          "pretraining",
+          "pruning"
+        ]
+      }
+    }
+  }
+}

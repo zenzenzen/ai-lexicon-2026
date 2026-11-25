@@ -1,0 +1,22 @@
+{
+  "id": "context-window",
+  "term": "Context Window",
+  "category": "core",
+  "index": 8,
+  "canonical_definition": "The maximum sequence length a model and its runtime can process under their configured limits.",
+  "builder_context": "A supported maximum is not necessarily a practical allocation on a laptop. Input, generated tokens and template overhead compete for the budget.",
+  "related_ids": [
+    "token",
+    "inference",
+    "kv-cache",
+    "harness",
+    "context-engineering"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    }
+  ],
+  "version": "0.1.0"
+}

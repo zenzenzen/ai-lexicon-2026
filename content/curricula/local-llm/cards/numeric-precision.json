@@ -1,0 +1,19 @@
+{
+  "id": "numeric-precision",
+  "term": "Numerical Precision",
+  "category": "arch",
+  "index": 18,
+  "canonical_definition": "The number format and resolution used to represent values in a computation.",
+  "builder_context": "A format can trade representable range or precision for lower storage and bandwidth. Bit width alone does not specify the format.",
+  "related_ids": [
+    "unified-memory",
+    "quantization"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0"
+}

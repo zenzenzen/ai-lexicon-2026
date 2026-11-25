@@ -1,0 +1,20 @@
+{
+  "id": "fine-tuning",
+  "term": "Fine-tuning",
+  "category": "core",
+  "index": 13,
+  "canonical_definition": "Further training of a pretrained model to adjust its learned behavior for a task or distribution.",
+  "builder_context": "Full fine-tuning updates many or all weights; parameter-efficient methods can train a smaller set of parameters or adapters. Both differ from injecting current facts at inference.",
+  "related_ids": [
+    "pretraining",
+    "sft",
+    "reinforcement-learning"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "prefill-decode",
+  "term": "Prefill and Decode",
+  "category": "ops",
+  "index": 16,
+  "canonical_definition": "Prefill processes the input sequence; decode repeatedly predicts subsequent tokens.",
+  "builder_context": "Prompt throughput and generation throughput measure different phases. Long prompts can increase time before the first output; decoding often stresses memory bandwidth.",
+  "related_ids": [
+    "inference",
+    "kv-cache",
+    "latency"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://docs.ollama.com/api/generate"
+    }
+  ],
+  "version": "0.1.0"
+}

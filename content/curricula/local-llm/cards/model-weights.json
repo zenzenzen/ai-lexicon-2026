@@ -1,0 +1,22 @@
+{
+  "id": "model-weights",
+  "term": "Model Weights",
+  "category": "core",
+  "index": 19,
+  "canonical_definition": "Learned numerical parameters that determine how a neural network transforms its inputs.",
+  "builder_context": "The model checkpoint is a snapshot of these values, with architecture and tokenizer metadata distributed alongside it. A prompt changes the inputs, not those weights.",
+  "related_ids": [
+    "embedding",
+    "neural-network",
+    "unified-memory",
+    "quantization",
+    "moe"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://developers.google.com/machine-learning/crash-course"
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "looped-transformer",
+  "term": "Looped Transformer",
+  "category": "arch",
+  "index": 25,
+  "canonical_definition": "A transformer that reuses some layers across multiple sequential passes within a token prediction.",
+  "builder_context": "Weight sharing permits greater serial depth without a proportional increase in unique learned parameters. The passes may carry intermediate representations forward.",
+  "related_ids": [
+    "transformer",
+    "active-parameters",
+    "attention-residuals",
+    "reasoning-compute",
+    "mechanistic-interpretability"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "A model runs the same middle-layer weights multiple times per output token. Which architecture is this?",
+        "answer_id": "looped-transformer",
+        "distractors": [
+          "token",
+          "model-weights",
+          "embedding"
+        ]
+      }
+    }
+  }
+}

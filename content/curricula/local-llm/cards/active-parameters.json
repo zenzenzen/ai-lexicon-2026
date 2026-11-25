@@ -1,0 +1,20 @@
+{
+  "id": "active-parameters",
+  "term": "Total vs Active Parameters",
+  "category": "arch",
+  "index": 24,
+  "canonical_definition": "Total parameters count stored learned values; active parameters count the values involved for an input under a specified accounting convention.",
+  "builder_context": "Repeated use of shared weights can increase effective weight activations without increasing stored parameters. Neither measure alone predicts real latency.",
+  "related_ids": [
+    "moe",
+    "looped-transformer",
+    "inkling-2-mini"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    }
+  ],
+  "version": "0.1.0"
+}

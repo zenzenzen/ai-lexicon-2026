@@ -1,0 +1,22 @@
+{
+  "id": "attention",
+  "term": "Attention",
+  "category": "arch",
+  "index": 20,
+  "canonical_definition": "A mechanism that forms a weighted combination of representations based on learned relevance scores.",
+  "builder_context": "In causal self-attention, each position can use permitted earlier positions. Attention is only one part of a transformer block.",
+  "related_ids": [
+    "embedding",
+    "neural-network",
+    "transformer",
+    "kv-cache",
+    "attention-residuals"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://arxiv.org/abs/1706.03762"
+    }
+  ],
+  "version": "0.1.0"
+}

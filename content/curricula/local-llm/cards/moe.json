@@ -1,0 +1,36 @@
+{
+  "id": "moe",
+  "term": "MoE",
+  "category": "arch",
+  "index": 15,
+  "canonical_definition": "Mixture-of-experts models route each input or token to a subset of specialized parameterized modules.",
+  "builder_context": "Sparse activation reduces the computation per token relative to using every expert; all expert weights may still need to be available.",
+  "abbreviation": "Mixture of Experts",
+  "related_ids": [
+    "transformer",
+    "model-weights",
+    "active-parameters",
+    "pruning"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "A router selects eight specialized feed-forward modules for a token. Which architecture is this?",
+        "answer_id": "moe",
+        "distractors": [
+          "token",
+          "model-weights",
+          "embedding"
+        ]
+      }
+    }
+  }
+}

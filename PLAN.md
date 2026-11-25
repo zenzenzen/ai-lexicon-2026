@@ -13,6 +13,10 @@ The job-to-be-done is closing the "I know what RAG is, but I'm a marketing manag
 
 The existing builder/operator deck is the technical spine. **Domain packs** (Marketing, Finance, Ops, Legal, HR, Sales, Education, Healthcare-admin, …) layer on top: same vocabulary, different *application surface* per role.
 
+## Local LLM reading path
+
+The static build overlays new local-model terms on the existing inline deck and publishes a single `/local-llm/` path. It does not replace the deck renderer or change the card schema. The curriculum sidecar supplies prerequisites and recall rubrics; existing terms keep their original deck definitions, and the path adds its own teaching explanations. Scheduler state and lab checkmarks stay in browser storage. When Phase 1 extracts a legacy term, reconcile its stable ID before changing the path.
+
 ## What changes vs. the original plan
 
 | Area | Original | Enriched |

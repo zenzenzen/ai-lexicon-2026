@@ -1,0 +1,22 @@
+{
+  "id": "loss-gradient",
+  "term": "Loss and Gradient",
+  "category": "core",
+  "index": 20,
+  "canonical_definition": "A loss measures prediction error or another training objective; its gradient describes how that objective changes with parameters.",
+  "builder_context": "Backpropagation computes gradients; an optimizer uses them to update weights. A lower training loss does not guarantee better unseen-task performance.",
+  "related_ids": [
+    "neural-network",
+    "pretraining",
+    "sft",
+    "reinforcement-learning",
+    "scaling-law"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://developers.google.com/machine-learning/crash-course"
+    }
+  ],
+  "version": "0.1.0"
+}

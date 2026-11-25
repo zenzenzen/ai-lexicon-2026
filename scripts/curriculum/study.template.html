@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Lexicon ’26 / Local LLM</title>
+<!--__LEXICON_FONTS__-->
+<link rel="icon" href="/public/favicon.ico" sizes="any">
+<meta name="description" content="A guided AI Lexicon path from tokens and weights to local inference and Inkling 2 Mini.">
+<style>
+/*__LEXICON_STYLES__*/
+  .course header h1 { font-size: clamp(42px, 8vw, 96px); }
+  .course .intro { max-width: 42rem; font-size: 1.1rem; margin-top: .7rem; }
+  .course .layout { display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;align-items:start; }
+  .course .panel { border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:clamp(14px,3vw,24px);background:var(--paper);min-width:0; }
+  .course .kicker, .course .status { font: 500 .9rem/1.5 'DM Mono',monospace; }
+  .course .kicker { color:var(--riso-navy);text-transform:uppercase; }
+  .course main { max-width:1080px; }
+  .course main p, .course summary, .course label { font-size:1rem; }
+  .course h2 { font:clamp(1.8rem,4vw,2.7rem)/1.12 'Anton',sans-serif;margin:.28em 0 .4em; }
+  .course h3 { font:1rem/1.3 'Archivo Black',sans-serif;margin:.8rem 0 .35rem; }
+  .course .row { display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:.8rem; }
+  .course .fbtn { font-size:.84rem;line-height:1.25;min-height:44px; }
+  .course .primary { background:var(--riso-yellow); }
+  .course .status { padding-bottom:1rem;margin-bottom:1rem;border-bottom:2px solid var(--ink); }
+  .course #progressbar { width:100%;height:12px;accent-color:var(--riso-teal); }
+  .course #queue { list-style:none;max-height:32rem;overflow:auto;margin-top:.7rem; }
+  .course #queue li { border-top:1px solid var(--ink);padding:.35rem 0; }
+  .course #queue button { font:700 1rem 'Fraunces',serif;text-align:left;background:none;border:0;padding:.4rem;min-height:44px;width:100%;color:var(--ink);cursor:pointer; }
+  .course #queue button.selected { border-left:4px solid var(--ink);background:var(--riso-yellow); }
+  .course #queue small { display:block;padding:0 .4rem .3rem; }
+  .course .muted, .course small { color:#554437; }
+  .course details { margin-top:1rem; }
+  .course summary { cursor:pointer;font-weight:bold; }
+  .course #answers, .course .lab { border-top:2px solid var(--ink);margin-top:1rem;padding-top:1rem; }
+  .course #rubric { padding-left:1.4rem; }
+  .course pre { white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:var(--paper-deep);margin:.35rem 0; }
+  .course .fbtn:focus-visible,.course a:focus-visible,.course input:focus-visible,.course select:focus-visible,.course #queue button:focus-visible { outline:3px solid var(--riso-navy);outline-offset:2px; }
+  .course a { text-underline-offset:3px; }
+  .course .labs { margin-top:22px; }
+  .course .resources { display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:1rem; }
+  .course .intro-label { margin-top:.8rem; }
+  .course [hidden] { display:none!important; }
+  @media (max-width:720px) { .course .layout { grid-template-columns:1fr; } .course #queue { max-height:20rem; } }
+</style></head><body class="course">
+<header>
+  <div class="splotch splotch-1"></div><div class="splotch splotch-2"></div><div class="splotch splotch-3"></div>
+  <div class="header-inner">
+    <div class="eyebrow-row"><a class="eyebrow" href="/">AI Lexicon ’26</a><span class="stamp">Builder Path</span></div>
+    <h1><span class="line-1">LOCAL LLM</span><span class="line-2">DEEP DIVE</span></h1>
+    <p class="intro">Learn the terms that make Inkling 2 Mini easier to read. Then run a small model and see which claims you can test on your own machine.</p>
+  </div>
+</header><main>
+<section id="status" class="status" aria-live="polite"><div id="counts"></div><progress id="progressbar" value="0" max="100" aria-label="Mastered card percentage"></progress><small id="notice">Progress stays in this browser.</small></section>
+<div class="layout"><section class="panel" aria-labelledby="term"><div class="kicker" id="strand"></div><h2 id="term" tabindex="-1"></h2><p id="question"></p><p id="hint"></p><div class="row"><button id="reveal" class="fbtn primary">Reveal explanation</button><button class="fbtn" id="known">Already know this</button><button class="fbtn" id="resume" hidden>Resume adaptive queue</button></div><div id="answers" hidden><p id="definition"></p><p id="context"></p><h3>Check your recall</h3><ul id="rubric"></ul><div id="scenario" hidden></div><div class="row" id="grades"><button class="fbtn" id="again">Not yet</button><button class="fbtn primary" id="correct">Recalled correctly</button></div><details><summary>Prerequisites &amp; sources</summary><p id="dependencies"></p><div id="sources"></div></details><div id="artifact" hidden><h3 id="artifacttitle"></h3><pre id="artifactbody"></pre><p id="artifactguard" class="muted"></p></div></div></section>
+<aside class="panel"><div class="row"><h2>Study stack</h2></div><small>New and due first; known cards move down until review. Locked cards remain inspectable without earning credit.</small><p><label for="filter">Show</label> <select id="filter"><option value="all">All</option><option value="available">Ready now</option><option value="locked">Locked</option><option value="later">Scheduled later</option></select></p><ul id="queue"></ul></aside></div>
+<section class="panel labs"><h2>Apply / local labs</h2><small>Run the commands in Terminal. Lab checkmarks are separate from card review and saved in this browser.</small><div id="labbox"></div><nav class="resources" aria-label="Lab resources"><a href="/local-llm/labs.md" download>Full lab instructions</a><a href="/local-llm/benchmark.py" download>Benchmark script</a><a href="/local-llm/reading-guide.md" download>Inkling reading guide</a></nav></section>
+<section class="row"><button class="fbtn" id="reset">Reset progress</button><a id="report" href="https://thinkingmachines.ai/news/inkling-2-mini/" target="_blank" rel="noopener noreferrer">Read the release report</a></section>
+</main><script>
+/*__DATA__*/
+/*__SCHEDULER__*/
+const {path, cards} = DATA;
+const key = `ai-lexicon:curriculum:${path.id}:v1`;
+const $ = id => document.getElementById(id);
+let state = initialState(); let tried = {}; let storageAvailable = true;
+try { const raw = localStorage.getItem(key); if (raw) { const parsed = JSON.parse(raw); if (parsed.state?.version === 1 && parsed.state.cards) { state = parsed.state; tried = parsed.tried ?? {}; } } } catch { storageAvailable = false; }
+let selected = null; let manual = false; let revealed = false;
+function save(){try{localStorage.setItem(key,JSON.stringify({state,tried}));}catch{storageAvailable=false;}}
+function node(tag,txt){const el=document.createElement(tag);el.textContent=txt;return el;}
+function display(id){return cards[id].term;}
+function dueLabel(id,now){const p=progress(state,id);if(p.status==="unseen")return "New";if(p.due<=now)return `${p.status} · due`;return `${p.status} · ${new Date(p.due).toLocaleString()}`;}
+function render(){const now=Date.now();const q=queue(path,state,now);if(!manual)selected=q.next;const counts=path.card_ids.reduce((acc,id)=>{const p=progress(state,id);acc[p.status]=(acc[p.status]??0)+1;return acc;},{});const total=path.card_ids.length;
+  $("counts").textContent=`${counts.mastered??0}/${total} mastered · ${counts.known??0} provisionally known · ${q.freshIds.length} new ready · ${q.dueIds.length} due · ${q.lockedIds.length} locked`;
+  $("progressbar").value=100*(counts.mastered??0)/total;
+  $("notice").textContent=storageAvailable?"Progress stays in this browser.":"Browser storage is unavailable. Progress won’t survive a reload.";
+  const ordered=[...q.dueIds,...q.freshIds,...q.lockedIds,...q.laterIds];const filter=$("filter").value;const allowed=filter==="available"?[...q.dueIds,...q.freshIds]:filter==="locked"?q.lockedIds:filter==="later"?q.laterIds:ordered;
+  $("queue").replaceChildren();for(const id of ordered.filter(id=>allowed.includes(id))){const li=node("li","");const btn=node("button",display(id));btn.className=id===selected?"selected":"";btn.addEventListener("click",()=>{selected=id;manual=true;revealed=false;render();$("term").focus();});li.append(btn,node("small",q.lockedIds.includes(id)?"Locked · prerequisite needed":dueLabel(id,now)));$("queue").append(li);}
+  $("resume").hidden=!manual;$("answers").hidden=!selected||!revealed;
+  if(!selected){$("strand").textContent="Session complete";$("term").textContent="No cards due now";$("question").textContent=q.laterIds.length?`Next review: ${new Date(progress(state,q.laterIds[0]).due).toLocaleString()}`:"No eligible review found.";$("hint").textContent="Inspect the stack or work through a lab.";$("reveal").hidden=true;$("known").hidden=true;return;}
+  const c=cards[selected], n=path.nodes[selected], p=progress(state,selected);const ready=unlocked(path,state,selected)&&(p.status==="unseen"||p.due<=now);
+  $("strand").textContent=`${n.strand} / ${dueLabel(selected,now)}`;$("term").textContent=c.term;$("question").textContent=n.recall.prompt;
+  $("hint").textContent=ready?"Answer aloud or on paper before revealing the rubric.":!unlocked(path,state,selected)?"Preview only. First learn the prerequisites listed below.":"Preview only. Spaced review is scheduled for later.";
+  $("reveal").hidden=revealed;$("known").hidden=!ready||revealed||!["unseen","learning"].includes(p.status);
+  $("definition").textContent=c.canonical_definition;$("context").textContent=c.builder_context??"";
+  $("rubric").replaceChildren(...n.recall.rubric.map(t=>node("li",t)));$("grades").hidden=!ready;
+  $("dependencies").textContent=n.prerequisite_ids.length?n.prerequisite_ids.map(display).join(" · "):"None";
+  $("sources").replaceChildren(...(c.evidence_links??[]).map(e=>{const p=node("p","");const a=node("a",e.label);a.href=e.url;a.target="_blank";a.rel="noopener noreferrer";p.append(a);return p;}));
+  const overlay=c.role_overlays?.builder, sc=overlay?.scenario;$("scenario").hidden=!sc;$("scenario").replaceChildren();
+  if(sc){const detail=node("details","");detail.append(node("summary","Extra scenario (draft)"),node("p",sc.prompt));detail.append(node("p",[sc.answer_id,...sc.distractors].map(display).sort().join(" / ")));const ans=node("details","");ans.append(node("summary","Show scenario answer"),node("p",display(sc.answer_id)));detail.append(ans);$("scenario").append(detail);}
+  const art=overlay?.applicable_artifact;$("artifact").hidden=!art;if(art){$("artifacttitle").textContent=art.title+" (draft)";$("artifactbody").textContent=art.body;$("artifactguard").textContent=(art.guardrails??[]).join(" ");}
+}
+function apply(action){try{state=grade(path,state,selected,action,Date.now());manual=false;revealed=false;save();render();$("term").focus();}catch(e){$("notice").textContent=e.message;}}
+$("reveal").onclick=()=>{revealed=true;render();};$("known").onclick=()=>apply("known");$("correct").onclick=()=>apply("correct");$("again").onclick=()=>apply("again");$("resume").onclick=()=>{manual=false;revealed=false;render();};$("filter").onchange=render;
+const labs={"small-model":["01 · First local inference","ollama run qwen2.5:1.5b"],"precision":["02 · Same architecture, different precision","Compare qwen2.5:3b-instruct-q4_K_M and qwen2.5:3b-instruct-q8_0"],"context":["03 · Fixed weights, changing context","python3 benchmark.py --model qwen2.5:1.5b --contexts 2048 4096 --repeat 3"],"inkling":["04 · Run Inkling 2 Mini","ollama pull inkling-2-mini; python3 benchmark.py --model inkling-2-mini --contexts 2048 --repeat 3"],"report-review":["05 · Report audit","Complete the capstone rubric and compare local measured results with the report’s claims."]};
+for(const id of path.labs){const div=node("div","");div.className="lab";const label=node("label","");const input=node("input","");input.type="checkbox";input.checked=Boolean(tried[id]);input.onchange=()=>{tried[id]=input.checked;save();};label.append(input,document.createTextNode(" "+labs[id][0]));div.append(label,node("pre",labs[id][1]));$("labbox").append(div);}
+$("reset").onclick=()=>{if(confirm("Reset all local curriculum progress and lab completion?")){state=initialState();tried={};manual=false;revealed=false;save();for(const el of $("labbox").querySelectorAll("input"))el.checked=false;render();}};
+render();setInterval(()=>{if(!revealed&&!manual)render();},60000);
+</script></body></html>

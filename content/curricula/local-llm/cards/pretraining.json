@@ -1,0 +1,23 @@
+{
+  "id": "pretraining",
+  "term": "Pretraining",
+  "category": "core",
+  "index": 21,
+  "canonical_definition": "The initial large-scale training stage in which a model learns general patterns from data.",
+  "builder_context": "Next-token prediction is a common language-model objective. Subsequent training can adjust behavior for instructions or particular tasks.",
+  "related_ids": [
+    "loss-gradient",
+    "llm",
+    "pruning",
+    "distillation",
+    "fine-tuning",
+    "scaling-law"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+    }
+  ],
+  "version": "0.1.0"
+}

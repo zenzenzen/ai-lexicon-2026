@@ -1,0 +1,35 @@
+{
+  "id": "monitorability",
+  "term": "Monitorability",
+  "category": "safety",
+  "index": 14,
+  "canonical_definition": "The extent to which an observer can detect or understand relevant model behavior from available signals.",
+  "builder_context": "Compare monitors that see tool traces alone with those that also see generated reasoning. A result from one setup does not establish general safety.",
+  "related_ids": [
+    "reasoning-compute",
+    "evals",
+    "harness",
+    "mechanistic-interpretability"
+  ],
+  "evidence_links": [
+    {
+      "label": "Primary reading",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+  ],
+  "version": "0.1.0",
+  "role_overlays": {
+    "builder": {
+      "confidence": "draft",
+      "scenario": {
+        "prompt": "You measure whether an observer can detect unwanted tool behavior. What property are you studying?",
+        "answer_id": "monitorability",
+        "distractors": [
+          "chain-of-thought",
+          "evals",
+          "harness"
+        ]
+      }
+    }
+  }
+}
