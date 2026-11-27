@@ -70,3 +70,7 @@ If you can't articulate why intent.md needs to change, the change is probably ta
 1. Re-read [intent.md](./.runbooks/intent.md) to confirm the change matches the thesis.
 2. Re-read [PLAN.md](./PLAN.md) for the current phase's exit criterion.
 3. If still unclear, ask the author before writing code that touches invariants.
+
+## GEM pilot
+
+For reviewed-overlay work, `.gem/requests/reviewed-overlay.json` compiles the tracked LLM card with its review policy and executable schema gate. Validate with `graph-engineering-magic --workspace . --workspace-id ai-lexicon-2026 validate`, then compile with `graph-engineering-magic --workspace . --workspace-id ai-lexicon-2026 context compile --request .gem/requests/reviewed-overlay.json`. Run `npm run test:reviewed-overlay` for reviewer-field checks. Schema validity reports human review as unverified. Public approval requires independent human evidence.

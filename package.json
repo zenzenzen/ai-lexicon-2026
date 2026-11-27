@@ -7,9 +7,13 @@
     "build": "mkdir -p dist/public && html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true index.html -o dist/index.html && cp -R public/. dist/public/",
     "render": "node scripts/build/render.mjs",
     "render:check": "echo 'render:check not yet implemented — see scripts/build/README.md cutover plan' && exit 0",
-    "preview": "npx serve dist"
+    "preview": "npx serve dist",
+    "validate:reviewed-overlay": "node scripts/authoring/reviewed-overlay-gate.mjs",
+    "test:reviewed-overlay": "node --test tests/reviewed-overlay-gate.mjs"
   },
   "devDependencies": {
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
     "html-minifier-terser": "^7.2.0"
   }
 }
