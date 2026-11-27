@@ -1,0 +1,14 @@
+{
+  "workspace_id": "ai-lexicon-2026",
+  "task_id": "task.review-llm-overlay",
+  "objective": "Verify which reviewer fields are required for a role overlay on the LLM card when its status is draft, reviewed or verified, and check whether passing the schema establishes human approval.",
+  "domains": ["overlay", "review", "schema", "llm"],
+  "seed_nodes": ["task.review-llm-overlay"],
+  "requested_paths": ["content/cards/llm.json"],
+  "mode": "graph",
+  "budget": {
+    "context_tokens": 6000,
+    "max_optional_nodes": 0,
+    "max_optional_depth": 0
+  }
+}

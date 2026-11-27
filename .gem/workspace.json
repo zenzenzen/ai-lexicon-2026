@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "workspace_id": "ai-lexicon-2026",
+  "sources": [
+    ".runbooks/intent.md",
+    "CLAUDE.md",
+    "content/schema/card.schema.json",
+    "content/cards/llm.json",
+    "tests/reviewed-overlay-gate.mjs",
+    "scripts/authoring/reviewed-overlay-gate.mjs"
+  ],
+  "mandatory": [
+    "policy.human-reviewed-overlays"
+  ]
+}

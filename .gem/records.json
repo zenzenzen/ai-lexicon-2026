@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "workspace_id": "ai-lexicon-2026",
+  "nodes": [
+    {
+      "id": "policy.human-reviewed-overlays",
+      "kind": "policy",
+      "title": "Published overlays require human review",
+      "path": ".runbooks/intent.md",
+      "sha256": "3d159ab376aec0a7b9db272803b213c0ddb7b439a5b1ffd0ab916ed55883a2dd",
+      "status": "verified",
+      "tags": [
+        "overlay",
+        "review",
+        "publication"
+      ]
+    },
+    {
+      "id": "requirement.reviewed-overlay",
+      "kind": "requirement",
+      "title": "Reviewed overlays carry reviewer identity and date",
+      "path": "CLAUDE.md",
+      "sha256": "069293ace37d2f7113ada3a895ad2e258280b2df87700ec4e1b8b81b86ea1083",
+      "status": "verified",
+      "tags": [
+        "overlay",
+        "review"
+      ]
+    },
+    {
+      "id": "document.card-schema",
+      "kind": "document",
+      "title": "Card and role-overlay schema",
+      "path": "content/schema/card.schema.json",
+      "sha256": "45d3b7407167c77664355f0db9d4efa05b89d15ff7bd9cf28a72a2666a785449",
+      "status": "verified",
+      "tags": [
+        "card",
+        "schema",
+        "overlay"
+      ]
+    },
+    {
+      "id": "gate.overlay-schema",
+      "kind": "gate",
+      "title": "Reviewer metadata and date schema gate",
+      "path": "tests/reviewed-overlay-gate.mjs",
+      "sha256": "650fdba41a1114d7269272a87495d9b40ba5a9b0c5223203f33f6908a51bfdbd",
+      "status": "verified",
+      "tags": [
+        "overlay",
+        "schema",
+        "review"
+      ]
+    },
+    {
+      "id": "fact.tracked-llm-card",
+      "kind": "fact",
+      "title": "Tracked LLM card",
+      "path": "content/cards/llm.json",
+      "sha256": "cd351312d569c34fd7f9da534c0bd4b74efeee59dcfb18338dc08dc5c65d8db9",
+      "status": "verified",
+      "tags": [
+        "card",
+        "llm",
+        "tracked"
+      ]
+    },
+    {
+      "id": "task.review-llm-overlay",
+      "kind": "task",
+      "title": "Review overlay requirements for the tracked LLM card",
+      "path": "content/cards/llm.json",
+      "sha256": "cd351312d569c34fd7f9da534c0bd4b74efeee59dcfb18338dc08dc5c65d8db9",
+      "status": "verified",
+      "tags": [
+        "overlay",
+        "review",
+        "llm"
+      ]
+    },
+    {
+      "id": "task.prepare-reviewed-overlay",
+      "kind": "task",
+      "title": "Prepare a reviewed role overlay",
+      "path": "CLAUDE.md",
+      "sha256": "069293ace37d2f7113ada3a895ad2e258280b2df87700ec4e1b8b81b86ea1083",
+      "status": "verified",
+      "tags": [
+        "overlay",
+        "review",
+        "authoring"
+      ]
+    },
+    {
+      "id": "artifact.overlay-validator",
+      "kind": "artifact",
+      "title": "Validator for the tracked LLM card and overlay candidates",
+      "path": "scripts/authoring/reviewed-overlay-gate.mjs",
+      "tags": [
+        "overlay",
+        "review",
+        "validator"
+      ],
+      "status": "verified",
+      "sha256": "2cb96715cd98b185854944130669f6de09e17feacbb2834e10cf573f6fcf7f8f"
+    }
+  ],
+  "edges": [
+    {
+      "from": "task.review-llm-overlay",
+      "to": "requirement.reviewed-overlay",
+      "relation": "requires",
+      "evidence": "CLAUDE.md"
+    },
+    {
+      "from": "task.review-llm-overlay",
+      "to": "gate.overlay-schema",
+      "relation": "requires",
+      "evidence": "tests/reviewed-overlay-gate.mjs"
+    },
+    {
+      "from": "task.review-llm-overlay",
+      "to": "fact.tracked-llm-card",
+      "relation": "supported_by",
+      "evidence": "content/cards/llm.json"
+    },
+    {
+      "from": "requirement.reviewed-overlay",
+      "to": "policy.human-reviewed-overlays",
+      "relation": "requires",
+      "evidence": ".runbooks/intent.md"
+    },
+    {
+      "from": "gate.overlay-schema",
+      "to": "artifact.overlay-validator",
+      "relation": "depends_on",
+      "evidence": "tests/reviewed-overlay-gate.mjs"
+    },
+    {
+      "from": "task.prepare-reviewed-overlay",
+      "to": "requirement.reviewed-overlay",
+      "relation": "requires",
+      "evidence": "CLAUDE.md"
+    },
+    {
+      "from": "task.prepare-reviewed-overlay",
+      "to": "gate.overlay-schema",
+      "relation": "requires",
+      "evidence": "tests/reviewed-overlay-gate.mjs"
+    },
+    {
+      "from": "artifact.overlay-validator",
+      "to": "document.card-schema",
+      "relation": "depends_on",
+      "evidence": "scripts/authoring/reviewed-overlay-gate.mjs"
+    }
+  ]
+}
